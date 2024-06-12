@@ -13,26 +13,28 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css?v=2" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css">
   </head>
   <body>
     <nav class="navbar">
       <ul class="nav-links left">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">Services</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#industries">Industries</a></li>
+
       </ul>
       <div class="logo-container">
         <img src="./images/logo.svg" alt="Logo" class="logo" />
       </div>
       <ul class="nav-links right">
-        <li><a href="#services">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
       </ul>
       <div class="hamburger">
         <div class="bar"></div>
       </div>
     </nav>
 
-    <div class="hero">
+    <div class="hero" id="home">
       <video
         class="hero-video"
         autoplay
@@ -51,11 +53,11 @@
           Expert Welding, Metal Fabrication, Product Development, Serving All
           of Southern California
         </p>
-        <button>Contact Us Now</button>
+        <a href="#contact" class="px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">Contact Us Now</a>
       </div>
     </div>
 
-    <section class="services">
+    <section class="services" id="services">
       <div class="container">
         <div class="services-header">
           <h2>Our Services</h2>
@@ -181,7 +183,7 @@
       </div>
     </section>
 
-    <section class="industries">
+    <section class="industries" id="industries">
       <div class="container">
         <div class="industries-header">
           <h2>Industries We Serve</h2>
@@ -303,7 +305,7 @@
       </div>
     </section>
 
-    <section class="contact-us" id="contact">
+    <section class="contact-us bg-gray-100 dark:bg-gray-900" id="contact">
       <div class="container">
         <div class="contact-header">
           <h2>Contact Us</h2>
@@ -326,29 +328,86 @@
             </p>
             <p><strong>Phone:</strong> (626) 675-4239</p>
           </div>
-          <div class="contact-form">
-            <h3>Contact Form</h3>
-            <form action="submit_form.php" method="post">
-              <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required />
+         
+<!-- 
+    =======================================================================
+
+    This is a working contact form. To receive email, 
+    Replace YOUR_ACCESS_KEY_HERE with your actual Access Key.
+
+    Create Access Key here 👉 https://web3forms.com/
+
+    =======================================================================
+ -->
+
+ <div class="flex items-center">
+    <div class="container mx-auto">
+      <div class="max-w-xl mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
+        <div class="m-7">
+          <form action="https://api.web3forms.com/submit" method="POST" id="form" class="needs-validation" novalidate>
+            <input type="hidden" name="access_key" value="d348d8d0-622f-43c7-8490-d3a1430f7c19" />
+            <input type="hidden" name="subject" value="Weld Creations Contact Form Submission" />
+            <input type="checkbox" name="botcheck" id="" style="display: none;" />
+  
+            <div class="flex mb-6 space-x-4">
+              <div class="w-full md:w-1/2">
+                <label for="fname" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">First Name</label>
+                <input type="text" name="name" id="first_name" placeholder="John" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+                  Please provide your first name.
+                </div>
               </div>
-              <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required />
+              <div class="w-full md:w-1/2">
+                <label for="lname" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Last Name</label>
+                <input type="text" name="last_name" id="lname" placeholder="Doe" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+                  Please provide your last name.
+                </div>
               </div>
-              <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  required
-                ></textarea>
+            </div>
+  
+            <div class="flex mb-6 space-x-4">
+              <div class="w-full md:w-1/2">
+                <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
+                <input type="email" name="email" id="email" placeholder="you@company.com" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                <div class="empty-feedback text-red-400 text-sm mt-1">
+                  Please provide your email address.
+                </div>
+                <div class="invalid-feedback text-red-400 text-sm mt-1">
+                  Please provide a valid email address.
+                </div>
               </div>
-              <button type="submit">Send Message</button>
-            </form>
-          </div>
+  
+              <div class="w-full md:w-1/2">
+                <label for="phone" class="block text-sm mb-2 text-gray-600 dark:text-gray-400">Phone Number</label>
+                <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+  
+                <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+                  Please provide your phone number.
+                </div>
+              </div>
+            </div>
+            <div class="mb-6">
+              <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Your Message</label>
+  
+              <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" required></textarea>
+              <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+                Please enter your message.
+              </div>
+            </div>
+            <div class="mb-6">
+              <button type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
+                Send Message
+              </button>
+            </div>
+            <p class="text-base text-center text-gray-400" id="result"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
         </div>
       </div>
     </section>
@@ -367,8 +426,9 @@
             <h3>Quick Links</h3>
             <ul>
               <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
               <li><a href="#services">Services</a></li>
+              <li><a href="#industries">Industries</a></li>
+              <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>

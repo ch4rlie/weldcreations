@@ -127,6 +127,24 @@ NAV
   }
 }
 
+.invalid-feedback,
+.empty-feedback {
+  display: none;
+}
+
+.was-validated :placeholder-shown:invalid ~ .empty-feedback {
+  display: block;
+}
+
+.was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+  display: block;
+}
+
+.is-invalid,
+.was-validated :invalid {
+  border-color: #dc3545;
+}
+
 /**
 HERO
 **/
@@ -178,10 +196,10 @@ HERO
 
 .hero-content p {
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
-.hero-content button {
+.hero-content a {
   background-color: #1b75bb;
   color: white;
   border: none;
@@ -193,7 +211,7 @@ HERO
   border-radius: 10px;
 }
 
-.hero-content button:hover {
+.hero-content a:hover {
   background-color: #094c80;
 }
 
@@ -238,7 +256,7 @@ SERVICES
 .service-item img.service-icon {
   width: 80px;
   height: 80px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 }
 
 .service-item h3 {
@@ -356,7 +374,7 @@ Industries
 .industry-item img.industry-icon {
   width: 80px;
   height: 80px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 }
 
 .industry-item h3 {
