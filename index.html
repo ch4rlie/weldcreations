@@ -6,6 +6,8 @@
     <title>Los Angeles TIG Welding</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" type="text/css" href="./icofont.min.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
@@ -19,7 +21,7 @@
         <li><a href="#about">Services</a></li>
       </ul>
       <div class="logo-container">
-        <img src="logo.png" alt="Logo" class="logo" />
+        <img src="./images/logo.svg" alt="Logo" class="logo" />
       </div>
       <ul class="nav-links right">
         <li><a href="#services">About</a></li>
@@ -31,14 +33,20 @@
     </nav>
 
     <div class="hero">
-      <video class="hero-video" autoplay muted loop>
-        <source src="hero-video.mp4" type="video/mp4" />
-        <source src="hero-video.webm" type="video/webm" />
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        poster="./images/hero-video-thumbnail.jpg"
+      >
+        <source src="./videos/hero-video.mp4" type="video/mp4" />
+        <source src="./videos/hero-video.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
       <div class="overlay"></div>
       <div class="hero-content">
-        <h1>Los Angeles TIG Welding <br />& Metal Part Production</h1>
+        <h1>Los Angeles Precision TIG Welding <br />& Metal Part Production</h1>
         <p>
           Expert Welding, Metal Fabrication, Production Part Runs, Serving All
           of Southern California
@@ -55,18 +63,23 @@
         <div class="service-columns">
           <div class="service-item">
             <img
-              src="tig-welding-icon.svg"
-              alt="Welding Icon"
+              src="./images/tig-icon.svg"
+              alt="Tig Welding Icon"
               class="service-icon"
             />
-            <h3>TIG Welding</h3>
+            <h3>Precision TIG & MIG Welding</h3>
             <p>
-              Precision TIG welding services for a variety of metals and
-              applications.
+              Precision welding services for a variety of metals and
+              applications. Steel, Titanium, Aluminum, Hastelloy, Stainless
+              Steel & more.
             </p>
           </div>
           <div class="service-item">
-            <img src="icon2.png" alt="Fabrication Icon" class="service-icon" />
+            <img
+              src="./images/metalwork.svg"
+              alt="Fabrication Icon"
+              class="service-icon"
+            />
             <h3>Metal Fabrication</h3>
             <p>
               Custom metal fabrication solutions tailored to your specific
@@ -74,7 +87,11 @@
             </p>
           </div>
           <div class="service-item">
-            <img src="icon3.png" alt="Production Icon" class="service-icon" />
+            <img
+              src="./images/production.svg"
+              alt="Production Icon"
+              class="service-icon"
+            />
             <h3>Production Part Runs</h3>
             <p>
               Efficient production part runs with consistent quality and on-time
@@ -84,7 +101,36 @@
         </div>
         <div class="detailed-services">
           <div class="detailed-service">
-            <img src="service.jpeg" alt="Service Image" class="service-image" />
+            <img
+              src="./images/precision.jpeg"
+              alt="Service Image"
+              class="service-image"
+            />
+            <div class="service-text">
+              <h3>Precision Welding Experts</h3>
+              <p>
+                As TIG welding specialists, we pride ourselves on delivering
+                precise and high-quality welds for a variety of applications.
+                Our expertise doesn't stop there; we also excel in MIG welding,
+                known for its versatility and speed, and dual shield welding,
+                which combines the best of both flux-cored and gas-shielded
+                processes to handle even the most challenging projects. Our team
+                of experienced professionals is well-versed in all welding
+                techniques, ensuring that we can meet any welding need with the
+                highest level of skill and craftsmanship. Whether it's TIG, MIG,
+                or dual shield, we are committed to providing exceptional
+                welding services that meet the diverse requirements of our
+                clients.
+              </p>
+            </div>
+          </div>
+
+          <div class="detailed-service">
+            <img
+              src="./images/service.jpeg"
+              alt="Service Image"
+              class="service-image"
+            />
             <div class="service-text">
               <h3>Custom Metal Fabrication</h3>
               <p>
@@ -106,82 +152,29 @@
               </p>
             </div>
           </div>
+
           <div class="detailed-service">
             <img
-              src="service2.jpeg"
+              src="./images/production-service.jpeg"
               alt="Service Image"
               class="service-image"
             />
             <div class="service-text">
-              <h3>Welding Experts</h3>
+              <h3>Production Parts</h3>
               <p>
-                As TIG welding specialists, we pride ourselves on delivering
-                precise and high-quality welds for a variety of applications.
-                Our expertise doesn't stop there; we also excel in MIG welding,
-                known for its versatility and speed, and dual shield welding,
-                which combines the best of both flux-cored and gas-shielded
-                processes to handle even the most challenging projects. Our team
-                of experienced professionals is well-versed in all welding
-                techniques, ensuring that we can meet any welding need with the
-                highest level of skill and craftsmanship. Whether it's TIG, MIG,
-                or dual shield, we are committed to providing exceptional
-                welding services that meet the diverse requirements of our
-                clients.
-              </p>
-            </div>
-          </div>
-          <div class="detailed-service">
-            <img
-              src="pharma-service.jpg"
-              alt="Service Image"
-              class="service-image"
-            />
-            <div class="service-text">
-              <h3>Pharmaceutical</h3>
-              <p>
-                In the pharmaceutical industry, precision and reliability are
-                paramount, and our welding services are tailored to meet these
-                exacting standards. We specialize in Hastelloy tank welding,
-                providing corrosion-resistant solutions essential for
-                pharmaceutical applications. Hastelloy, known for its excellent
-                chemical resistance and durability, is ideal for welding tanks
-                and equipment used in the pharmaceutical manufacturing process.
-                Our skilled welders ensure that every weld is meticulously
-                executed, maintaining the integrity and cleanliness required in
-                pharmaceutical environments. Whether it's constructing new
-                Hastelloy tanks or repairing existing equipment, our expertise
-                guarantees high-quality, reliable results that comply with
-                stringent industry regulations. Trust us to deliver exceptional
-                welding services that support the critical needs of the
-                pharmaceutical sector.
-              </p>
-            </div>
-          </div>
-          <div class="detailed-service">
-            <img
-              src="service-auto.jpg"
-              alt="Service Image"
-              class="service-image"
-            />
-            <div class="service-text">
-              <h3>Custom Vehicle and Offroad</h3>
-              <p>
-                We specialize in creating custom vehicles and off-road
-                components, delivering top-notch craftsmanship for all your
-                off-road racing needs. Our services include designing and
-                fabricating robust suspension systems, roll cages, and bed cages
-                that enhance the performance and safety of your vehicle. Whether
-                you require custom-built off-road components or modifications to
-                existing vehicles, our skilled team uses the latest techniques
-                and high-quality materials to ensure durability and reliability
-                under the toughest conditions. From concept to completion, we
-                work closely with you to understand your specific requirements
-                and deliver solutions that exceed expectations. Our expertise
-                extends to a wide range of off-road racing vehicles, providing
-                tailored modifications and enhancements that give you the
-                competitive edge. Trust us to transform your vehicle into a
-                high-performance machine capable of conquering the most
-                challenging terrains.
+                At Weld Creative, we specialize in production part runs,
+                delivering high-quality TIG welded parts that meet the most
+                stringent standards. While our expertise extends to a variety of
+                metalwork and welded components, high-precision TIG welding
+                remains our primary focus. Our skilled welders are dedicated to
+                producing parts with exceptional accuracy and consistency,
+                ensuring that each piece meets the specific requirements of our
+                clients. Whether you need custom components or large-scale
+                production runs, our commitment to quality and precision sets us
+                apart. At Weld Creative, we understand the importance of
+                reliable and durable parts, and our TIG welding capabilities are
+                second to none, providing the perfect solution for your
+                production needs.
               </p>
             </div>
           </div>
@@ -197,7 +190,7 @@
         <div class="industry-columns">
           <div class="industry-item">
             <img
-              src="pharmaceutical-icon.svg"
+              src="./images/pharmaceutical-icon.svg"
               alt="Pharmaceutical Icon"
               class="industry-icon"
             />
@@ -209,7 +202,7 @@
           </div>
           <div class="industry-item">
             <img
-              src="aerospace-icon.svg"
+              src="./images/aerospace-icon.svg"
               alt="Aerospace Icon"
               class="industry-icon"
             />
@@ -221,7 +214,7 @@
           </div>
           <div class="industry-item">
             <img
-              src="automotive-icon.svg"
+              src="./images/automotive-icon.svg"
               alt="Automotive Icon"
               class="industry-icon"
             />
@@ -233,7 +226,7 @@
           </div>
           <div class="industry-item">
             <img
-              src="chemical-icon.svg"
+              src="./images/chemical-icon.svg"
               alt="Chemical Icon"
               class="industry-icon"
             />
@@ -245,7 +238,7 @@
           </div>
           <div class="industry-item">
             <img
-              src="construction-icon.svg"
+              src="./images/construction-icon.svg"
               alt="Construction Icon"
               class="industry-icon"
             />
@@ -257,7 +250,7 @@
           </div>
           <div class="industry-item">
             <img
-              src="marine-icon.svg"
+              src="./images/marine-icon.svg"
               alt="Marine Icon"
               class="industry-icon"
             />
@@ -278,10 +271,10 @@
         </div>
         <div class="about-content">
           <div class="about-text">
+            <p style="font-size: 22px">A family business you can trust.</p>
             <p>
-              At Los Angeles TIG Welding & Metal Part Production, we are
-              dedicated to delivering exceptional welding and fabrication
-              services across Southern California. Our team of experienced
+              We are dedicated to delivering exceptional welding and fabrication
+              services across Southern California. We are experienced
               professionals specializes in TIG welding, metal fabrication,
               production part runs, and custom metalwork. With a strong
               commitment to quality and precision, we take pride in our
@@ -305,7 +298,7 @@
             </p>
           </div>
           <div class="about-image">
-            <img src="about-us-image.jpg" alt="About Us Image" />
+            <img src="./images/about-us.jpg" alt="About Us Image" />
           </div>
         </div>
       </div>
@@ -325,14 +318,14 @@
               all your questions.
             </p>
             <p>
-              <strong>Address:</strong> 123 Welding Street, Los Angeles, CA
-              90001
+              <strong>Address:</strong> 2041 E Gladstone Unit Q Glendora, CA
+              91741
             </p>
             <p>
               <strong>Email:</strong>
               <a href="mailto:info@weldcreations.com">info@weldcreations.com</a>
             </p>
-            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>Phone:</strong> (626) 675-4239</p>
           </div>
           <div class="contact-form">
             <h3>Contact Form</h3>
@@ -366,10 +359,10 @@
         <div class="footer-columns">
           <div class="footer-column">
             <h3>Contact Us</h3>
-            <p>Los Angeles TIG Welding & Metal Part Production</p>
-            <p>123 Welding Street, Los Angeles, CA 90001</p>
+            <p>Weld Creations</p>
+            <p>2041 E Gladstone Unit Q Glendora, CA 91741</p>
             <p>Email: info@weldcreations.com</p>
-            <p>Phone: (123) 456-7890</p>
+            <p>Phone: (626) 675-4239</p>
           </div>
           <div class="footer-column">
             <h3>Quick Links</h3>
@@ -384,24 +377,21 @@
             <h3>Follow Us</h3>
             <ul class="social-media">
               <li>
-                <a href="https://facebook.com" target="_blank"
-                  ><img src="facebook-icon.svg" alt="Facebook"
-                /></a>
+                <a href="https://facebook.com" target="_blank">					<i class="icofont-facebook"></i>
+                </a>
               </li>
               <li>
-                <a href="https://twitter.com" target="_blank"
-                  ><img src="twitter-icon.svg" alt="Twitter"
-                /></a>
+                <a href="https://www.yelp.com/biz/weld-creations-glendora" target="_blank">					<i class="icofont-yelp"></i>
+                </a>
               </li>
               <li>
-                <a href="https://instagram.com" target="_blank"
-                  ><img src="instagram-icon.svg" alt="Instagram"
-                /></a>
+                <a href="https://instagram.com" target="_blank">					<i class="icofont-instagram"></i>
+                </a>
               </li>
               <li>
-                <a href="https://linkedin.com" target="_blank"
-                  ><img src="linkedin-icon.svg" alt="LinkedIn"
-                /></a>
+                <a href="https://www.linkedin.com/in/mark-may-3bab7735/" target="_blank"></a>
+                  <i class="icofont-linkedin"></i>
+                </a>
               </li>
             </ul>
           </div>
