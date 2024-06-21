@@ -1,9 +1,13 @@
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector(".hamburger");
+  const navLinksLeft = document.querySelector(".nav-links.left");
+  const navLinksRight = document.querySelector(".nav-links.right");
 
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-  hamburger.classList.toggle("active");
+  hamburger.addEventListener("click", () => {
+    navLinksLeft.classList.toggle("active");
+    navLinksRight.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  });
 });
 
 (function () {

@@ -13,14 +13,16 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css?v=2" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css"
+    />
   </head>
   <body>
     <nav class="navbar">
       <ul class="nav-links left">
         <li><a href="#services">Services</a></li>
         <li><a href="#industries">Industries</a></li>
-
       </ul>
       <div class="logo-container">
         <img src="./images/logo.svg" alt="Logo" class="logo" />
@@ -30,6 +32,8 @@
         <li><a href="#contact">Contact Us</a></li>
       </ul>
       <div class="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
         <div class="bar"></div>
       </div>
     </nav>
@@ -50,10 +54,14 @@
       <div class="hero-content">
         <h1>Precision TIG Welding <br />& Fabrication</h1>
         <p>
-          Expert Welding, Metal Fabrication, Product Development, Serving All
-          of Southern California
+          Expert Welding, Metal Fabrication, Product Development, Serving All of
+          Southern California
         </p>
-        <a href="#contact" class="px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">Contact Us Now</a>
+        <a
+          href="#contact"
+          class="px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none"
+          >Contact Us Now</a
+        >
       </div>
     </div>
 
@@ -95,9 +103,7 @@
               class="service-icon"
             />
             <h3>Product Development & Consulting</h3>
-            <p>
-              Let us help you develop your product and bring it to life
-            </p>
+            <p>Let us help you develop your product and bring it to life</p>
           </div>
         </div>
         <div class="detailed-services">
@@ -328,8 +334,8 @@
             </p>
             <p><strong>Phone:</strong> (626) 675-4239</p>
           </div>
-         
-<!-- 
+
+          <!-- 
     =======================================================================
 
     This is a working contact form. To receive email, 
@@ -340,74 +346,162 @@
     =======================================================================
  -->
 
- <div class="flex items-center">
-    <div class="container mx-auto">
-      <div class="max-w-xl mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
-        <div class="m-7">
-          <form action="https://api.web3forms.com/submit" method="POST" id="form" class="needs-validation" novalidate>
-            <input type="hidden" name="access_key" value="d348d8d0-622f-43c7-8490-d3a1430f7c19" />
-            <input type="hidden" name="subject" value="Weld Creations Contact Form Submission" />
-            <input type="checkbox" name="botcheck" id="" style="display: none;" />
-  
-            <div class="flex mb-6 space-x-4">
-              <div class="w-full md:w-1/2">
-                <label for="fname" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">First Name</label>
-                <input type="text" name="name" id="first_name" placeholder="John" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
-                <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-                  Please provide your first name.
-                </div>
-              </div>
-              <div class="w-full md:w-1/2">
-                <label for="lname" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Last Name</label>
-                <input type="text" name="last_name" id="lname" placeholder="Doe" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
-                <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-                  Please provide your last name.
-                </div>
-              </div>
-            </div>
-  
-            <div class="flex mb-6 space-x-4">
-              <div class="w-full md:w-1/2">
-                <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
-                <input type="email" name="email" id="email" placeholder="you@company.com" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
-                <div class="empty-feedback text-red-400 text-sm mt-1">
-                  Please provide your email address.
-                </div>
-                <div class="invalid-feedback text-red-400 text-sm mt-1">
-                  Please provide a valid email address.
-                </div>
-              </div>
-  
-              <div class="w-full md:w-1/2">
-                <label for="phone" class="block text-sm mb-2 text-gray-600 dark:text-gray-400">Phone Number</label>
-                <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
-  
-                <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-                  Please provide your phone number.
-                </div>
-              </div>
-            </div>
-            <div class="mb-6">
-              <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Your Message</label>
-  
-              <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" required></textarea>
-              <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-                Please enter your message.
-              </div>
-            </div>
-            <div class="mb-6">
-              <button type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
-                Send Message
-              </button>
-            </div>
-            <p class="text-base text-center text-gray-400" id="result"></p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+          <div class="flex items-center">
+            <div class="container mx-auto">
+              <div
+                class="max-w-xl mx-auto my-10 bg-white p-5 rounded-md shadow-sm"
+              >
+                <div class="m-7">
+                  <form
+                    action="https://api.web3forms.com/submit"
+                    method="POST"
+                    id="form"
+                    class="needs-validation"
+                    novalidate
+                  >
+                    <input
+                      type="hidden"
+                      name="access_key"
+                      value="d348d8d0-622f-43c7-8490-d3a1430f7c19"
+                    />
+                    <input
+                      type="hidden"
+                      name="subject"
+                      value="Weld Creations Contact Form Submission"
+                    />
+                    <input
+                      type="checkbox"
+                      name="botcheck"
+                      id=""
+                      style="display: none"
+                    />
 
+                    <div class="flex mb-6 space-x-4">
+                      <div class="w-full md:w-1/2">
+                        <label
+                          for="fname"
+                          class="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                          >First Name</label
+                        >
+                        <input
+                          type="text"
+                          name="name"
+                          id="first_name"
+                          placeholder="John"
+                          required
+                          class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                        />
+                        <div
+                          class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"
+                        >
+                          Please provide your first name.
+                        </div>
+                      </div>
+                      <div class="w-full md:w-1/2">
+                        <label
+                          for="lname"
+                          class="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                          >Last Name</label
+                        >
+                        <input
+                          type="text"
+                          name="last_name"
+                          id="lname"
+                          placeholder="Doe"
+                          required
+                          class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                        />
+                        <div
+                          class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"
+                        >
+                          Please provide your last name.
+                        </div>
+                      </div>
+                    </div>
 
+                    <div class="flex mb-6 space-x-4">
+                      <div class="w-full md:w-1/2">
+                        <label
+                          for="email"
+                          class="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                          >Email Address</label
+                        >
+                        <input
+                          type="email"
+                          name="email"
+                          id="email"
+                          placeholder="you@company.com"
+                          required
+                          class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                        />
+                        <div class="empty-feedback text-red-400 text-sm mt-1">
+                          Please provide your email address.
+                        </div>
+                        <div class="invalid-feedback text-red-400 text-sm mt-1">
+                          Please provide a valid email address.
+                        </div>
+                      </div>
+
+                      <div class="w-full md:w-1/2">
+                        <label
+                          for="phone"
+                          class="block text-sm mb-2 text-gray-600 dark:text-gray-400"
+                          >Phone Number</label
+                        >
+                        <input
+                          type="text"
+                          name="phone"
+                          id="phone"
+                          placeholder="+1 (555) 1234-567"
+                          required
+                          class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                        />
+
+                        <div
+                          class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"
+                        >
+                          Please provide your phone number.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-6">
+                      <label
+                        for="message"
+                        class="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                        >Your Message</label
+                      >
+
+                      <textarea
+                        rows="5"
+                        name="message"
+                        id="message"
+                        placeholder="Your Message"
+                        class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                        required
+                      ></textarea>
+                      <div
+                        class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"
+                      >
+                        Please enter your message.
+                      </div>
+                    </div>
+                    <div class="mb-6">
+                      <button
+                        type="submit"
+                        class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none"
+                      >
+                        Send Message
+                      </button>
+                    </div>
+                    <p
+                      class="text-base text-center text-gray-400"
+                      id="result"
+                    ></p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -435,20 +529,34 @@
           <div class="footer-column">
             <h3>Follow Us</h3>
             <ul class="social-media">
-              <li>
-                <a href="https://facebook.com" target="_blank">					<i class="icofont-facebook"></i>
+              <!--
+                            <li>
+                <a href="https://facebook.com" target="_blank">
+                  <i class="icofont-facebook"></i>
                 </a>
               </li>
+              -->
+
               <li>
-                <a href="https://www.yelp.com/biz/weld-creations-glendora" target="_blank">					<i class="icofont-yelp"></i>
+                <a
+                  href="https://www.yelp.com/biz/weld-creations-glendora"
+                  target="_blank"
+                >
+                  <i class="icofont-yelp"></i>
                 </a>
               </li>
-              <li>
-                <a href="https://instagram.com" target="_blank">					<i class="icofont-instagram"></i>
+
+              <!--<li>
+                <a href="https://instagram.com" target="_blank">
+                  <i class="icofont-instagram"></i>
                 </a>
-              </li>
+              </li>-->
+
               <li>
-                <a href="https://www.linkedin.com/in/mark-may-3bab7735/" target="_blank"></a>
+                <a
+                  href="https://www.linkedin.com/in/mark-may-3bab7735/"
+                  target="_blank"
+                >
                   <i class="icofont-linkedin"></i>
                 </a>
               </li>

@@ -79,15 +79,29 @@ NAV
   width: 350px; /* Set logo width */
 }
 
+@media (max-width: 900px) {
+  .logo {
+    width: 265px; /* Set logo width */
+  }
+}
+@media (max-width: 768px) {
+  .logo {
+    width: 225px; /* Set logo width */
+  }
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
   z-index: 30;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 .hamburger .bar {
-  width: 25px;
+  width: 35px;
   height: 3px;
   background-color: white;
   margin: 4px 0;
@@ -95,19 +109,36 @@ NAV
 }
 
 @media (max-width: 768px) {
+  .logo-container {
+    margin: 0 30px;
+    padding: 10px 0 0;
+    position: absolute;
+    left: 0;
+  }
+  .navbar {
+    justify-content: space-between;
+    padding: 0;
+    height: 70px;
+    position: relative;
+    flex-direction: column;
+  }
   .nav-links {
     display: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
     background-color: black;
     flex-direction: column;
     text-align: center;
+    width: 100%;
   }
 
   .nav-links.active {
     display: flex;
+  }
+
+  .nav-links.left.active {
+    padding: 120px 0 20px;
+  }
+  .nav-links.right.active {
+    padding: 0 0 40px;
   }
 
   .hamburger {
@@ -115,7 +146,7 @@ NAV
   }
 
   .hamburger.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(10px, 10px);
   }
 
   .hamburger.active .bar:nth-child(2) {
@@ -213,6 +244,20 @@ HERO
 
 .hero-content a:hover {
   background-color: #094c80;
+}
+
+@media (max-width: 767px) {
+  .hero {
+    height: auto;
+    padding: 100px 0;
+  }
+  .hero-content h1 {
+    font-size: 40px;
+  }
+  .hero-content {
+    top: inherit;
+    transform: translateY(0);
+  }
 }
 
 /**
@@ -462,6 +507,7 @@ Industries
 
 .social-media li {
   display: inline-block;
+  font-size: 22px;
 }
 
 .social-media a img {
