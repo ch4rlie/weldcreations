@@ -24,7 +24,9 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+      integrity="sha256-5uKiXEwbaQh9cgd2/5Vp6WmMnsUr3VZZw0a8rKnOKNU="
+      crossorigin="anonymous"
     />
   </head>
   <body>
@@ -198,87 +200,42 @@
             </div>
           </div>
         </div>
-        <div class="swiper-main-container">
-          <div class="swiper">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-              <!-- Slides -->
-              <div class="swiper-slide">
-                <img
-                  src="./images/slider/1.jpeg"
-                  alt="Image 1"
-                  data-fullsize="./images/slider/1.jpeg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="./images/slider/2.jpeg"
-                  alt="Image 2"
-                  data-fullsize="./images/slider/2.jpeg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="./images/slider/3.jpeg"
-                  alt="Image 3"
-                  data-fullsize="./images/slider/3.jpeg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="./images/slider/4.jpeg"
-                  alt="Image 4"
-                  data-fullsize="./images/slider/4.jpeg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="./images/slider/5.jpeg"
-                  alt="Image 5"
-                  data-fullsize="./images/slider/5.jpeg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="./images/slider/6.jpeg"
-                  alt="Image 6"
-                  data-fullsize="./images/slider/6.jpeg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="./images/slider/7.jpeg"
-                  alt="Image 7"
-                  data-fullsize="./images/slider/7.jpeg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="./images/slider/8.jpeg"
-                  alt="Image 8"
-                  data-fullsize="./images/slider/8.jpeg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="./images/slider/9.jpeg"
-                  alt="Image 9"
-                  data-fullsize="./images/slider/9.jpeg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="./images/slider/10.jpeg"
-                  alt="Image 10"
-                  data-fullsize="./images/slider/10.jpeg"
-                />
-              </div>
-            </div>
+        <section class="splide" aria-label="Basic Structure Example">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide">
+                <img src="./images/slider/1.jpeg" alt="Image 1" />
+              </li>
+              <li class="splide__slide">
+                <img src="./images/slider/2.jpeg" alt="Image 2" />
+              </li>
+              <li class="splide__slide">
+                <img src="./images/slider/3.jpeg" alt="Image 3" />
+              </li>
+              <li class="splide__slide">
+                <img src="./images/slider/4.jpeg" alt="Image 4" />
+              </li>
+              <li class="splide__slide">
+                <img src="./images/slider/5.jpeg" alt="Image 5" />
+              </li>
+              <li class="splide__slide">
+                <img src="./images/slider/6.jpeg" alt="Image 6" />
+              </li>
+              <li class="splide__slide">
+                <img src="./images/slider/7.jpeg" alt="Image 7" />
+              </li>
+              <li class="splide__slide">
+                <img src="./images/slider/8.jpeg" alt="Image 8" />
+              </li>
+              <li class="splide__slide">
+                <img src="./images/slider/9.jpeg" alt="Image 9" />
+              </li>
+              <li class="splide__slide">
+                <img src="./images/slider/10.jpeg" alt="Image 10" />
+              </li>
+            </ul>
           </div>
-
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
+        </section>
 
         <!-- Modal for full-size images -->
         <div id="myModal" class="modal">
@@ -684,8 +641,11 @@
         </div>
       </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"
+      integrity="sha256-FZsW7H2V5X9TGinSjjwYJ419Xka27I8XPDmWryGlWtw="
+      crossorigin="anonymous"
+    ></script>
     <script src="scripts.js"></script>
   </body>
 </html>

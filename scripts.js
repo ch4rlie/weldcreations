@@ -16,20 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("Error attempting to play the video:", error);
   });
 
-  const swiper = new Swiper(".swiper", {
-    // Optional parameters
-    slidesPerView: 5,
-    loop: false,
-    spaceBetween: 20,
-    centeredSlides: true,
-    //centeredSlides: true, // Center slides if needed
-    freeMode: true, // Disable free mode for proper loop functionality
-    // Navigation arrows
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+  var splide = new Splide(".splide", {
+    type: "loop",
+    height: "300px",
+    focus: "center",
+    autoWidth: true,
   });
+
+  splide.mount();
 
   const modal = document.getElementById("myModal");
   const modalImg = document.getElementById("modalImage");

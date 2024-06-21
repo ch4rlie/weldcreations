@@ -265,29 +265,13 @@ HERO
 SWIPER
 
 **/
-.swiper-main-container {
-  padding: 0 50px;
-  position: relative;
-}
-.swiper-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.swiper-slide {
-  width: auto !important;
-  cursor: pointer;
-  display: inline-block;
-  margin: 0 20px;
-  text-align: center;
-}
-
-.swiper-slide img {
-  height: 250px;
-  width: 300px;
+.splide__slide img {
   object-fit: cover;
   cursor: pointer;
+  height: 300px;
+  width: auto;
+}
+.splide {
 }
 
 /* Modal styles */
