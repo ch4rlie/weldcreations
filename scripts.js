@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
   var splide = new Splide(".splide", {
     type: "loop",
     height: "300px",
-    focus: "center",
     autoWidth: true,
   });
 
