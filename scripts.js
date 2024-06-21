@@ -10,6 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("heroVideo");
+
+  // Try to play the video once the document is fully loaded
+  video.play().catch((error) => {
+    console.error("Error attempting to play the video:", error);
+  });
+});
+
 (function () {
   "use strict";
   /*
