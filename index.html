@@ -22,6 +22,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <nav class="navbar">
@@ -46,6 +50,7 @@
     <div class="hero" id="home">
       <video
         class="hero-video"
+        id="heroVideo"
         autoplay
         muted
         loop
@@ -193,6 +198,95 @@
             </div>
           </div>
         </div>
+        <div class="swiper-main-container">
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <img
+                  src="./images/slider/1.jpeg"
+                  alt="Image 1"
+                  data-fullsize="./images/slider/1.jpeg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="./images/slider/2.jpeg"
+                  alt="Image 2"
+                  data-fullsize="./images/slider/2.jpeg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="./images/slider/3.jpeg"
+                  alt="Image 3"
+                  data-fullsize="./images/slider/3.jpeg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="./images/slider/4.jpeg"
+                  alt="Image 4"
+                  data-fullsize="./images/slider/4.jpeg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="./images/slider/5.jpeg"
+                  alt="Image 5"
+                  data-fullsize="./images/slider/5.jpeg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="./images/slider/6.jpeg"
+                  alt="Image 6"
+                  data-fullsize="./images/slider/6.jpeg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="./images/slider/7.jpeg"
+                  alt="Image 7"
+                  data-fullsize="./images/slider/7.jpeg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="./images/slider/8.jpeg"
+                  alt="Image 8"
+                  data-fullsize="./images/slider/8.jpeg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="./images/slider/9.jpeg"
+                  alt="Image 9"
+                  data-fullsize="./images/slider/9.jpeg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="./images/slider/10.jpeg"
+                  alt="Image 10"
+                  data-fullsize="./images/slider/10.jpeg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+
+        <!-- Modal for full-size images -->
+        <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <div class="modal-content">
+            <img id="modalImage" src="" />
+          </div>
+        </div>
       </div>
     </section>
 
@@ -201,19 +295,8 @@
         <div class="industries-header">
           <h2>Industries We Serve</h2>
         </div>
+
         <div class="industry-columns">
-          <div class="industry-item">
-            <img
-              src="./images/pharmaceutical-icon.svg"
-              alt="Pharmaceutical Icon"
-              class="industry-icon"
-            />
-            <h3>Pharmaceutical</h3>
-            <p>
-              Providing precise and reliable welding and fabrication services
-              for pharmaceutical equipment and facilities.
-            </p>
-          </div>
           <div class="industry-item">
             <img
               src="./images/aerospace-icon.svg"
@@ -223,55 +306,74 @@
             <h3>Aerospace</h3>
             <p>
               Expert welding and fabrication for aerospace components, ensuring
-              the highest standards of quality and safety.
+              the highest standards of quality and safety. AWS D17.1 Certified.
             </p>
           </div>
           <div class="industry-item">
             <img
-              src="./images/automotive-icon.svg"
-              alt="Automotive Icon"
+              src="./images/defense-icon.svg"
+              alt="Defense Icon"
               class="industry-icon"
             />
-            <h3>Automotive</h3>
+            <h3>Defense</h3>
             <p>
-              Delivering custom welding and metalwork solutions for the
-              automotive industry, from prototypes to production parts.
+              Welding services for the defense industry, ensuring robust,
+              precise, and reliable welds for critical equipment and components.
             </p>
           </div>
           <div class="industry-item">
             <img
-              src="./images/chemical-icon.svg"
-              alt="Chemical Icon"
+              src="./images/food-bev-icon.svg"
+              alt="Food & Beverage Icon"
               class="industry-icon"
             />
-            <h3>Chemical</h3>
+            <h3>Food & Beverage</h3>
             <p>
-              Specialized welding and fabrication services for chemical
-              processing equipment and infrastructure.
+              Delivering expert welding services for the food and beverage
+              industry, ensuring sanitary, durable, and compliant welds for all
+              processing and production equipment.
             </p>
           </div>
+
           <div class="industry-item">
             <img
-              src="./images/construction-icon.svg"
-              alt="Construction Icon"
+              src="./images/pharma-icon.svg"
+              alt="Pharmaceutical Icon"
               class="industry-icon"
             />
-            <h3>Construction</h3>
+            <h3>Pharmaceutical</h3>
             <p>
-              Providing durable and precise welding and metal fabrication for
-              construction projects of all sizes.
+              Precise, hygienic, and compliant welds for manufacturing equipment
+              and processes. Our expertise guarantees high-quality and reliable
+              solutions to meet stringent industry standards.
             </p>
           </div>
+
           <div class="industry-item">
             <img
-              src="./images/marine-icon.svg"
-              alt="Marine Icon"
+              src="./images/vitamin-icon.svg"
+              alt="Vitamin & Supplemnt Icon"
               class="industry-icon"
             />
-            <h3>Marine</h3>
+            <h3>Vitamin & Supplments</h3>
             <p>
-              Expert welding and fabrication services for marine equipment,
-              including boats, ships, and other marine infrastructure.
+              Specialized welding services for the vitamin and supplement
+              industry, ensuring high-quality and hygienic welds for equipment
+              and manufacturing processes.
+            </p>
+          </div>
+
+          <div class="industry-item">
+            <img
+              src="./images/machining-icon.svg"
+              alt="Sheet Metal & Machining Icon"
+              class="industry-icon"
+            />
+            <h3>Sheet Metal & Machining</h3>
+            <p>
+              Welding services tailored for the sheet metal and machining
+              industries, enhancing their capabilities with precise and reliable
+              welding solutions.
             </p>
           </div>
         </div>
@@ -522,6 +624,13 @@
             <p>2041 E Gladstone Unit Q Glendora, CA 91741</p>
             <p>Email: info@weldcreations.com</p>
             <p>Phone: (626) 675-4239</p>
+
+            <p>
+              <br /><br />
+              Serving Los Angeles County, Orange County, San Bernardino County &
+              more.
+            </p>
+            <p>AWS D17.1 Certified</p>
           </div>
           <div class="footer-column">
             <h3>Quick Links</h3>
@@ -575,6 +684,7 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script src="scripts.js"></script>
   </body>

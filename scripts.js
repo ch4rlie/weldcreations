@@ -8,15 +8,49 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinksRight.classList.toggle("active");
     hamburger.classList.toggle("active");
   });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
   const video = document.getElementById("heroVideo");
 
   // Try to play the video once the document is fully loaded
   video.play().catch((error) => {
     console.error("Error attempting to play the video:", error);
   });
+
+  const swiper = new Swiper(".swiper", {
+    // Optional parameters
+    slidesPerView: 5,
+    loop: false,
+    spaceBetween: 20,
+    centeredSlides: true,
+    //centeredSlides: true, // Center slides if needed
+    freeMode: true, // Disable free mode for proper loop functionality
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  const modal = document.getElementById("myModal");
+  const modalImg = document.getElementById("modalImage");
+  const closeModal = document.getElementsByClassName("close")[0];
+
+  document.querySelectorAll(".swiper-slide img").forEach((img) => {
+    img.addEventListener("click", function () {
+      modal.style.display = "block";
+      modalImg.src = this.getAttribute("data-fullsize");
+    });
+  });
+
+  closeModal.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
 });
 
 (function () {
