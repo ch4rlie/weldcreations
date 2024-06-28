@@ -28,10 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalImg = document.getElementById("modalImage");
   const closeModal = document.getElementsByClassName("close")[0];
 
-  document.querySelectorAll(".swiper-slide img").forEach((img) => {
+  document.querySelectorAll(".splide__slide img").forEach((img) => {
     img.addEventListener("click", function () {
       modal.style.display = "block";
-      modalImg.src = this.getAttribute("data-fullsize");
+      modalImg.src = this.getAttribute("data-full");
     });
   });
 
