@@ -276,24 +276,22 @@ SWIPER
 
 /* Modal styles */
 .modal {
-  display: none;
+  display: none; /* Ensure modal is hidden on page load */
   position: fixed;
-  z-index: 1;
-  padding-top: 60px;
+  z-index: 1000; /* Ensure modal is above the header */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
+  position: relative;
+  width: 90%; /* Set width to 90% */
 }
 
 .modal-content img {
@@ -302,13 +300,14 @@ SWIPER
 }
 
 .close {
-  position: absolute;
+  position: fixed; /* Changed from absolute to fixed */
   top: 15px;
   right: 35px;
   color: #fff;
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
+  z-index: 1001; /* Ensure close button is above the modal content */
 }
 
 .close:hover,
@@ -316,6 +315,31 @@ SWIPER
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* Prevent page scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Navigation arrows */
+.arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001; /* Ensure arrows are above the modal content */
+}
+
+.arrow-left {
+  left: 20px;
+}
+
+.arrow-right {
+  right: 20px;
 }
 
 /**
