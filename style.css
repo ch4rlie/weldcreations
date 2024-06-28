@@ -271,8 +271,6 @@ SWIPER
   height: 300px;
   width: auto;
 }
-.splide {
-}
 
 /* Modal styles */
 .modal {
@@ -284,14 +282,14 @@ SWIPER
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
-  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .modal-content {
   position: relative;
-  width: 90%; /* Set width to 90% */
+  width: 87%; /* Set width to 90% */
+  margin: 0 auto;
 }
 
 .modal-content img {
@@ -332,6 +330,8 @@ body.modal-open {
   font-weight: bold;
   cursor: pointer;
   z-index: 1001; /* Ensure arrows are above the modal content */
+  background-color: transparent; /* Make padding area transparent */
+  padding: 20px; /* Increase clickable area */
 }
 
 .arrow-left {

@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentIndex = 0;
 
   function showImage(index) {
-    modal.style.display = "block";
+    modal.style.display = "flex"; // Change to flex when showing the modal
     modalImg.src = images[index].getAttribute("data-full");
     document.body.classList.add("modal-open"); // Prevent page scroll
     currentIndex = index;
@@ -81,6 +81,20 @@ document.addEventListener("DOMContentLoaded", () => {
       showImage(0); // Loop to the first image
     }
   };
+
+  // Add event listener for arrow keys
+  document.addEventListener("keydown", function (event) {
+    if (modal.style.display === "flex") {
+      if (event.key === "ArrowLeft") {
+        arrowLeft.onclick();
+      } else if (event.key === "ArrowRight") {
+        arrowRight.onclick();
+      } else if (event.key === "Escape") {
+        modal.style.display = "none";
+        document.body.classList.remove("modal-open"); // Restore page scroll
+      }
+    }
+  });
 });
 
 (function () {
