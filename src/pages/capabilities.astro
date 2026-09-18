@@ -191,7 +191,48 @@ const quality = [
     .prose {
       margin: 0;
       max-width: none;
-      font-size: 12pt;
+      font-size: 9.5pt;
+      line-height: 1.35;
+    }
+    .prose :global(h2) {
+      font-size: 13pt;
+      margin: 10px 0 4px;
+    }
+    .prose :global(li) {
+      margin-bottom: 1px;
+    }
+    .prose :global(p),
+    .prose :global(ul),
+    .prose :global(ol),
+    .prose :global(table) {
+      margin-bottom: 6px;
+    }
+    .prose :global(table) {
+      font-size: 9.5pt;
+    }
+    .prose :global(th),
+    .prose :global(td) {
+      padding: 2px 8px;
+    }
+    :global(.container) {
+      width: 100%;
+      padding: 0;
+    }
+    .page-hero :global(h1) {
+      font-size: 20pt;
+      margin: 0 0 4px;
+    }
+    .page-hero .lead {
+      font-size: 10pt;
+      margin-bottom: 4px;
+    }
+    .cap-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0 18px;
+    }
+    @page {
+      size: letter;
+      margin: 0.5in;
     }
   }
 </style>

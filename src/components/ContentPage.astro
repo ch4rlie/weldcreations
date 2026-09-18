@@ -18,7 +18,8 @@ const d = entry.data;
 const path = entryPath(collection, entry.id);
 const { Content } = await render(entry);
 const related = await relatedFor(entry);
-const groups = (Object.keys(related) as SectionName[]).filter((k) => related[k].length > 0);
+const KICKER: Record<SectionName, string> = { services: "Service", materials: "Material", industries: "Industry" };
+const relatedCards = (Object.keys(related) as SectionName[]).flatMap((g) => related[g].map((r) => ({ g, r })));
 const crumbs = [
   { name: "Home", path: "/" },
   { name: section.label, path: section.path },
@@ -49,24 +50,20 @@ const jsonLd = [
       <Content />
     </article>
     <Faq faqs={d.faqs} />
-    {groups.length > 0 && (
+    {relatedCards.length > 0 && (
       <section class="related" aria-labelledby="related-heading">
         <h2 id="related-heading">Related Capabilities</h2>
-        {groups.map((g) => (
-          <div class="related-group">
-            <h3>{SECTIONS[g].label}</h3>
-            <ul class="cards">
-              {related[g].map((r) => (
-                <li class="card">
-                  <a href={entryPath(g, r.id)}>
-                    <span class="card-title">{r.data.navLabel}</span>
-                    <span class="card-text">{r.data.summary}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <ul class="cards">
+          {relatedCards.map(({ g, r }) => (
+            <li class="card">
+              <a href={entryPath(g, r.id)}>
+                <span class="card-kicker">{KICKER[g]}</span>
+                <span class="card-title">{r.data.navLabel}</span>
+                <span class="card-text">{r.data.summary}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
     )}
   </div>
