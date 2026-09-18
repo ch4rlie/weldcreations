@@ -96,24 +96,15 @@ const sources = [
 </div>
 
 <script>
+  import { recordFirstTouch } from "../lib/attribution";
+
   // Empty-vs-invalid messages rely on :placeholder-shown (see global.css),
   // so every required text field needs a placeholder, even " ".
   const form = document.getElementById("rfq-form") as HTMLFormElement;
   const result = document.getElementById("rfq-result")!;
   const field = (name: string) => form.querySelector<HTMLInputElement>(`[name="${name}"]`)!;
 
-  // First page and external referrer of the visit, e.g. chatgpt.com or perplexity.ai.
-  const externalReferrer = document.referrer && new URL(document.referrer).host !== location.host ? document.referrer : "";
-  let landing = location.pathname;
-  let referrer = externalReferrer;
-  try {
-    landing = sessionStorage.getItem("wc_landing") ?? location.pathname;
-    referrer = sessionStorage.getItem("wc_referrer") ?? externalReferrer;
-    sessionStorage.setItem("wc_landing", landing);
-    sessionStorage.setItem("wc_referrer", referrer);
-  } catch {
-    // storage unavailable (private mode); fall back to this page's values
-  }
+  const { landing, referrer } = recordFirstTouch();
   const fillAttribution = () => {
     field("landing_page").value = landing;
     field("page").value = location.pathname;
