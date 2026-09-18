@@ -1,6 +1,8 @@
 export interface GalleryItem {
   file: string;
   alt: string;
+  /** Lightbox WebP quality override for high-texture photos that blow the size budget. */
+  quality?: number;
 }
 
 export const GALLERY: GalleryItem[] = [
@@ -21,5 +23,5 @@ export const GALLERY: GalleryItem[] = [
   { file: "15.jpg", alt: "Side view of a stainless hopper with a perforated cone and tri-clamp outlet mounted on equipment" },
   { file: "16.jpg", alt: "Three fabricated stainless steel hoppers with perforated cones and side inlets on a stainless workbench" },
   { file: "17.jpg", alt: "Large fabricated stainless steel frame panel with welded mounting brackets standing in the shop" },
-  { file: "18.jpg", alt: "Fabricated stainless steel enclosure and frame sections on a pallet ready for delivery" },
+  { file: "18.jpg", alt: "Fabricated stainless steel enclosure and frame sections on a pallet ready for delivery", quality: 55 },
 ];

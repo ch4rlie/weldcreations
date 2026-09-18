@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import logo from "../assets/images/logo.svg";
 import { SITE } from "../config/site";
 ---
@@ -10,7 +9,7 @@ import { SITE } from "../config/site";
   </ul>
   <div class="logo-container">
     <a href="/" aria-label={`${SITE.name} home`}>
-      <Image src={logo} alt={`${SITE.name} logo`} class="logo" loading="eager" />
+      <img src={logo.src} width={logo.width} height={logo.height} alt={`${SITE.name} logo`} class="logo" />
     </a>
   </div>
   <ul class="nav-links right" id="nav-right">

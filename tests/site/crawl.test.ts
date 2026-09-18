@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { statSync } from "node:fs";
-import { loadPages, resolveInDist } from "./helpers";
+import { statSync, readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import { DIST, loadPages, resolveInDist } from "./helpers";
 
 const pages = loadPages();
 const MAX_IMAGE_BYTES = 400 * 1024;
@@ -9,6 +10,10 @@ const GENERIC_ALT = /^(image( \d+)?|service image|about us image|logo|photo|pict
 function localRefs(p: ReturnType<typeof loadPages>[number]) {
   const refs = new Set<string>();
   p.$("a[href], link[href]").each((_, el) => { refs.add(p.$(el).attr("href")!); });
+  p.$('meta[content^="https://weldcreations.com/"]').each((_, el) => {
+    refs.add(new URL(p.$(el).attr("content")!).pathname);
+  });
+  p.$("[data-full]").each((_, el) => { refs.add(p.$(el).attr("data-full")!); });
   p.$("img[src], source[src], video[poster]").each((_, el) => {
     const $el = p.$(el);
     refs.add(($el.attr("src") ?? $el.attr("poster"))!);
@@ -44,6 +49,17 @@ describe("crawl", () => {
       .filter(({ file }) => file && statSync(file).size > MAX_IMAGE_BYTES)
       .map(({ r }) => r);
     expect(heavy).toEqual([]);
+  });
+
+  it("ships no unreferenced images in /_astro/", () => {
+    const referenced = new Set(pages.flatMap((p) => localRefs(p)).map((r) => r.split("?")[0]));
+    // CSS can reference images too (e.g. Splide theme); treat those as referenced.
+    const css = readdirSync(join(DIST, "_astro")).filter((f) => f.endsWith(".css"));
+    const cssText = css.map((f) => readFileSync(join(DIST, "_astro", f), "utf8")).join("\n");
+    const orphans = readdirSync(join(DIST, "_astro"))
+      .filter((f) => /\.(jpe?g|png|webp|avif|gif|svg)$/i.test(f))
+      .filter((f) => !referenced.has(`/_astro/${f}`) && !cssText.includes(f));
+    expect(orphans).toEqual([]);
   });
 
   it.each(pages.map((p) => [p.path, p]))("%s opens external links safely", (_path, p) => {

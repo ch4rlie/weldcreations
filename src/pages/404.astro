@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../config/site";
+---
+<BaseLayout title="Page Not Found" description="The page you were looking for could not be found." noindex>
+  <section class="services" style="min-height: 50vh; text-align: center">
+    <div class="container">
+      <h1 style="font-family: Kanit, sans-serif; font-size: 40px; margin-bottom: 16px">Page not found</h1>
+      <p style="margin-bottom: 24px">The page you're looking for has moved or doesn't exist.</p>
+      <p><a href="/">Go to the homepage</a> · <a href="/#contact">Request a quote</a> · <a href={`tel:${SITE.phoneE164}`}>{SITE.phone}</a></p>
+    </div>
+  </section>
+</BaseLayout>

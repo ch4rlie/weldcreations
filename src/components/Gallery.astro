@@ -5,12 +5,14 @@ import { GALLERY } from "../data/gallery";
 
 const files = import.meta.glob<{ default: ImageMetadata }>("../assets/gallery/*.jpg", { eager: true });
 const items = await Promise.all(
-  GALLERY.map(async ({ file, alt }) => {
+  GALLERY.map(async ({ file, alt, quality = 75 }) => {
     const mod = files[`../assets/gallery/${file}`];
     if (!mod) throw new Error(`Gallery image missing: ${file}`);
     const src = mod.default;
     const thumb = await getImage({ src, height: 300, format: "webp" });
-    const full = await getImage({ src, width: Math.min(2000, src.width), format: "webp" });
+    // Don't read src.width etc. here: any property access on imported image
+    // metadata makes Astro ship the multi-MB original. Sharp never upscales.
+    const full = await getImage({ src, width: 1400, format: "webp", quality });
     return { alt, thumb, full };
   }),
 );

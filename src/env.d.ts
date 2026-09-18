@@ -11,3 +11,6 @@ interface Window {
   gtag?: (...args: unknown[]) => void;
   clarity?: (...args: unknown[]) => void;
 }
+
+// Package-exported stylesheet; the specifier has no .css extension for TS to match.
+declare module "@splidejs/splide/css";

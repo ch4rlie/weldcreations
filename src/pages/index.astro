@@ -1,0 +1,155 @@
+---
+import { Image, getImage } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Gallery from "../components/Gallery.astro";
+import RfqForm from "../components/RfqForm.astro";
+import { SITE } from "../config/site";
+import { siteGraph } from "../lib/schema";
+
+import tigIcon from "../assets/images/tig-icon.svg";
+import metalworkIcon from "../assets/images/metalwork.svg";
+import productionIcon from "../assets/images/production.svg";
+import precisionImg from "../assets/images/precision.jpeg";
+import fabricationImg from "../assets/images/service.jpeg";
+import productionImg from "../assets/images/production-service.jpeg";
+import aerospaceIcon from "../assets/images/aerospace-icon.svg";
+import defenseIcon from "../assets/images/defense-icon.svg";
+import foodIcon from "../assets/images/food-bev-icon.svg";
+import pharmaIcon from "../assets/images/pharma-icon.svg";
+import vitaminIcon from "../assets/images/vitamin-icon.svg";
+import machiningIcon from "../assets/images/machining-icon.svg";
+import aboutImg from "../assets/images/about-us.jpg";
+import heroPoster from "../assets/images/hero-video-thumbnail.jpg";
+
+const poster = await getImage({ src: heroPoster, width: 1600, format: "webp" });
+
+const services = [
+  { icon: tigIcon, title: "Precision TIG & MIG Welding", text: "Precision welding services for a variety of metals and applications. Steel, Titanium, Aluminum, Hastelloy, Stainless Steel & more." },
+  { icon: metalworkIcon, title: "Metal Fabrication", text: "Custom metal fabrication solutions tailored to your specific needs." },
+  { icon: productionIcon, title: "Product Development & Consulting", text: "Let us help you develop your product and bring it to life." },
+];
+
+const detailed = [
+  {
+    img: precisionImg,
+    alt: "Close-up of TIG welded stainless steel flanges with heat-tinted weld beads",
+    title: "Precision Welding Experts",
+    text: "As TIG welding specialists, we pride ourselves on delivering precise and high-quality welds for a variety of applications. Our expertise doesn't stop there; we also excel in MIG welding, known for its versatility and speed. Our team of experienced professionals is well-versed in all welding techniques, ensuring that we can meet any welding need with the highest level of skill and craftsmanship. Whether it's TIG or MIG, we are committed to providing exceptional welding services that meet the diverse requirements of our clients.",
+  },
+  {
+    img: fabricationImg,
+    alt: "Two welders fabricating a steel structure as sparks fly",
+    title: "Custom Metal Fabrication",
+    text: "We offer comprehensive metal fabrication services, specializing in cutting, bending, forming, and a wide range of other metalwork techniques to meet the unique demands of our clients. Our state-of-the-art equipment and skilled fabricators enable us to handle projects of all sizes and complexities with precision and efficiency. From initial design to final assembly, we ensure every detail is executed flawlessly, using advanced cutting methods for clean and accurate results, precise bending to achieve the desired angles and shapes, and expert forming to create strong and durable metal components. Whether you need custom parts, structural components, or intricate designs, our team is dedicated to delivering superior quality and craftsmanship in every project. Our extensive experience in metal fabrication allows us to tackle any challenge and provide tailored solutions that perfectly match your specifications.",
+  },
+  {
+    img: productionImg,
+    alt: "Welder joining stainless steel profiles on a fixture table beside a stack of finished parts",
+    title: "Production Parts",
+    text: "At Weld Creations, we specialize in production part runs, delivering high-quality TIG welded parts that meet the most stringent standards. While our expertise extends to a variety of metalwork and welded components, high-precision TIG welding remains our primary focus. Our skilled welders are dedicated to producing parts with exceptional accuracy and consistency, ensuring that each piece meets the specific requirements of our clients. Whether you need custom components or large-scale production runs, our commitment to quality and precision sets us apart. At Weld Creations, we understand the importance of reliable and durable parts, and our TIG welding capabilities are second to none, providing the perfect solution for your production needs.",
+  },
+];
+
+const industries = [
+  { icon: aerospaceIcon, title: "Aerospace", text: "Expert welding and fabrication for aerospace components, ensuring the highest standards of quality and safety. AWS D17.1 Certified." },
+  { icon: defenseIcon, title: "Defense", text: "Welding services for the defense industry, ensuring robust, precise, and reliable welds for critical equipment and components." },
+  { icon: foodIcon, title: "Food & Beverage", text: "Delivering expert welding services for the food and beverage industry, ensuring sanitary, durable, and compliant welds for all processing and production equipment." },
+  { icon: pharmaIcon, title: "Pharmaceutical", text: "Precise, hygienic, and compliant welds for manufacturing equipment and processes. Our expertise guarantees high-quality and reliable solutions to meet stringent industry standards." },
+  { icon: vitaminIcon, title: "Vitamin & Supplements", text: "Specialized welding services for the vitamin and supplement industry, ensuring high-quality and hygienic welds for equipment and manufacturing processes." },
+  { icon: machiningIcon, title: "Sheet Metal & Machining", text: "Welding services tailored for the sheet metal and machining industries, enhancing their capabilities with precise and reliable welding solutions." },
+];
+---
+<BaseLayout
+  title="Weld Creations | Precision TIG Welding, Glendora CA"
+  description="Precision TIG welding and metal fabrication in Glendora, CA. Production runs in stainless, aluminum, titanium and Hastelloy. AWS D17.1 certified."
+  jsonLd={[siteGraph()]}
+>
+  <div class="hero" id="home">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster={poster.src} aria-hidden="true">
+      <source src="/videos/hero-video.webm" type="video/webm" />
+      <source src="/videos/hero-video.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Precision TIG Welding <br />& Fabrication</h1>
+      <p>Expert Welding, Metal Fabrication, Product Development<br />Serving All of Southern California</p>
+      <a href="#contact">Request a Quote</a>
+    </div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header"><h2>Our Services</h2></div>
+      <div class="service-columns">
+        {services.map((s) => (
+          <div class="service-item">
+            <img src={s.icon.src} width={s.icon.width} height={s.icon.height} alt="" aria-hidden="true" class="service-icon" loading="lazy" />
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </div>
+        ))}
+      </div>
+      <div class="detailed-services">
+        {detailed.map((d) => (
+          <div class="detailed-service">
+            <Image src={d.img} alt={d.alt} class="service-image" width={1200} widths={[480, 800, 1200]} sizes="(max-width: 768px) 100vw, 50vw" format="webp" />
+            <div class="service-text">
+              <h3>{d.title}</h3>
+              <p>{d.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <Gallery />
+    </div>
+  </section>
+
+  <section class="industries" id="industries">
+    <div class="container">
+      <div class="industries-header"><h2>Industries We Serve</h2></div>
+      <div class="industry-columns">
+        {industries.map((i) => (
+          <div class="industry-item">
+            <img src={i.icon.src} width={i.icon.width} height={i.icon.height} alt="" aria-hidden="true" class="industry-icon" loading="lazy" />
+            <h3>{i.title}</h3>
+            <p>{i.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="about-us" id="about">
+    <div class="container">
+      <div class="about-header"><h2>About Us</h2></div>
+      <div class="about-content">
+        <div class="about-text">
+          <p style="font-size: 22px">A family business you can trust.</p>
+          <p>We are dedicated to delivering exceptional welding and fabrication services across Southern California. We are experienced professionals specializing in TIG welding, metal fabrication, production part runs, and custom metalwork. With a strong commitment to quality and precision, we take pride in our craftsmanship and attention to detail.</p>
+          <p style="font-size: 20px">Third Generation Welder</p>
+          <p>Founded with a vision to provide top-notch welding solutions, we have built a reputation for excellence in the industry. Our state-of-the-art equipment and advanced techniques ensure that we can handle projects of any size and complexity. From initial design to final production, we work closely with our clients to understand their unique needs and deliver tailored solutions that exceed expectations.</p>
+          <p>Whether it's welding for the pharmaceutical, aerospace, automotive, chemical, construction, or marine industries, our expertise and dedication set us apart. We are passionate about what we do and strive to be the go-to welding and fabrication service provider in the region.</p>
+        </div>
+        <div class="about-image">
+          <Image src={aboutImg} alt="The family behind Weld Creations walking together outdoors" width={1200} widths={[480, 800, 1200]} sizes="(max-width: 768px) 100vw, 50vw" format="webp" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-us" id="contact">
+    <div class="container">
+      <div class="contact-header"><h2>Request a Quote</h2></div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3><strong>Get in Touch</strong></h3>
+          <p>Send us your drawings, material and quantities, or call to talk through a project.</p>
+          <p><strong>Address:</strong> {SITE.address.street} {SITE.address.city}, {SITE.address.region} {SITE.address.postalCode}</p>
+          <p><strong>Email:</strong> <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+          <p><strong>Phone:</strong> <a href={`tel:${SITE.phoneE164}`}>{SITE.phone}</a></p>
+        </div>
+        <RfqForm />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
