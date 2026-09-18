@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import RfqForm from "../components/RfqForm.astro";
+import { SITE, FULL_ADDRESS } from "../config/site";
+import { breadcrumbSchema } from "../lib/schema";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Request a Quote", path: "/contact/" },
+];
+---
+<BaseLayout
+  title="Request a Welding & Fabrication Quote"
+  description="Request a welding or fabrication quote. Send your drawing, material, quantity and timeline, and Weld Creations replies within one business day."
+  jsonLd={[breadcrumbSchema(crumbs)]}
+>
+  <header class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={crumbs} />
+      <h1>Request a Quote</h1>
+      <p class="lead">
+        Send the drawing, material, quantity and timeline. Precision TIG welding, sanitary stainless, exotic alloys and production runs, in-house or through our partner network.
+      </p>
+    </div>
+  </header>
+
+  <section class="contact-us contact-page">
+    <div class="container">
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2 class="contact-subhead">What to Send</h2>
+          <ul class="checklist">
+            <li>Drawing (PDF or STEP), or photos and dimensions for a replacement part</li>
+            <li>Material and grade</li>
+            <li>Quantity per release and estimated annual volume</li>
+            <li>Finish, inspection and documentation requirements</li>
+            <li>Your timeline</li>
+          </ul>
+          <h2 class="contact-subhead">Contact</h2>
+          <p><strong>Phone:</strong> <a href={`tel:${SITE.phoneE164}`}>{SITE.phone}</a></p>
+          <p><strong>Email:</strong> <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+          <p><strong>Shop:</strong> <a href={SITE.googleMapsUrl} target="_blank" rel="noopener">{FULL_ADDRESS}</a></p>
+          <p>Visits and drop-offs by appointment. Please call ahead.</p>
+          <p>See our <a href="/capabilities/">capabilities summary</a> for your supplier file.</p>
+        </div>
+        <RfqForm />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-subhead {
+    font-family: "Kanit", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  .checklist {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 28px;
+  }
+  .checklist li {
+    margin-bottom: 6px;
+  }
+</style>

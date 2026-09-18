@@ -3,9 +3,9 @@ import { loadPages, visibleText, type Page } from "./helpers";
 import { SITE } from "../../src/config/site";
 
 const pages = loadPages();
-const SECTION = /^\/(services|materials|industries)\//;
+const SECTION = /^\/(services|materials|industries|locations)\//;
 const contentPages = pages.filter((p) => SECTION.test(p.path) && p.path.split("/").filter(Boolean).length === 2);
-const indexPages = pages.filter((p) => /^\/(services|materials|industries)\/$/.test(p.path));
+const indexPages = pages.filter((p) => /^\/(services|materials|industries|locations)\/$/.test(p.path));
 
 const graphs = (p: Page) =>
   p.$('script[type="application/ld+json"]')
@@ -69,8 +69,8 @@ describe.each(contentPages.map((p) => [p.path, p] as const))("%s", (path, p) => 
     for (const q of faq.mainEntity) expect(text).toContain(q.name);
   });
 
-  it("links to the quote form", () => {
-    expect(p.$('a[href="/#contact"]').length).toBeGreaterThan(0);
+  it("links to the quote page", () => {
+    expect(p.$('a[href="/contact/"]').length).toBeGreaterThan(0);
   });
 });
 

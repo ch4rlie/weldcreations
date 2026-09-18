@@ -25,6 +25,7 @@ const LOW_VALUE_PHRASES = [
   /welding (classes|lessons)/i,
   /\btire carrier\b/i,
   /\btrailer hitch\b/i,
+  /\b(titanium|stainless|custom) exhaust\b|\bexhaust (welding|fabrication)\b/i,
 ];
 
 describe("capability-claim guardrail", () => {

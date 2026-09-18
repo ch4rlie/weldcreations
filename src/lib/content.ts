@@ -1,15 +1,21 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 
-export type SectionName = "services" | "materials" | "industries";
+export type SectionName = "services" | "materials" | "industries" | "locations";
 export type SpineEntry = CollectionEntry<SectionName>;
 
 export const SECTIONS: Record<SectionName, { label: string; path: string }> = {
   services: { label: "Services", path: "/services/" },
   materials: { label: "Materials", path: "/materials/" },
   industries: { label: "Industries", path: "/industries/" },
+  locations: { label: "Locations", path: "/locations/" },
 };
 
-const RELATION_FIELDS = { services: "relatedServices", materials: "relatedMaterials", industries: "relatedIndustries" } as const;
+const RELATION_FIELDS = {
+  services: "relatedServices",
+  materials: "relatedMaterials",
+  industries: "relatedIndustries",
+  locations: "relatedLocations",
+} as const;
 
 export const entryPath = (collection: SectionName, id: string) => `/${collection}/${id}/`;
 
@@ -47,7 +53,7 @@ export async function relatedFor(entry: SpineEntry): Promise<Record<SectionName,
   }
   found.delete(self);
 
-  const grouped: Record<SectionName, SpineEntry[]> = { services: [], materials: [], industries: [] };
+  const grouped: Record<SectionName, SpineEntry[]> = { services: [], materials: [], industries: [], locations: [] };
   for (const e of found.values()) grouped[e.collection as SectionName].push(e);
   for (const list of Object.values(grouped)) list.sort((a, b) => a.data.order - b.data.order);
   return grouped;

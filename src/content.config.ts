@@ -24,6 +24,7 @@ const page = ({ image }: SchemaContext) =>
       relatedServices: z.array(reference("services")).default([]),
       relatedMaterials: z.array(reference("materials")).default([]),
       relatedIndustries: z.array(reference("industries")).default([]),
+      relatedLocations: z.array(reference("locations")).default([]),
     })
     .superRefine((d, ctx) => {
       if (d.heroImage && !d.heroAlt) ctx.addIssue({ code: "custom", message: "heroAlt is required when heroImage is set", path: ["heroAlt"] });
@@ -36,4 +37,5 @@ export const collections = {
   services: collection("services"),
   materials: collection("materials"),
   industries: collection("industries"),
+  locations: collection("locations"),
 };

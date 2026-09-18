@@ -18,7 +18,7 @@ const d = entry.data;
 const path = entryPath(collection, entry.id);
 const { Content } = await render(entry);
 const related = await relatedFor(entry);
-const KICKER: Record<SectionName, string> = { services: "Service", materials: "Material", industries: "Industry" };
+const KICKER: Record<SectionName, string> = { services: "Service", materials: "Material", industries: "Industry", locations: "Location" };
 const relatedCards = (Object.keys(related) as SectionName[]).flatMap((g) => related[g].map((r) => ({ g, r })));
 const crumbs = [
   { name: "Home", path: "/" },
@@ -37,7 +37,7 @@ const jsonLd = [
       <Breadcrumbs items={crumbs} />
       <h1>{d.h1}</h1>
       <p class="lead">{d.summary}</p>
-      <a class="btn" href="/#contact">Request a Quote</a>
+      <a class="btn" href="/contact/">Request a Quote</a>
     </div>
   </header>
   {d.heroImage && (

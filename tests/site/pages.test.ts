@@ -83,6 +83,21 @@ describe("homepage", () => {
   });
 });
 
+describe("contact page", () => {
+  const contact = pages.find((p) => p.path === "/contact/");
+  it("has the quote form and full NAP", () => {
+    expect(contact).toBeDefined();
+    expect(contact!.$("form#rfq-form").length).toBe(1);
+    const text = contact!.$("main").text().replace(/\s+/g, " ");
+    expect(text).toContain(SITE.phone);
+    expect(text).toContain(SITE.email);
+    expect(text).toContain(SITE.address.street);
+  });
+  it("is linked from the header on every page", () => {
+    for (const p of pages) expect(p.$('nav.navbar a[href="/contact/"]').length, p.path).toBeGreaterThan(0);
+  });
+});
+
 describe("404 page", () => {
   const nf = pages.find(isNotFoundPage);
   it("exists and is noindex", () => {

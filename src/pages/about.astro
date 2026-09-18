@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { SITE } from "../config/site";
+import { breadcrumbSchema } from "../lib/schema";
+import family from "../assets/images/about-us.jpg";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about/" },
+];
+---
+<BaseLayout
+  title="About Weld Creations | Third-Generation Welder"
+  description="Weld Creations is a family-owned precision welding and fabrication shop in Glendora, CA, run by third-generation welder Mark May. AWS D17.1 certified."
+  ogImage={family}
+  jsonLd={[breadcrumbSchema(crumbs)]}
+>
+  <header class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={crumbs} />
+      <h1>About Weld Creations</h1>
+      <p class="lead">A family-owned precision welding and fabrication shop in Glendora, run by third-generation welder {SITE.owner}.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <article class="prose">
+      <p>
+        Weld Creations builds the welded parts and equipment that manufacturers depend on: sanitary stainless for pharmaceutical and food production,
+        precision TIG welding in stainless, aluminum, titanium and nickel alloys, and repeatable production runs. We're a family business, and we treat
+        every part like our name is on it, because it is.
+      </p>
+
+      <h2>A third-generation welder</h2>
+      <p>
+        {SITE.owner} is a third-generation welder. The trade was passed down, and so were the standards: a weld is either right or it isn't.
+        That shows up in the details engineers notice, such as consistent bead profiles across a production run, clean back-purged roots on
+        sanitary tube, and machined features that stay in position after welding.
+      </p>
+      <p>
+        Mark is certified to <strong>AWS D17.1</strong>, the American Welding Society's specification for aerospace fusion welding. It's a
+        demanding standard, and the discipline it requires, from procedures to inspection to acceptance criteria, carries into every job in the shop.
+      </p>
+
+      <figure>
+        <Image src={family} alt="The family behind Weld Creations walking together outdoors" width={900} widths={[480, 900]} sizes="(max-width: 900px) 90vw, 780px" format="webp" />
+      </figure>
+
+      <h2>How we work</h2>
+      <ul>
+        <li>
+          <strong>Send the drawing, get the finished part.</strong> Welding is our core. Cutting, machining, finishing, passivation and
+          specialty processes are handled in-house or through a trusted partner network, so you have one supplier and one purchase order.
+        </li>
+        <li>
+          <strong>Built to your spec.</strong> Your drawing and specification define the job: material, finish, acceptance criteria and documentation.
+        </li>
+        <li>
+          <strong>Prototype to production.</strong> We fixture repeat work so the hundredth part matches the approved first article.
+        </li>
+        <li>
+          <strong>Straight answers.</strong> If a part isn't a good fit for us, or a design would be cheaper to build another way, we'll tell you.
+        </li>
+      </ul>
+
+      <h2>Who we work with</h2>
+      <p>
+        Pharmaceutical and nutraceutical manufacturers, food and beverage producers, aerospace and defense suppliers, and machine shops and sheet metal
+        fabricators that need a dependable welding partner. Our work is concentrated in Los Angeles, Orange and San Bernardino counties, from our shop
+        in Glendora.
+      </p>
+      <p>
+        Explore our <a href="/services/">services</a>, the <a href="/materials/">metals we weld</a>, and the <a href="/industries/">industries we serve</a>,
+        or download our <a href="/capabilities/">capabilities summary</a>.
+      </p>
+    </article>
+  </div>
+  <CtaBand />
+</BaseLayout>
