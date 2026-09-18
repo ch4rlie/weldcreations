@@ -4,7 +4,34 @@ import { canonicalUrl } from "./seo";
 export const BUSINESS_ID = `${SITE.url}/#business`;
 export const WEBSITE_ID = `${SITE.url}/#website`;
 
-export function siteGraph() {
+export const PERSON_ID = `${SITE.url}/#mark-may`;
+
+/** Topics the business is an authority on. Feeds knowsAbout for search and AI answer engines. */
+export const KNOWS_ABOUT = [
+  "TIG welding",
+  "Precision welding",
+  "Sanitary welding",
+  "Stainless steel welding",
+  "Aluminum welding",
+  "Titanium welding",
+  "Hastelloy welding",
+  "Inconel welding",
+  "Nickel alloy welding",
+  "Production welding",
+  "Custom metal fabrication",
+  "Pharmaceutical equipment fabrication",
+  "Food grade stainless steel fabrication",
+  "Aerospace welding",
+  "AWS D17.1",
+];
+
+export interface OfferRef {
+  name: string;
+  path: string;
+}
+
+export function siteGraph(opts: { offers?: OfferRef[] } = {}) {
+  const offers = opts.offers ?? [];
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -28,16 +55,33 @@ export function siteGraph() {
         geo: { "@type": "GeoCoordinates", latitude: SITE.geo.latitude, longitude: SITE.geo.longitude },
         hasMap: SITE.googleMapsUrl,
         areaServed: areaServed(),
-        founder: {
-          "@type": "Person",
-          name: SITE.owner,
-          jobTitle: "Owner & Master Welder",
-          hasCredential: SITE.certifications.map((name) => ({
-            "@type": "EducationalOccupationalCredential",
-            name,
-          })),
-        },
-        sameAs: SITE.sameAs,
+        founder: { "@id": PERSON_ID },
+        knowsAbout: KNOWS_ABOUT,
+        ...(offers.length > 0 && {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Welding and fabrication services",
+            itemListElement: offers.map((o) => ({
+              "@type": "Offer",
+              itemOffered: { "@id": `${canonicalUrl(o.path)}#service`, name: o.name, url: canonicalUrl(o.path) },
+            })),
+          },
+        }),
+        sameAs: [...SITE.sameAs, SITE.googleMapsUrl],
+      },
+      {
+        "@type": "Person",
+        "@id": PERSON_ID,
+        name: SITE.owner,
+        jobTitle: "Owner & Master Welder",
+        description: "Third-generation welder and owner of Weld Creations, specializing in precision TIG welding and fabrication.",
+        worksFor: { "@id": BUSINESS_ID },
+        knowsAbout: KNOWS_ABOUT,
+        hasCredential: SITE.certifications.map((name) => ({
+          "@type": "EducationalOccupationalCredential",
+          name,
+        })),
+        sameAs: SITE.sameAs.filter((u) => u.includes("linkedin.com")),
       },
       {
         "@type": "WebSite",

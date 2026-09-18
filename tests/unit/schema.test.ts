@@ -1,12 +1,17 @@
 import { describe, it, expect } from "vitest";
-import { siteGraph, BUSINESS_ID } from "../../src/lib/schema";
+import { siteGraph, BUSINESS_ID, PERSON_ID } from "../../src/lib/schema";
 import { SITE } from "../../src/config/site";
 
 type Node = Record<string, any>;
-const graph = siteGraph();
+const offers = [
+  { name: "Sanitary Welding", path: "/services/sanitary-welding/" },
+  { name: "Hastelloy", path: "/materials/hastelloy-welding/" },
+];
+const graph = siteGraph({ offers });
 const nodes = graph["@graph"] as Node[];
 const business = nodes.find((n) => n["@type"] === "ProfessionalService")!;
 const website = nodes.find((n) => n["@type"] === "WebSite")!;
+const person = nodes.find((n) => n["@type"] === "Person")!;
 
 describe("siteGraph", () => {
   it("uses the schema.org context", () => {
@@ -24,16 +29,35 @@ describe("siteGraph", () => {
       postalCode: SITE.address.postalCode,
       addressCountry: SITE.address.country,
     });
-    expect(business.sameAs).toEqual(SITE.sameAs);
+    expect(business.sameAs).toEqual([...SITE.sameAs, SITE.googleMapsUrl]);
+  });
+  it("describes what the business knows about", () => {
+    expect(business.knowsAbout).toEqual(expect.arrayContaining(["TIG welding", "Sanitary welding", "Hastelloy welding", "AWS D17.1"]));
+  });
+  it("lists an offer catalog linking to each spine page", () => {
+    const items = business.hasOfferCatalog.itemListElement;
+    expect(items).toHaveLength(offers.length);
+    expect(items[0]).toMatchObject({
+      "@type": "Offer",
+      itemOffered: { "@id": "https://weldcreations.com/services/sanitary-welding/#service", name: "Sanitary Welding" },
+    });
   });
   it("pins the business to its Google Business Profile location", () => {
     expect(business.geo).toEqual({ "@type": "GeoCoordinates", latitude: SITE.geo.latitude, longitude: SITE.geo.longitude });
     expect(business.hasMap).toBe(SITE.googleMapsUrl);
     expect(business.hasMap).toMatch(/^https:\/\/www\.google\.com\/maps\?cid=\d+$/);
   });
-  it("lists only confirmed credentials, on the founder", () => {
-    const creds = business.founder.hasCredential.map((c: Node) => c.name);
-    expect(creds).toEqual(SITE.certifications);
+  it("links the founder to a Person node with only confirmed credentials", () => {
+    expect(business.founder).toEqual({ "@id": PERSON_ID });
+    expect(person["@id"]).toBe(PERSON_ID);
+    expect(person.name).toBe(SITE.owner);
+    expect(person.worksFor).toEqual({ "@id": BUSINESS_ID });
+    expect(person.hasCredential.map((c: Node) => c.name)).toEqual(SITE.certifications);
+  });
+  it("works without offers", () => {
+    const g = siteGraph();
+    const b = (g["@graph"] as Node[]).find((n) => n["@type"] === "ProfessionalService")!;
+    expect(b.hasOfferCatalog).toBeUndefined();
   });
   it("links the website to the business", () => {
     expect(website.publisher).toEqual({ "@id": BUSINESS_ID });
