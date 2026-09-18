@@ -4,6 +4,16 @@ import { SITE } from "../config/site";
 const materials = ["Stainless steel", "Aluminum", "Carbon / mild steel", "Titanium", "Hastelloy", "Inconel", "Other / multiple alloys"];
 const quantities = ["Prototype (1–10 pcs)", "Short run (11–100 pcs)", "Production (100–1,000 pcs)", "High volume (1,000+ pcs)", "Recurring / annual contract"];
 const timelines = ["Under 2 weeks", "2–6 weeks", "6+ weeks", "Budgetary quote / planning"];
+const sources = [
+  "Google search",
+  "Google Maps",
+  "ChatGPT or another AI assistant",
+  "Bing",
+  "Thomasnet",
+  "Referral from a colleague",
+  "LinkedIn",
+  "Other",
+];
 ---
 <div class="rfq">
   <h3>Tell Us About Your Project</h3>
@@ -16,6 +26,7 @@ const timelines = ["Under 2 weeks", "2–6 weeks", "6+ weeks", "Budgetary quote 
     <input type="hidden" name="from_name" value="weldcreations.com" />
     <input type="hidden" name="landing_page" value="" />
     <input type="hidden" name="page" value="" />
+    <input type="hidden" name="referrer" value="" />
     <input type="checkbox" name="botcheck" class="hidden" style="display: none" tabindex="-1" autocomplete="off" />
 
     <div class="rfq-grid">
@@ -67,6 +78,13 @@ const timelines = ["Under 2 weeks", "2–6 weeks", "6+ weeks", "Budgetary quote 
         <span class="hint">Dropbox, Google Drive, OneDrive, etc.</span>
       </div>
       <div class="rfq-field full">
+        <label for="rfq-source">How did you find us?</label>
+        <select id="rfq-source" name="lead_source" required>
+          <option value="">Select…</option>
+          {sources.map((o) => <option>{o}</option>)}
+        </select>
+      </div>
+      <div class="rfq-field full">
         <label for="rfq-message">Project details</label>
         <textarea id="rfq-message" name="message" rows="5" required placeholder="Part description, dimensions or specs, finish, and any certifications or documentation required."></textarea>
         <div class="empty-feedback">Please describe the project.</div>
@@ -84,15 +102,24 @@ const timelines = ["Under 2 weeks", "2–6 weeks", "6+ weeks", "Budgetary quote 
   const result = document.getElementById("rfq-result")!;
   const field = (name: string) => form.querySelector<HTMLInputElement>(`[name="${name}"]`)!;
 
+  // First page and external referrer of the visit, e.g. chatgpt.com or perplexity.ai.
+  const externalReferrer = document.referrer && new URL(document.referrer).host !== location.host ? document.referrer : "";
   let landing = location.pathname;
+  let referrer = externalReferrer;
   try {
     landing = sessionStorage.getItem("wc_landing") ?? location.pathname;
+    referrer = sessionStorage.getItem("wc_referrer") ?? externalReferrer;
     sessionStorage.setItem("wc_landing", landing);
+    sessionStorage.setItem("wc_referrer", referrer);
   } catch {
-    // storage unavailable (private mode); fall back to the current page
+    // storage unavailable (private mode); fall back to this page's values
   }
-  field("landing_page").value = landing;
-  field("page").value = location.pathname;
+  const fillAttribution = () => {
+    field("landing_page").value = landing;
+    field("page").value = location.pathname;
+    field("referrer").value = referrer;
+  };
+  fillAttribution();
 
   const setResult = (text: string, kind: "ok" | "err" | "") => {
     result.textContent = text;
@@ -123,13 +150,14 @@ const timelines = ["Under 2 weeks", "2–6 weeks", "6+ weeks", "Budgetary quote 
         material: data.material,
         quantity: data.quantity,
         landing_page: data.landing_page,
+        lead_source: data.lead_source,
+        referrer_host: referrer ? new URL(referrer).host : "(direct)",
       });
       window.clarity?.("event", "generate_lead");
       setResult("Thanks. Your quote request was sent, and we'll reply within one business day.", "ok");
       form.reset();
       form.classList.remove("was-validated");
-      field("landing_page").value = landing;
-      field("page").value = location.pathname;
+      fillAttribution();
     } catch {
       setResult("Something went wrong. Please call (626) 675-4239 or email weldcreations@yahoo.com.", "err");
     } finally {

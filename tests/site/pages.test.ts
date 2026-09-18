@@ -77,9 +77,16 @@ describe("homepage", () => {
     const form = home.$("form#rfq-form");
     expect(form.length).toBe(1);
     expect(form.find('input[name="access_key"]').attr("value")).toBe(SITE.web3formsKey);
-    for (const name of ["name", "company", "email", "material", "quantity", "timeline", "message"]) {
+    for (const name of ["name", "company", "email", "material", "quantity", "timeline", "message", "lead_source"]) {
       expect(form.find(`[name="${name}"]`).length, name).toBe(1);
     }
+  });
+  it("asks how the buyer found us, including AI assistants", () => {
+    const select = home.$('form#rfq-form select[name="lead_source"]');
+    expect(select.attr("required")).toBeDefined();
+    const options = select.find("option").map((_, el) => home.$(el).text()).get();
+    expect(options.some((o) => /ChatGPT/.test(o))).toBe(true);
+    expect(home.$('form#rfq-form input[type="hidden"][name="referrer"]').length).toBe(1);
   });
 });
 
