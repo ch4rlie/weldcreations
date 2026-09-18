@@ -41,7 +41,7 @@ Equipment in a pharmaceutical facility is judged on cleanability as much as func
 - **Back-purged, full-penetration welds** on tube and closed sections, so the inside is as clean as the outside.
 - **Free-draining geometry.** Sloped surfaces, radiused corners, no horizontal ledges, no open tube ends.
 - **Finishes to your spec.** Welds blended and polished to the surface roughness on your drawing, with passivation or electropolishing through specialist partners when required.
-- **The right materials.** 316L for product contact and 304/304L for structure, plus nickel alloys like [Hastelloy](/materials/hastelloy-welding/) where the process chemistry is aggressive.
+- **The right materials.** [316L stainless](/materials/stainless-steel-welding/) for product contact and 304/304L for structure, plus nickel alloys like [Hastelloy](/materials/hastelloy-welding/) where the process chemistry is aggressive.
 
 For a deeper look at what separates a sanitary weld from a structural one, see [sanitary welding](/services/sanitary-welding/).
 

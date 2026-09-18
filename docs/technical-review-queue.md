@@ -35,6 +35,18 @@ This is **optional**. Mark can skim it whenever he has a minute. Nothing here bl
 | 26 | `/capabilities/` | Industries | "Defense suppliers" listed (see flag E) | |
 | 27 | `/capabilities/` | Work types | "On-site fit-up and installation" and "Repair and modification of existing equipment" | |
 | 28 | All new pages | CTA | "We reply within one business day" (same as item 1) | |
+| 29 | `/industries/aerospace-welding/` | Positioning | Best fit for components, tooling and fixtures, ground support equipment, test rigs and R&D hardware; D17.1 weld classes A/B/C described; NDT arranged through partners | |
+| 30 | `/materials/titanium-welding/` | Procedure | Reactive above ~800°F; ERTi-2 for CP and ERTi-5 / ERTi-5ELI for Ti-6Al-4V (AWS A5.16); trailing shield plus back purge; "we can weld inside a purged enclosure" for complex parts | |
+| 31 | `/materials/titanium-welding/` | Weld color | Silver OK, light straw may be acceptable per spec, darker straw through white generally rejected | |
+| 32 | `/materials/stainless-steel-welding/` | Metallurgy | Sensitization range 800–1,500°F; fillers 308L / 316L / 309L; also welds 17-4 PH, ferritic and duplex grades | |
+| 33 | `/materials/inconel-welding/` | Filler table | 625 → ERNiCrMo-3, 718 → ERNiFeCr-2, 600 → ERNiCr-3; 718 welded solution-annealed then aged; heat treatment through partners; material sourced with MTRs | |
+| 34 | `/materials/aluminum-welding/` | Filler table | 5xxx → 5356; 6061/6063 → 4043 or 5356; 3003 → 4043 or 1100; 2219 → 2319; 7075 not recommended; oxide ~3,700°F vs metal ~1,200°F; 6061-T6 HAZ strength loss | |
+| 35 | `/materials/aluminum-welding/` | Partners | Anodizing, powder coating and heat treatment through partners; material sourced with certs | |
+| 36 | `/industries/food-beverage-welding/` | Construction | Sealed tube frames, no exposed threads in wash-down zones, stainless fasteners throughout | |
+| 37 | `/services/metal-fabrication/` | Scope | Laser, waterjet, shear and saw cutting; forming; machining; finishing, via shop or partners; help with product development and design-for-manufacture | |
+| 38 | `/locations/glendora-ca/` | Location | "Gladstone Industrial Park"; 210 (Foothill) and 57 (Orange) freeways; visits and drop-offs by appointment; pick-up at the shop or shipping arranged | |
+| 39 | `/about/` | Story | "The trade was passed down, and so were the standards"; Mark personally certified to AWS D17.1 (see #4) | |
+| 40 | `/contact/` | Visits | "Visits and drop-offs by appointment. Please call ahead." | |
 
 ## Content flags (not assertions, but decisions for Mark)
 

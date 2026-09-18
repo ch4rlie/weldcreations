@@ -77,7 +77,7 @@ Hastelloy costs many times more than 316L, so it earns its place only where stai
 
 ## Why Weld Creations
 
-Nickel alloys reward precise heat control, which is why [TIG welding](/services/tig-welding/) is our core process. We're AWS D17.1 certified to the aerospace fusion welding standard, which covers nickel-based alloys among others, and we bring that discipline to every exotic-alloy job. We also do [sanitary welding](/services/sanitary-welding/) in 316L, so mixed-material equipment can be built under one roof. See our [capabilities](/capabilities/) for the full picture.
+Like [Inconel](/materials/inconel-welding/), Hastelloy rewards precise heat control, which is why [TIG welding](/services/tig-welding/) is our core process. We're AWS D17.1 certified to the aerospace fusion welding standard, which covers nickel-based alloys among others, and we bring that discipline to every exotic-alloy job. We also do [sanitary welding](/services/sanitary-welding/) in 316L, so mixed-material equipment can be built under one roof. See our [capabilities](/capabilities/) for the full picture.
 
 ## Request a Hastelloy welding quote
 

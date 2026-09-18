@@ -53,10 +53,10 @@ We run both, and we'll tell you which one your part actually needs.
 
 ## Metals we TIG weld
 
-- **Stainless steel.** 304/304L, 316/316L and more, for sanitary, pharmaceutical, food and architectural parts.
-- **Aluminum.** Welded on AC, where the cleaning action of the arc breaks up the surface oxide, for enclosures, frames, brackets and aerospace components.
-- **Titanium.** Needs full shielding until the weld cools. Weld color is a direct indicator of contamination, so shielding is non-negotiable.
-- **Nickel alloys.** [Hastelloy](/materials/hastelloy-welding/) and Inconel for corrosive and high-temperature service, welded with matched fillers and low heat input.
+- **[Stainless steel](/materials/stainless-steel-welding/).** 304/304L, 316/316L and more, for sanitary, pharmaceutical, food and architectural parts.
+- **[Aluminum](/materials/aluminum-welding/).** Welded on AC, where the cleaning action of the arc breaks up the surface oxide, for enclosures, frames, brackets and aerospace components.
+- **[Titanium](/materials/titanium-welding/).** Needs full shielding until the weld cools. Weld color is a direct indicator of contamination, so shielding is non-negotiable.
+- **Nickel alloys.** [Hastelloy](/materials/hastelloy-welding/) and [Inconel](/materials/inconel-welding/) for corrosive and high-temperature service, welded with matched fillers and low heat input.
 - **Carbon and chromoly steel.** For precision frames, fixtures and components.
 
 ## AWS D17.1 certified
@@ -83,13 +83,13 @@ We return the parts welded, inspected and ready for the next operation.
 ## Industries
 
 - **Pharmaceutical and nutraceutical.** Cleanroom stainless, hoppers and machine frames. See [pharmaceutical equipment fabrication](/industries/pharmaceutical-welding/).
-- **Food and beverage.** Sanitary equipment and components.
-- **Aerospace.** Precision welded components under AWS D17.1.
+- **[Food and beverage](/industries/food-beverage-welding/).** Sanitary equipment and components.
+- **[Aerospace](/industries/aerospace-welding/).** Precision welded components under AWS D17.1.
 - **Sheet metal and machining shops.** Welding support for shops that need a trusted TIG partner.
 
 ## Service area
 
-We're based at 2041 E Gladstone St in Glendora, with easy access to the 210 and 57 freeways. We serve manufacturers throughout Los Angeles County, Orange County and San Bernardino County, and we ship finished parts farther. For a printable overview for your purchasing team, see our [capabilities](/capabilities/).
+We're based at 2041 E Gladstone St in [Glendora](/locations/glendora-ca/), with easy access to the 210 and 57 freeways. We serve manufacturers throughout Los Angeles County, Orange County and San Bernardino County, and we ship finished parts farther. For a printable overview for your purchasing team, see our [capabilities](/capabilities/).
 
 ## Request a TIG welding quote
 

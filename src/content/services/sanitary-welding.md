@@ -46,7 +46,7 @@ A structural weld only has to be strong. A sanitary weld also has to be *cleanab
 
 ## Materials and finishes
 
-Most sanitary work is **316L stainless steel** for product-contact parts and **304 / 304L** for frames, guards and structure. The low-carbon "L" grades resist sensitization, the loss of corrosion resistance next to a weld. For aggressive process chemistry we also weld nickel alloys such as [Hastelloy](/materials/hastelloy-welding/).
+Most sanitary work is **316L [stainless steel](/materials/stainless-steel-welding/)** for product-contact parts and **304 / 304L** for frames, guards and structure. The low-carbon "L" grades resist sensitization, the loss of corrosion resistance next to a weld. For aggressive process chemistry we also weld nickel alloys such as [Hastelloy](/materials/hastelloy-welding/).
 
 Finish requirements vary by industry and by part. Food-contact surfaces are commonly specified around 32 µin Ra or smoother. Pharmaceutical product-contact surfaces are often specified smoother still. Put the Ra value and any electropolish requirement on the drawing, and we'll quote the finishing along with the fabrication.
 
@@ -79,7 +79,7 @@ Many sanitary projects start as a one-off, such as a replacement hopper, a modif
 ## Industries we support
 
 - **Pharmaceutical and nutraceutical.** Tablet press and capsule-line equipment, hoppers, frames and cleanroom stainless. See [pharmaceutical equipment fabrication](/industries/pharmaceutical-welding/).
-- **Food and beverage.** Hoppers, chutes, conveyor components and processing equipment where cleanability is non-negotiable.
+- **[Food and beverage](/industries/food-beverage-welding/).** Hoppers, chutes, conveyor components and processing equipment where cleanability is non-negotiable.
 - **Supplements and vitamins.** Powder handling equipment and machine components for high-changeover production.
 
 ## Request a sanitary welding quote

@@ -67,12 +67,12 @@ You issue one purchase order and deal with one point of contact.
 
 ## Materials
 
-Production runs in stainless steel (304/304L, 316/316L), aluminum, carbon and chromoly steel, titanium, and nickel alloys like [Hastelloy](/materials/hastelloy-welding/). For product-contact parts in pharmaceutical and food equipment, see [sanitary welding](/services/sanitary-welding/).
+Production runs in [stainless steel](/materials/stainless-steel-welding/) (304/304L, 316/316L), [aluminum](/materials/aluminum-welding/), carbon and chromoly steel, [titanium](/materials/titanium-welding/), and nickel alloys like [Hastelloy](/materials/hastelloy-welding/). For product-contact parts in pharmaceutical and food equipment, see [sanitary welding](/services/sanitary-welding/).
 
 ## Good fits for production welding
 
 - Brackets, mounts and weldments that combine machined and fabricated parts
-- Frames, stands and enclosures built to repeat
+- Frames, stands and enclosures built to repeat. See [custom metal fabrication](/services/metal-fabrication/).
 - Stainless hoppers, chutes and machine components for [pharmaceutical](/industries/pharmaceutical-welding/) and food equipment manufacturers
 - Assemblies for machine shops and sheet metal shops that need a dependable welding partner
 - Products moving from prototype to production, where we can help refine the design for welding and cost
