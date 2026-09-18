@@ -1213,3 +1213,9 @@ button:focus-visible {
 .specialties .card a {
   text-align: left;
 }
+
+.page-meta {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #aab4bf;
+}

@@ -11,6 +11,7 @@ secondaryKeywords:
   - aluminum tig welding services
   - custom aluminum fabrication
 serviceType: Aluminum welding and fabrication
+updated: 2026-09-18
 order: 5
 faqs:
   - q: Should I use 4043 or 5356 filler for aluminum?

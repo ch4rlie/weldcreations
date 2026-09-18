@@ -11,6 +11,7 @@ secondaryKeywords:
   - inconel welding procedure
   - inconel to stainless welding
 serviceType: Inconel and nickel alloy welding
+updated: 2026-09-18
 order: 4
 faqs:
   - q: Can Inconel be welded?

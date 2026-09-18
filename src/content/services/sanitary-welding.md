@@ -13,6 +13,7 @@ secondaryKeywords:
 serviceType: Sanitary stainless steel welding and fabrication
 heroImage: ../../assets/gallery/16.jpg
 heroAlt: Three fabricated stainless steel hoppers with perforated cones and side inlets on a stainless workbench
+updated: 2026-09-18
 order: 2
 faqs:
   - q: What makes a weld "sanitary"?

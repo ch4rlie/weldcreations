@@ -69,6 +69,16 @@ describe.each(contentPages.map((p) => [p.path, p] as const))("%s", (path, p) => 
     for (const q of faq.mainEntity) expect(text).toContain(q.name);
   });
 
+  it("shows an Updated date that matches WebPage.dateModified", () => {
+    const wp = nodes.find((n) => n["@type"] === "WebPage");
+    expect(wp).toBeDefined();
+    expect(wp.url).toBe(canonical);
+    expect(wp.dateModified).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    const time = p.$("time.updated");
+    expect(time.attr("datetime")).toBe(wp.dateModified);
+    expect(time.text()).toMatch(/Updated [A-Z][a-z]+ \d{4}/);
+  });
+
   it("links to the quote page", () => {
     expect(p.$('a[href="/contact/"]').length).toBeGreaterThan(0);
   });

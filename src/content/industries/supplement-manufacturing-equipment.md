@@ -13,6 +13,7 @@ secondaryKeywords:
 serviceType: Supplement and nutraceutical equipment fabrication
 heroImage: ../../assets/gallery/10.jpg
 heroAlt: Capsule filling machine with a stainless feed hopper in a pharmaceutical cleanroom
+updated: 2026-09-18
 order: 3
 faqs:
   - q: What supplement manufacturing equipment do you fabricate?

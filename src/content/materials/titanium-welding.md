@@ -11,6 +11,7 @@ secondaryKeywords:
   - titanium welding company
   - aerospace titanium welding
 serviceType: Titanium welding
+updated: 2026-09-18
 order: 2
 faqs:
   - q: Why is titanium hard to weld?

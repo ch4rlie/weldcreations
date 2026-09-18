@@ -13,6 +13,7 @@ secondaryKeywords:
 serviceType: Precision TIG (GTAW) welding
 heroImage: ../../assets/gallery/1.jpg
 heroAlt: TIG welded stainless steel bracket, a machined and bored block fillet welded to a drilled mounting plate
+updated: 2026-09-18
 order: 1
 faqs:
   - q: What is TIG welding best for?

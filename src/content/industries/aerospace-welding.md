@@ -11,6 +11,7 @@ secondaryKeywords:
   - aerospace tig welding
   - aircraft welding services
 serviceType: Aerospace fusion welding
+updated: 2026-09-18
 order: 3
 faqs:
   - q: What is AWS D17.1?

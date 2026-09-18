@@ -13,6 +13,7 @@ secondaryKeywords:
 serviceType: Food grade stainless steel fabrication
 heroImage: ../../assets/gallery/14.jpg
 heroAlt: Stainless steel hopper with a perforated cone, angled inlet pipe and sanitary clamp fittings
+updated: 2026-09-18
 order: 2
 faqs:
   - q: What makes stainless steel fabrication "food grade"?

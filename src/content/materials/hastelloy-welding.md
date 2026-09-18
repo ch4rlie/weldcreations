@@ -11,6 +11,7 @@ secondaryKeywords:
   - hastelloy c276 to 316 stainless
   - hastelloy fabrication
 serviceType: Hastelloy and nickel alloy welding
+updated: 2026-09-18
 order: 3
 faqs:
   - q: What filler metal is used for Hastelloy C-276?

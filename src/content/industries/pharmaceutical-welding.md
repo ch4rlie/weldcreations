@@ -13,6 +13,7 @@ secondaryKeywords:
 serviceType: Pharmaceutical equipment fabrication and welding
 heroImage: ../../assets/gallery/8.jpg
 heroAlt: Tablet press installed in a pharmaceutical cleanroom with stainless ductwork overhead
+updated: 2026-09-18
 order: 1
 faqs:
   - q: What pharmaceutical equipment do you fabricate?

@@ -119,6 +119,21 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
   };
 }
 
+export function webPageSchema(o: { name: string; description: string; path: string; dateModified: string; aboutId?: string }) {
+  const url = canonicalUrl(o.path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: o.name,
+    description: o.description,
+    dateModified: o.dateModified,
+    isPartOf: { "@id": WEBSITE_ID },
+    ...(o.aboutId && { about: { "@id": o.aboutId } }),
+  };
+}
+
 export function faqSchema(faqs: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

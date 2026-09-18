@@ -13,6 +13,7 @@ secondaryKeywords:
 serviceType: Custom metal fabrication
 heroImage: ../../assets/gallery/18.jpg
 heroAlt: Fabricated stainless steel enclosure and frame sections on a pallet ready for delivery
+updated: 2026-09-18
 order: 4
 faqs:
   - q: What does custom metal fabrication include?

@@ -13,6 +13,7 @@ secondaryKeywords:
 serviceType: Subcontract welding
 heroImage: ../../assets/gallery/3.jpg
 heroAlt: Rear view of a TIG welded stainless mounting bracket showing consistent fillet welds around the machined block
+updated: 2026-09-18
 order: 4
 faqs:
   - q: What kind of subcontract welding do you do for machine shops?

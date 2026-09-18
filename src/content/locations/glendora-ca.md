@@ -13,6 +13,7 @@ secondaryKeywords:
 serviceType: Welding and metal fabrication
 heroImage: ../../assets/gallery/13.jpg
 heroAlt: Stainless steel equipment stand with a welded square base on a production line
+updated: 2026-09-18
 order: 1
 faqs:
   - q: Where is your shop?

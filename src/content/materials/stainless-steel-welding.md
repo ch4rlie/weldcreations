@@ -13,6 +13,7 @@ secondaryKeywords:
 serviceType: Stainless steel welding and fabrication
 heroImage: ../../assets/gallery/6.jpg
 heroAlt: Fabricated stainless steel tank enclosure with welded ports and a lid, on the shop floor
+updated: 2026-09-18
 order: 1
 faqs:
   - q: What's the difference between 304 and 316 stainless for welded parts?

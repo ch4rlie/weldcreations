@@ -2,11 +2,13 @@
 import { Image } from "astro:assets";
 import { render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../config/site";
 import Breadcrumbs from "./Breadcrumbs.astro";
 import Faq from "./Faq.astro";
 import CtaBand from "./CtaBand.astro";
 import { SECTIONS, entryPath, relatedFor, type SectionName, type SpineEntry } from "../lib/content";
-import { serviceSchema, breadcrumbSchema, faqSchema } from "../lib/schema";
+import { serviceSchema, breadcrumbSchema, faqSchema, webPageSchema } from "../lib/schema";
+import { canonicalUrl } from "../lib/seo";
 
 interface Props {
   entry: SpineEntry;
@@ -25,8 +27,11 @@ const crumbs = [
   { name: section.label, path: section.path },
   { name: d.navLabel, path },
 ];
+const updatedIso = d.updated.toISOString().slice(0, 10);
+const updatedLabel = d.updated.toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
 const jsonLd = [
   serviceSchema({ name: d.h1, description: d.description, path, serviceType: d.serviceType }),
+  webPageSchema({ name: d.title, description: d.description, path, dateModified: updatedIso, aboutId: `${canonicalUrl(path)}#service` }),
   breadcrumbSchema(crumbs),
   ...(d.faqs.length ? [faqSchema(d.faqs)] : []),
 ];
@@ -38,6 +43,7 @@ const jsonLd = [
       <h1>{d.h1}</h1>
       <p class="lead">{d.summary}</p>
       <a class="btn" href="/contact/">Request a Quote</a>
+      <p class="page-meta">By {SITE.name} · <time class="updated" datetime={updatedIso}>Updated {updatedLabel}</time></p>
     </div>
   </header>
   {d.heroImage && (

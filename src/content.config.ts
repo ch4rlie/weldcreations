@@ -18,6 +18,8 @@ const page = ({ image }: SchemaContext) =>
       serviceType: z.string(),
       heroImage: image().optional(),
       heroAlt: z.string().optional(),
+      /** Last substantive content update. Shown on the page and emitted as dateModified. */
+      updated: z.coerce.date(),
       order: z.number().default(100),
       draft: z.boolean().default(false),
       faqs: z.array(faq).default([]),

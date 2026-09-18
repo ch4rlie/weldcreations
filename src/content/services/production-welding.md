@@ -13,6 +13,7 @@ secondaryKeywords:
 serviceType: Production and contract welding
 heroImage: ../../assets/gallery/2.jpg
 heroAlt: Production run of identical TIG welded stainless block-and-plate brackets lined up in the shop
+updated: 2026-09-18
 order: 3
 faqs:
   - q: What quantities do you run?
