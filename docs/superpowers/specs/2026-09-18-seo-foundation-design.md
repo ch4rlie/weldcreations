@@ -44,6 +44,7 @@ URLs are permanent once published. Trailing slashes, lowercase, hyphenated.
   /services/tig-welding/
   /services/metal-fabrication/
   /services/production-welding/     ← production runs: the highest-value service
+  /services/sanitary-welding/       ← added 2026-09-18 (Phase 2 data: strongest purchase-intent term)
 /materials/
   /materials/aluminum-welding/
   /materials/titanium-welding/
@@ -52,7 +53,7 @@ URLs are permanent once published. Trailing slashes, lowercase, hyphenated.
   /materials/stainless-steel-welding/
 /industries/
   /industries/pharmaceutical-welding/
-  /industries/food-grade-sanitary-welding/
+  /industries/food-beverage-welding/    ← renamed 2026-09-18 to match search demand
   /industries/aerospace-welding/
 /capabilities/                      ← vendor-vetting / printable capability statement
 /about/                             ← E-E-A-T, third-generation story
@@ -61,7 +62,7 @@ URLs are permanent once published. Trailing slashes, lowercase, hyphenated.
   /locations/glendora-ca/               ← primary local hub
 ```
 
-**Core spine = 16 URLs** (including index pages for `/services/`, `/materials/`, `/industries/`, `/locations/`).
+**Core spine = 17 URLs** (including index pages for `/services/`, `/materials/`, `/industries/`, `/locations/`).
 
 ### 4a. Lead-quality rules (negative targeting)
 
@@ -129,7 +130,7 @@ A **content audit checklist** (`docs/seo/content-audit-checklist.md`) is applied
 | 0 | Measurement & truth | Capability audit sheet; GA4/GSC/Bing integration points; conversion event | Build passes; event fires in GA4 debug view (owner) |
 | 1 | Technical foundation | Astro site at parity with current content; SEO infrastructure; schema | Build passes; every page validates (schema, meta, links); Lighthouse ≥90 SEO/Perf |
 | 2 | Research | `docs/seo/keyword-map.md`: keyword universe, SERP teardown, keyword→URL map | Every spine URL has a primary + secondary keyword set |
-| 3 | Core spine content | 16 URLs written and interlinked | Each page passes the content audit checklist |
+| 3 | Core spine content | 17 URLs written and interlinked (keyword map: `docs/seo/keyword-map.md`) | Each page passes the content audit checklist |
 | 4 | Local | Glendora hub; GBP and citation checklist | NAP consistent across all pages |
 | 5 | Audit & iterate | Full technical + content audit; 60-day data checkpoint | Documented expansion decisions |
 
