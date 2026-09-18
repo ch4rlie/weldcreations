@@ -134,6 +134,23 @@ export function webPageSchema(o: { name: string; description: string; path: stri
   };
 }
 
+export function articleSchema(o: { headline: string; description: string; path: string; datePublished: string; dateModified: string; image?: string }) {
+  const url = canonicalUrl(o.path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: o.headline,
+    description: o.description,
+    mainEntityOfPage: url,
+    datePublished: o.datePublished,
+    dateModified: o.dateModified,
+    author: { "@id": BUSINESS_ID },
+    publisher: { "@id": BUSINESS_ID },
+    ...(o.image && { image: o.image }),
+  };
+}
+
 export function faqSchema(faqs: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

@@ -3,9 +3,10 @@ import { loadPages, visibleText, type Page } from "./helpers";
 import { SITE } from "../../src/config/site";
 
 const pages = loadPages();
-const SECTION = /^\/(services|materials|industries|locations)\//;
+const SECTION = /^\/(services|materials|industries|locations|guides)\//;
 const contentPages = pages.filter((p) => SECTION.test(p.path) && p.path.split("/").filter(Boolean).length === 2);
-const indexPages = pages.filter((p) => /^\/(services|materials|industries|locations)\/$/.test(p.path));
+const indexPages = pages.filter((p) => /^\/(services|materials|industries|locations|guides)\/$/.test(p.path));
+const isGuide = (path: string) => path.startsWith("/guides/");
 
 const graphs = (p: Page) =>
   p.$('script[type="application/ld+json"]')
@@ -18,6 +19,12 @@ const MIN_WORDS = 700;
 describe("content pages exist", () => {
   it("builds at least one content page", () => {
     expect(contentPages.length).toBeGreaterThan(0);
+  });
+  it("builds the two buyer guides", () => {
+    expect(contentPages.filter((p) => isGuide(p.path)).map((p) => p.path).sort()).toEqual([
+      "/guides/aws-d17-1-certification-explained/",
+      "/guides/how-to-choose-a-sanitary-welding-company/",
+    ]);
   });
 });
 
@@ -32,9 +39,18 @@ describe.each(contentPages.map((p) => [p.path, p] as const))("%s", (path, p) => 
     expect(p.$("nav.breadcrumbs li").length).toBe(bc.itemListElement.length);
   });
 
-  it("has a Service provided by the business node on the same page", () => {
-    const svc = nodes.find((n) => n["@type"] === "Service");
+  it("has a Service (or, for guides, an Article) tied to the business node", () => {
     const business = nodes.find((n) => n["@type"] === "ProfessionalService");
+    if (isGuide(path)) {
+      const art = nodes.find((n) => n["@type"] === "Article");
+      expect(art).toBeDefined();
+      expect(art.mainEntityOfPage).toBe(canonical);
+      expect(art.author["@id"]).toBe(business["@id"]);
+      expect(art.publisher["@id"]).toBe(business["@id"]);
+      expect(art.dateModified).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      return;
+    }
+    const svc = nodes.find((n) => n["@type"] === "Service");
     expect(svc).toBeDefined();
     expect(svc.url).toBe(canonical);
     expect(svc.provider["@id"]).toBe(business["@id"]);

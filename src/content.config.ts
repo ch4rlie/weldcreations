@@ -15,7 +15,8 @@ const page = ({ image }: SchemaContext) =>
       summary: z.string().max(220),
       primaryKeyword: z.string(),
       secondaryKeywords: z.array(z.string()).default([]),
-      serviceType: z.string(),
+      /** Service pages only; guides use Article schema instead. */
+      serviceType: z.string().optional(),
       heroImage: image().optional(),
       heroAlt: z.string().optional(),
       /** Last substantive content update. Shown on the page and emitted as dateModified. */
@@ -27,6 +28,7 @@ const page = ({ image }: SchemaContext) =>
       relatedMaterials: z.array(reference("materials")).default([]),
       relatedIndustries: z.array(reference("industries")).default([]),
       relatedLocations: z.array(reference("locations")).default([]),
+      relatedGuides: z.array(reference("guides")).default([]),
     })
     .superRefine((d, ctx) => {
       if (d.heroImage && !d.heroAlt) ctx.addIssue({ code: "custom", message: "heroAlt is required when heroImage is set", path: ["heroAlt"] });
@@ -40,4 +42,5 @@ export const collections = {
   materials: collection("materials"),
   industries: collection("industries"),
   locations: collection("locations"),
+  guides: collection("guides"),
 };

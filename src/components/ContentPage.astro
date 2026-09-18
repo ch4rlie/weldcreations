@@ -7,7 +7,7 @@ import Breadcrumbs from "./Breadcrumbs.astro";
 import Faq from "./Faq.astro";
 import CtaBand from "./CtaBand.astro";
 import { SECTIONS, entryPath, relatedFor, type SectionName, type SpineEntry } from "../lib/content";
-import { serviceSchema, breadcrumbSchema, faqSchema, webPageSchema } from "../lib/schema";
+import { serviceSchema, breadcrumbSchema, faqSchema, webPageSchema, articleSchema } from "../lib/schema";
 import { canonicalUrl } from "../lib/seo";
 
 interface Props {
@@ -20,7 +20,7 @@ const d = entry.data;
 const path = entryPath(collection, entry.id);
 const { Content } = await render(entry);
 const related = await relatedFor(entry);
-const KICKER: Record<SectionName, string> = { services: "Service", materials: "Material", industries: "Industry", locations: "Location" };
+const KICKER: Record<SectionName, string> = { services: "Service", materials: "Material", industries: "Industry", locations: "Location", guides: "Guide" };
 const relatedCards = (Object.keys(related) as SectionName[]).flatMap((g) => related[g].map((r) => ({ g, r })));
 const crumbs = [
   { name: "Home", path: "/" },
@@ -29,9 +29,13 @@ const crumbs = [
 ];
 const updatedIso = d.updated.toISOString().slice(0, 10);
 const updatedLabel = d.updated.toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
+const isGuide = collection === "guides";
+const mainId = `${canonicalUrl(path)}${isGuide ? "#article" : "#service"}`;
 const jsonLd = [
-  serviceSchema({ name: d.h1, description: d.description, path, serviceType: d.serviceType }),
-  webPageSchema({ name: d.title, description: d.description, path, dateModified: updatedIso, aboutId: `${canonicalUrl(path)}#service` }),
+  isGuide
+    ? articleSchema({ headline: d.h1, description: d.description, path, datePublished: updatedIso, dateModified: updatedIso })
+    : serviceSchema({ name: d.h1, description: d.description, path, serviceType: d.serviceType ?? d.h1 }),
+  webPageSchema({ name: d.title, description: d.description, path, dateModified: updatedIso, aboutId: mainId }),
   breadcrumbSchema(crumbs),
   ...(d.faqs.length ? [faqSchema(d.faqs)] : []),
 ];
