@@ -21,6 +21,8 @@ Turn a single-page brochure site into an organized, expandable authority site th
 | Keyword data | Free sources only | Volumes are **estimates**, labeled as such. Prioritization uses SERP competition + commercial intent, then is corrected by real GSC data. |
 | Technical review | Publish first, Mark corrects later | Every specific technical assertion is logged to `docs/technical-review-queue.md` for a fast sweep. |
 | Capability claims | Unverified certifications/equipment are **never** asserted | Gated on the capability audit (Phase 0). The only confirmed certification is AWS D17.1. |
+| Lead quality | **Repel low-value hobby/repair work.** Owner explicitly does not want small one-off jobs (e.g. "a little TIG on a tire carrier"). | Negative keyword targeting, B2B/production copy tone, and a qualifying RFQ form. See §4a. |
+| Portfolio | Owner's personal trophy truck build is **not** featured anywhere. | No `/projects/` section in the core spine. |
 
 ## 3. Current state (baseline audit)
 
@@ -54,14 +56,21 @@ URLs are permanent once published. Trailing slashes, lowercase, hyphenated.
   /industries/aerospace-welding/
 /capabilities/                      ← vendor-vetting / printable capability statement
 /about/                             ← E-E-A-T, third-generation story
-/projects/
-  /projects/trophy-truck-fabrication/   ← flagship case study
 /contact/                           ← RFQ form (tracked conversion)
 /locations/
   /locations/glendora-ca/               ← primary local hub
 ```
 
-**Core spine = 18 URLs** (including index pages for `/services/`, `/materials/`, `/industries/`, `/projects/`, `/locations/`).
+**Core spine = 16 URLs** (including index pages for `/services/`, `/materials/`, `/industries/`, `/locations/`).
+
+### 4a. Lead-quality rules (negative targeting)
+
+The site should attract production and regulated-industry buyers and quietly filter out hobby and small-repair traffic.
+
+- **Keywords not targeted:** "cheap", "mobile welder", "welding repair near me", "trailer/hitch/tire carrier", "welding classes", DIY/how-to-weld beginner terms, and consumer automotive/off-road accessory terms.
+- **Copy signals B2B:** language like production runs, drawings/specs, material certs, lot quantities, and repeat orders. No hourly-rate or "no job too small" language.
+- **RFQ form qualifies the lead:** company name, material, estimated quantity or annual volume, drawing upload/link, and timeline. A small job can still submit, but the form makes clear who the shop is for.
+- **Content test:** before a topic is published, ask "does this attract a buyer with a PO, or a hobbyist with a question?" Beginner how-to content fails this test even if it has search volume.
 
 ### Interlinking rules
 
@@ -72,7 +81,9 @@ URLs are permanent once published. Trailing slashes, lowercase, hyphenated.
 
 ### Expansion model (post-checkpoint)
 
-New materials, industries, services, projects, and locations are added as single Markdown files in their collection. Candidate expansion list, prioritized by Phase 5 data: Inconel 718 vs 625 split, duplex stainless, Monel, copper/nickel alloys, chromoly/4130, vitamin & supplement, chemical processing, semiconductor, motorsport/off-road, additional San Gabriel Valley locations (Irwindale, Azusa, City of Industry, Pomona, Ontario).
+New materials, industries, services, projects, and locations are added as single Markdown files in their collection. Candidate expansion list, prioritized by Phase 5 data: Inconel 718 vs 625 split, duplex stainless, Monel, copper/nickel alloys, chromoly/4130, vitamin & supplement, chemical processing, semiconductor, additional San Gabriel Valley locations (Irwindale, Azusa, City of Industry, Pomona, Ontario).
+
+**On hold (owner decision, 2026-09-18):** high-end off-road/motorsport fabrication. If revisited, it is scoped to high-end builds only (race/pro-level chassis and fabrication) and must pass §4a. Case studies go in a future `/projects/` collection, and only with owner approval.
 
 ## 5. Local SEO
 
@@ -106,6 +117,7 @@ Every page must have:
 - One H1 containing the primary keyword; a unique title (≤60 chars) and meta description (≤155 chars).
 - A real, specific answer in the first 100 words (no filler intros).
 - A technical depth section, a "why Weld Creations" section, relevant internal links, and a CTA.
+- A pass of the §4a lead-quality test.
 - Capability claims only from the confirmed list. Technical assertions logged to the review queue.
 
 A **content audit checklist** (`docs/seo/content-audit-checklist.md`) is applied to every page before it is published.
@@ -117,7 +129,7 @@ A **content audit checklist** (`docs/seo/content-audit-checklist.md`) is applied
 | 0 | Measurement & truth | Capability audit sheet; GA4/GSC/Bing integration points; conversion event | Build passes; event fires in GA4 debug view (owner) |
 | 1 | Technical foundation | Astro site at parity with current content; SEO infrastructure; schema | Build passes; every page validates (schema, meta, links); Lighthouse ≥90 SEO/Perf |
 | 2 | Research | `docs/seo/keyword-map.md`: keyword universe, SERP teardown, keyword→URL map | Every spine URL has a primary + secondary keyword set |
-| 3 | Core spine content | 18 URLs written and interlinked | Each page passes the content audit checklist |
+| 3 | Core spine content | 16 URLs written and interlinked | Each page passes the content audit checklist |
 | 4 | Local | Glendora hub; GBP and citation checklist | NAP consistent across all pages |
 | 5 | Audit & iterate | Full technical + content audit; 60-day data checkpoint | Documented expansion decisions |
 
