@@ -1,0 +1,84 @@
+---
+import { getImage } from "astro:assets";
+import "@splidejs/splide/css";
+import { GALLERY } from "../data/gallery";
+
+const files = import.meta.glob<{ default: ImageMetadata }>("../assets/gallery/*.jpg", { eager: true });
+const items = await Promise.all(
+  GALLERY.map(async ({ file, alt }) => {
+    const mod = files[`../assets/gallery/${file}`];
+    if (!mod) throw new Error(`Gallery image missing: ${file}`);
+    const src = mod.default;
+    const thumb = await getImage({ src, height: 300, format: "webp" });
+    const full = await getImage({ src, width: Math.min(2000, src.width), format: "webp" });
+    return { alt, thumb, full };
+  }),
+);
+---
+<section class="splide" aria-label="Recent welding and fabrication work">
+  <div class="splide__track">
+    <ul class="splide__list">
+      {items.map(({ alt, thumb, full }, i) => (
+        <li class="splide__slide">
+          <button class="gallery-thumb" type="button" data-index={i} data-full={full.src} aria-label={`Enlarge: ${alt}`}>
+            <img src={thumb.src} alt={alt} width={thumb.attributes.width} height={thumb.attributes.height} loading="lazy" decoding="async" />
+          </button>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<div id="gallery-modal" class="modal" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+  <button class="close" type="button" aria-label="Close">&times;</button>
+  <button class="arrow arrow-left" type="button" aria-label="Previous photo">&#10094;</button>
+  <div class="modal-content"></div>
+  <button class="arrow arrow-right" type="button" aria-label="Next photo">&#10095;</button>
+</div>
+
+<script>
+  import Splide from "@splidejs/splide";
+
+  new Splide(".splide", { type: "loop", height: "300px", autoWidth: true }).mount();
+
+  const modal = document.getElementById("gallery-modal")!;
+  // Created on demand so the static HTML has no empty <img>.
+  const modalImg = document.createElement("img");
+  modal.querySelector(".modal-content")!.append(modalImg);
+  // Splide's loop mode clones slides, so read the originals by index.
+  const originals = Array.from(document.querySelectorAll<HTMLButtonElement>(".splide__slide:not(.splide__slide--clone) .gallery-thumb"));
+  let current = 0;
+  let opener: HTMLElement | null = null;
+
+  const show = (i: number) => {
+    current = (i + originals.length) % originals.length;
+    const btn = originals[current];
+    modalImg.src = btn.dataset.full!;
+    modalImg.alt = btn.querySelector("img")!.alt;
+    modal.style.display = "flex";
+    document.body.classList.add("modal-open");
+  };
+  const close = () => {
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open");
+    opener?.focus();
+  };
+
+  document.querySelectorAll<HTMLButtonElement>(".gallery-thumb").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      opener = btn;
+      show(Number(btn.dataset.index));
+      modal.querySelector<HTMLButtonElement>(".close")!.focus();
+    }),
+  );
+  modal.querySelector(".close")!.addEventListener("click", close);
+  modal.querySelector(".arrow-left")!.addEventListener("click", () => show(current - 1));
+  modal.querySelector(".arrow-right")!.addEventListener("click", () => show(current + 1));
+  modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+  document.addEventListener("keydown", (e) => {
+    if (modal.style.display !== "flex") return;
+    if (e.key === "ArrowLeft") show(current - 1);
+    else if (e.key === "ArrowRight") show(current + 1);
+    else if (e.key === "Escape") close();
+  });
+</script>
