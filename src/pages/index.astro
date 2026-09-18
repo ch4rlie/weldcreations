@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Gallery from "../components/Gallery.astro";
 import RfqForm from "../components/RfqForm.astro";
 import { SITE, FULL_ADDRESS } from "../config/site";
+import { allPublished, entryPath, SECTIONS, type SectionName } from "../lib/content";
 
 import tigIcon from "../assets/images/tig-icon.svg";
 import metalworkIcon from "../assets/images/metalwork.svg";
@@ -22,10 +23,15 @@ import heroPoster from "../assets/images/hero-video-thumbnail.jpg";
 
 const poster = await getImage({ src: heroPoster, width: 1600, format: "webp" });
 
+// Link homepage cards to spine pages only once those pages are published.
+const spine = await allPublished();
+const linkTo = (collection: SectionName, id: string) =>
+  spine.some((e) => e.collection === collection && e.id === id) ? entryPath(collection, id) : undefined;
+
 const services = [
-  { icon: tigIcon, title: "Precision TIG & MIG Welding", text: "Precision welding services for a variety of metals and applications. Steel, Titanium, Aluminum, Hastelloy, Stainless Steel & more." },
-  { icon: metalworkIcon, title: "Metal Fabrication", text: "Custom metal fabrication solutions tailored to your specific needs." },
-  { icon: productionIcon, title: "Product Development & Consulting", text: "Let us help you develop your product and bring it to life." },
+  { icon: tigIcon, href: linkTo("services", "tig-welding"), title: "Precision TIG & MIG Welding", text: "Precision welding services for a variety of metals and applications. Steel, Titanium, Aluminum, Hastelloy, Stainless Steel & more." },
+  { icon: metalworkIcon, href: linkTo("services", "metal-fabrication"), title: "Metal Fabrication", text: "Custom metal fabrication solutions tailored to your specific needs." },
+  { icon: productionIcon, href: undefined, title: "Product Development & Consulting", text: "Let us help you develop your product and bring it to life." },
 ];
 
 const detailed = [
@@ -33,29 +39,32 @@ const detailed = [
     img: precisionImg,
     alt: "Close-up of TIG welded stainless steel flanges with heat-tinted weld beads",
     title: "Precision Welding Experts",
+    href: linkTo("services", "tig-welding"),
     text: "As TIG welding specialists, we pride ourselves on delivering precise and high-quality welds for a variety of applications. Our expertise doesn't stop there; we also excel in MIG welding, known for its versatility and speed. Our team of experienced professionals is well-versed in all welding techniques, ensuring that we can meet any welding need with the highest level of skill and craftsmanship. Whether it's TIG or MIG, we are committed to providing exceptional welding services that meet the diverse requirements of our clients.",
   },
   {
     img: fabricationImg,
     alt: "Two welders fabricating a steel structure as sparks fly",
     title: "Custom Metal Fabrication",
+    href: linkTo("services", "metal-fabrication"),
     text: "We offer comprehensive metal fabrication services, specializing in cutting, bending, forming, and a wide range of other metalwork techniques to meet the unique demands of our clients. Our state-of-the-art equipment and skilled fabricators enable us to handle projects of all sizes and complexities with precision and efficiency. From initial design to final assembly, we ensure every detail is executed flawlessly, using advanced cutting methods for clean and accurate results, precise bending to achieve the desired angles and shapes, and expert forming to create strong and durable metal components. Whether you need custom parts, structural components, or intricate designs, our team is dedicated to delivering superior quality and craftsmanship in every project. Our extensive experience in metal fabrication allows us to tackle any challenge and provide tailored solutions that perfectly match your specifications.",
   },
   {
     img: productionImg,
     alt: "Welder joining stainless steel profiles on a fixture table beside a stack of finished parts",
     title: "Production Parts",
+    href: linkTo("services", "production-welding"),
     text: "At Weld Creations, we specialize in production part runs, delivering high-quality TIG welded parts that meet the most stringent standards. While our expertise extends to a variety of metalwork and welded components, high-precision TIG welding remains our primary focus. Our skilled welders are dedicated to producing parts with exceptional accuracy and consistency, ensuring that each piece meets the specific requirements of our clients. Whether you need custom components or large-scale production runs, our commitment to quality and precision sets us apart. At Weld Creations, we understand the importance of reliable and durable parts, and our TIG welding capabilities are second to none, providing the perfect solution for your production needs.",
   },
 ];
 
 const industries = [
-  { icon: aerospaceIcon, title: "Aerospace", text: "Expert welding and fabrication for aerospace components, ensuring the highest standards of quality and safety. AWS D17.1 Certified." },
-  { icon: defenseIcon, title: "Defense", text: "Welding services for the defense industry, ensuring robust, precise, and reliable welds for critical equipment and components." },
-  { icon: foodIcon, title: "Food & Beverage", text: "Delivering expert welding services for the food and beverage industry, ensuring sanitary, durable, and compliant welds for all processing and production equipment." },
-  { icon: pharmaIcon, title: "Pharmaceutical", text: "Precise, hygienic, and compliant welds for manufacturing equipment and processes. Our expertise guarantees high-quality and reliable solutions to meet stringent industry standards." },
-  { icon: vitaminIcon, title: "Vitamin & Supplements", text: "Specialized welding services for the vitamin and supplement industry, ensuring high-quality and hygienic welds for equipment and manufacturing processes." },
-  { icon: machiningIcon, title: "Sheet Metal & Machining", text: "Welding services tailored for the sheet metal and machining industries, enhancing their capabilities with precise and reliable welding solutions." },
+  { icon: aerospaceIcon, href: linkTo("industries", "aerospace-welding"), title: "Aerospace", text: "Expert welding and fabrication for aerospace components, ensuring the highest standards of quality and safety. AWS D17.1 Certified." },
+  { icon: defenseIcon, href: undefined, title: "Defense", text: "Welding services for the defense industry, ensuring robust, precise, and reliable welds for critical equipment and components." },
+  { icon: foodIcon, href: linkTo("industries", "food-beverage-welding"), title: "Food & Beverage", text: "Delivering expert welding services for the food and beverage industry, ensuring sanitary, durable, and compliant welds for all processing and production equipment." },
+  { icon: pharmaIcon, href: linkTo("industries", "pharmaceutical-welding"), title: "Pharmaceutical", text: "Precise, hygienic, and compliant welds for manufacturing equipment and processes. Our expertise guarantees high-quality and reliable solutions to meet stringent industry standards." },
+  { icon: vitaminIcon, href: undefined, title: "Vitamin & Supplements", text: "Specialized welding services for the vitamin and supplement industry, ensuring high-quality and hygienic welds for equipment and manufacturing processes." },
+  { icon: machiningIcon, href: undefined, title: "Sheet Metal & Machining", text: "Welding services tailored for the sheet metal and machining industries, enhancing their capabilities with precise and reliable welding solutions." },
 ];
 ---
 <BaseLayout
@@ -84,18 +93,41 @@ const industries = [
         {services.map((s) => (
           <div class="service-item">
             <img src={s.icon.src} width={s.icon.width} height={s.icon.height} alt="" aria-hidden="true" class="service-icon" loading="lazy" />
-            <h3>{s.title}</h3>
+            <h3>{s.href ? <a href={s.href}>{s.title}</a> : s.title}</h3>
             <p>{s.text}</p>
+            {s.href && <a class="more-link" href={s.href}>Learn more →</a>}
           </div>
         ))}
       </div>
+      {spine.length > 0 && (
+        <div class="specialties">
+          <h3>Specialties</h3>
+          <ul class="cards">
+            {spine.map((e) => (
+              <li class="card">
+                <a href={entryPath(e.collection as SectionName, e.id)}>
+                  <span class="card-title">{e.data.navLabel}</span>
+                  <span class="card-text">{e.data.summary}</span>
+                </a>
+              </li>
+            ))}
+            <li class="card">
+              <a href="/capabilities/">
+                <span class="card-title">Capabilities</span>
+                <span class="card-text">A printable summary of processes, materials, certification and partner capabilities for your supplier file.</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
       <div class="detailed-services">
         {detailed.map((d) => (
           <div class="detailed-service">
             <Image src={d.img} alt={d.alt} class="service-image" width={1200} widths={[480, 800, 1200]} sizes="(max-width: 768px) 100vw, 50vw" format="webp" />
             <div class="service-text">
-              <h3>{d.title}</h3>
+              <h3>{d.href ? <a href={d.href}>{d.title}</a> : d.title}</h3>
               <p>{d.text}</p>
+              {d.href && <p><a class="more-link" href={d.href}>Learn more →</a></p>}
             </div>
           </div>
         ))}
@@ -111,8 +143,9 @@ const industries = [
         {industries.map((i) => (
           <div class="industry-item">
             <img src={i.icon.src} width={i.icon.width} height={i.icon.height} alt="" aria-hidden="true" class="industry-icon" loading="lazy" />
-            <h3>{i.title}</h3>
+            <h3>{i.href ? <a href={i.href}>{i.title}</a> : i.title}</h3>
             <p>{i.text}</p>
+            {i.href && <a class="more-link" href={i.href}>Learn more →</a>}
           </div>
         ))}
       </div>
