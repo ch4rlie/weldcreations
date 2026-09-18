@@ -1,0 +1,34 @@
+---
+import { getImage } from "astro:assets";
+import { SITE } from "../config/site";
+import { pageTitle, canonicalUrl } from "../lib/seo";
+import defaultOg from "../assets/images/hero-video-thumbnail.jpg";
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+  ogImage?: ImageMetadata;
+  jsonLd?: Record<string, unknown>[];
+}
+
+const { title, description, noindex = false, ogImage = defaultOg, jsonLd = [] } = Astro.props;
+const fullTitle = pageTitle(title);
+const canonical = canonicalUrl(Astro.url.pathname);
+const og = await getImage({ src: ogImage, width: 1200, height: 630, fit: "cover", format: "jpg" });
+const ogUrl = new URL(og.src, SITE.url).href;
+const toJson = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
+---
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+{noindex ? <meta name="robots" content="noindex, follow" /> : <link rel="canonical" href={canonical} />}
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+{jsonLd.map((obj) => <script is:inline type="application/ld+json" set:html={toJson(obj)} />)}
