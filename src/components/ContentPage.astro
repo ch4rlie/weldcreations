@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import { render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import Faq from "./Faq.astro";
+import CtaBand from "./CtaBand.astro";
+import { SECTIONS, entryPath, relatedFor, type SectionName, type SpineEntry } from "../lib/content";
+import { serviceSchema, breadcrumbSchema, faqSchema } from "../lib/schema";
+
+interface Props {
+  entry: SpineEntry;
+}
+const { entry } = Astro.props;
+const collection = entry.collection as SectionName;
+const section = SECTIONS[collection];
+const d = entry.data;
+const path = entryPath(collection, entry.id);
+const { Content } = await render(entry);
+const related = await relatedFor(entry);
+const groups = (Object.keys(related) as SectionName[]).filter((k) => related[k].length > 0);
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: section.label, path: section.path },
+  { name: d.navLabel, path },
+];
+const jsonLd = [
+  serviceSchema({ name: d.h1, description: d.description, path, serviceType: d.serviceType }),
+  breadcrumbSchema(crumbs),
+  ...(d.faqs.length ? [faqSchema(d.faqs)] : []),
+];
+---
+<BaseLayout title={d.title} description={d.description} ogImage={d.heroImage} jsonLd={jsonLd}>
+  <header class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={crumbs} />
+      <h1>{d.h1}</h1>
+      <p class="lead">{d.summary}</p>
+      <a class="btn" href="/#contact">Request a Quote</a>
+    </div>
+  </header>
+  {d.heroImage && (
+    <div class="container hero-figure">
+      <Image src={d.heroImage} alt={d.heroAlt!} width={1200} widths={[480, 800, 1200]} sizes="(max-width: 1250px) 90vw, 1200px" format="webp" loading="eager" fetchpriority="high" />
+    </div>
+  )}
+  <div class="container">
+    <article class="prose" data-primary-keyword={d.primaryKeyword}>
+      <Content />
+    </article>
+    <Faq faqs={d.faqs} />
+    {groups.length > 0 && (
+      <section class="related" aria-labelledby="related-heading">
+        <h2 id="related-heading">Related Capabilities</h2>
+        {groups.map((g) => (
+          <div class="related-group">
+            <h3>{SECTIONS[g].label}</h3>
+            <ul class="cards">
+              {related[g].map((r) => (
+                <li class="card">
+                  <a href={entryPath(g, r.id)}>
+                    <span class="card-title">{r.data.navLabel}</span>
+                    <span class="card-text">{r.data.summary}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+    )}
+  </div>
+  <CtaBand />
+</BaseLayout>

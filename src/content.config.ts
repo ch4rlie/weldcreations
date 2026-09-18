@@ -1,11 +1,11 @@
-import { defineCollection, reference } from "astro:content";
+import { defineCollection, reference, type SchemaContext } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const faq = z.object({ q: z.string(), a: z.string() });
 
 /** One schema for every spine page. Relations are validated: a bad slug fails the build. */
-const page = ({ image }: { image: () => z.ZodTypeAny }) =>
+const page = ({ image }: SchemaContext) =>
   z
     .object({
       title: z.string().max(60),

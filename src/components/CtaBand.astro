@@ -1,0 +1,22 @@
+---
+import { SITE } from "../config/site";
+
+interface Props {
+  heading?: string;
+  text?: string;
+}
+const {
+  heading = "Send us the drawing.",
+  text = "Material, quantity and timeline are all we need to start a quote. In-house or through our partner network, we deliver the finished part.",
+} = Astro.props;
+---
+<section class="cta-band">
+  <div class="container">
+    <h2>{heading}</h2>
+    <p>{text}</p>
+    <div class="cta-actions">
+      <a class="btn" href="/#contact">Request a Quote</a>
+      <a class="btn btn-ghost" href={`tel:${SITE.phoneE164}`}>Call {SITE.phone}</a>
+    </div>
+  </div>
+</section>

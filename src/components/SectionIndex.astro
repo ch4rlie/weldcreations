@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import CtaBand from "./CtaBand.astro";
+import { SECTIONS, entryPath, publishedEntries, type SectionName } from "../lib/content";
+import { breadcrumbSchema } from "../lib/schema";
+
+interface Props {
+  collection: SectionName;
+  title: string;
+  description: string;
+  h1: string;
+  intro: string;
+}
+const { collection, title, description, h1, intro } = Astro.props;
+const section = SECTIONS[collection];
+const entries = await publishedEntries(collection);
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: section.label, path: section.path },
+];
+---
+<BaseLayout title={title} description={description} jsonLd={[breadcrumbSchema(crumbs)]}>
+  <header class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={crumbs} />
+      <h1>{h1}</h1>
+      <p class="lead">{intro}</p>
+    </div>
+  </header>
+  <div class="container section-index">
+    <ul class="cards">
+      {entries.map((e) => (
+        <li class="card">
+          <a href={entryPath(collection, e.id)}>
+            <span class="card-title">{e.data.navLabel}</span>
+            <span class="card-text">{e.data.summary}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <slot />
+  </div>
+  <CtaBand />
+</BaseLayout>

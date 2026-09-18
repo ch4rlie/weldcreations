@@ -1,0 +1,11 @@
+---
+import ContentPage from "../../components/ContentPage.astro";
+import { publishedEntries } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const entries = await publishedEntries("services");
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+---
+<ContentPage entry={entry} />
