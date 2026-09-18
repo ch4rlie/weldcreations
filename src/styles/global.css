@@ -27,6 +27,11 @@ video {
   height: auto;
 }
 
+/* Keep anchor targets clear of the 100px sticky header. */
+html {
+  scroll-padding-top: 110px;
+}
+
 body {
   font-family: "Noto Sans Display Variable", "Noto Sans Display", system-ui, sans-serif;
 }
