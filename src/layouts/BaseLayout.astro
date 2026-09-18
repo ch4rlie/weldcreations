@@ -22,8 +22,11 @@ interface Props {
   noindex?: boolean;
   ogImage?: ImageMetadata;
   jsonLd?: Record<string, unknown>[];
+  /** Off on the homepage: its LCP is the video poster, and font preloads delayed it (LCP 1.4s -> 4.2s). */
+  preloadFonts?: boolean;
 }
 // Every page carries the business node so Service.provider @id references resolve.
+const { preloadFonts = true } = Astro.props;
 const offers = (await allPublished()).map((e) => ({ name: e.data.navLabel, path: entryPath(e.collection as SectionName, e.id) }));
 const props = { ...Astro.props, jsonLd: [siteGraph({ offers }), ...(Astro.props.jsonLd ?? [])] };
 ---
@@ -32,8 +35,8 @@ const props = { ...Astro.props, jsonLd: [siteGraph({ offers }), ...(Astro.props.
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preload" href={kanit600} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={notoVariable} as="font" type="font/woff2" crossorigin />
+    {preloadFonts && <link rel="preload" href={kanit600} as="font" type="font/woff2" crossorigin />}
+    {preloadFonts && <link rel="preload" href={notoVariable} as="font" type="font/woff2" crossorigin />}
     <Seo {...props} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
