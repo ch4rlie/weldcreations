@@ -40,3 +40,36 @@ describe("siteGraph", () => {
     expect(website.url).toBe("https://weldcreations.com/");
   });
 });
+
+import { serviceSchema, breadcrumbSchema, faqSchema } from "../../src/lib/schema";
+
+describe("serviceSchema", () => {
+  const s = serviceSchema({ name: "Sanitary Welding", description: "Desc", path: "/services/sanitary-welding/", serviceType: "Sanitary welding" });
+  it("is a Service provided by the business", () => {
+    expect(s["@type"]).toBe("Service");
+    expect(s["@id"]).toBe("https://weldcreations.com/services/sanitary-welding/#service");
+    expect(s.url).toBe("https://weldcreations.com/services/sanitary-welding/");
+    expect(s.provider).toEqual({ "@id": BUSINESS_ID });
+    expect(s.serviceType).toBe("Sanitary welding");
+    expect(s.areaServed).toEqual(SITE.areaServed.map((name) => ({ "@type": "AdministrativeArea", name })));
+  });
+});
+
+describe("breadcrumbSchema", () => {
+  it("numbers items from 1 with absolute URLs", () => {
+    const b = breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Services", path: "/services/" }]);
+    expect(b["@type"]).toBe("BreadcrumbList");
+    expect(b.itemListElement).toEqual([
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://weldcreations.com/" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://weldcreations.com/services/" },
+    ]);
+  });
+});
+
+describe("faqSchema", () => {
+  it("maps questions and answers", () => {
+    const f = faqSchema([{ q: "Q1?", a: "A1." }]);
+    expect(f["@type"]).toBe("FAQPage");
+    expect(f.mainEntity).toEqual([{ "@type": "Question", name: "Q1?", acceptedAnswer: { "@type": "Answer", text: "A1." } }]);
+  });
+});
