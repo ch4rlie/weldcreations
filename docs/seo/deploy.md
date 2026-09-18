@@ -17,7 +17,9 @@ Go to Settings → Build → Build configuration:
 | Build output directory | `dist` |
 | Root directory | `/` (leave empty) |
 
-The Node version comes from `.node-version` (24). If Cloudflare ignores that file, add an environment variable `NODE_VERSION` = `24`.
+The Node version comes from `.node-version` (pinned to the exact version the test suite passed on). If Cloudflare ignores that file, add an environment variable `NODE_VERSION` with the same value.
+
+**Build system: use Pages v3.** (Settings → Build → Build system version.) v2 defaults to Node 18.17, which is too old for Astro 7, and only works here because `.node-version` overrides it. v3 defaults to Node 22.16, and Cloudflare moves all v2 projects to v3 on 2027-02-23 anyway. None of the v3 breaking changes apply to this repo: no Node codenames, no Yarn/pnpm detection, no `engines`-based detection, no pipenv.
 
 ## 3. Cutover checklist
 1. Change the build settings (section 2) **before** merging. Production keeps serving the last successful deployment until the next build, so changing settings alone breaks nothing.
