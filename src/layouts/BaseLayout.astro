@@ -8,6 +8,7 @@ import Seo from "../components/Seo.astro";
 import Analytics from "../components/Analytics.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { siteGraph } from "../lib/schema";
 
 interface Props {
   title: string;
@@ -16,7 +17,8 @@ interface Props {
   ogImage?: ImageMetadata;
   jsonLd?: Record<string, unknown>[];
 }
-const props = Astro.props;
+// Every page carries the business node so Service.provider @id references resolve.
+const props = { ...Astro.props, jsonLd: [siteGraph(), ...(Astro.props.jsonLd ?? [])] };
 ---
 <!doctype html>
 <html lang="en">
