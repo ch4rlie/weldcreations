@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo.svg";
+import { SITE } from "../config/site";
+---
+<nav class="navbar" aria-label="Main">
+  <ul class="nav-links left" id="nav-left">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#industries">Industries</a></li>
+  </ul>
+  <div class="logo-container">
+    <a href="/" aria-label={`${SITE.name} home`}>
+      <Image src={logo} alt={`${SITE.name} logo`} class="logo" loading="eager" />
+    </a>
+  </div>
+  <ul class="nav-links right" id="nav-right">
+    <li><a href="/#about">About Us</a></li>
+    <li><a href="/#contact">Request a Quote</a></li>
+  </ul>
+  <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-left nav-right">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+</nav>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>(".hamburger")!;
+  const lists = document.querySelectorAll(".nav-links");
+  const setOpen = (open: boolean) => {
+    lists.forEach((l) => l.classList.toggle("active", open));
+    button.classList.toggle("active", open);
+    button.setAttribute("aria-expanded", String(open));
+    button.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  };
+  button.addEventListener("click", () => setOpen(button.getAttribute("aria-expanded") !== "true"));
+  lists.forEach((l) => l.addEventListener("click", (e) => {
+    if ((e.target as HTMLElement).closest("a")) setOpen(false);
+  }));
+</script>
