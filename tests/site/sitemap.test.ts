@@ -20,6 +20,12 @@ describe("sitemap + robots", () => {
     expect(urls.filter((u) => !resolveInDist(new URL(u).pathname))).toEqual([]);
   });
 
+  it("serves /sitemap.xml as an index of the same sitemaps", () => {
+    const conventional = read("sitemap.xml");
+    expect(conventional).toContain("<sitemapindex");
+    expect(locs(conventional)).toEqual(locs(index));
+  });
+
   it("robots.txt allows crawling and points at the sitemap", () => {
     const robots = read("robots.txt");
     expect(robots).toMatch(/User-agent: \*/);

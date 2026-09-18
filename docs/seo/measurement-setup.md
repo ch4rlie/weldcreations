@@ -24,7 +24,7 @@ The event carries `material`, `quantity` and `landing_page`. To report on them, 
 ## 4. Google Search Console
 1. Go to <https://search.google.com/search-console> → Add property → **Domain** → `weldcreations.com`.
 2. Verify it with the DNS TXT record. Because the DNS is on Cloudflare, Google offers to add the record automatically. Accept that.
-3. Go to Sitemaps and submit `https://weldcreations.com/sitemap-index.xml`.
+3. Go to Sitemaps and submit `https://weldcreations.com/sitemap.xml`. (`/sitemap-index.xml` is the same index; either works, so submit only one.)
 
 ## 5. Bing Webmaster Tools
 Go to <https://www.bing.com/webmasters> → **Import from Google Search Console**. This also feeds Bing Copilot and DuckDuckGo.
