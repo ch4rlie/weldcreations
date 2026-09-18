@@ -64,6 +64,8 @@ const industries = [
   description="Precision TIG welding and metal fabrication in Glendora, CA. Production runs in stainless, aluminum, titanium and Hastelloy. AWS D17.1 certified."
   jsonLd={[siteGraph()]}
 >
+  <!-- The hero poster is the LCP element; <video poster> can't take fetchpriority. -->
+  <link slot="head" rel="preload" as="image" href={poster.src} fetchpriority="high" />
   <div class="hero" id="home">
     <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster={poster.src} aria-hidden="true">
       <source src="/videos/hero-video.webm" type="video/webm" />

@@ -606,6 +606,8 @@ Industries
 }
 
 .footer-column a {
+  display: inline-block;
+  padding: 4px 0;
   color: white;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -753,7 +755,7 @@ ABOUT US
 }
 
 .contact-info a {
-  color: #0984e3;
+  color: #1566a3;
   text-decoration: none;
 }
 

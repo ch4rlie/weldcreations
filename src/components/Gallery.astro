@@ -41,7 +41,7 @@ const items = await Promise.all(
 <script>
   import Splide from "@splidejs/splide";
 
-  new Splide(".splide", { type: "loop", height: "300px", autoWidth: true }).mount();
+  new Splide(".splide", { type: "loop", height: "300px", autoWidth: true, pagination: false }).mount();
 
   const modal = document.getElementById("gallery-modal")!;
   // Created on demand so the static HTML has no empty <img>.
