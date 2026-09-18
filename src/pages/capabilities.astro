@@ -1,0 +1,197 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { SITE, FULL_ADDRESS } from "../config/site";
+import { allPublished, entryPath, SECTIONS, type SectionName } from "../lib/content";
+import { serviceSchema, breadcrumbSchema } from "../lib/schema";
+import hero from "../assets/gallery/17.jpg";
+
+const path = "/capabilities/";
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Capabilities", path },
+];
+const description =
+  "Weld Creations capabilities: precision TIG and MIG welding, sanitary stainless, exotic alloys and production runs. AWS D17.1 certified. Glendora, CA.";
+const spine = await allPublished();
+
+const processes = [
+  "TIG / GTAW welding (manual, precision)",
+  "MIG / GMAW welding",
+  "Full-penetration welding with argon back purge",
+  "Fixtured production welding with first-article approval",
+  "Custom metal fabrication: cutting, forming, fit-up and assembly",
+  "Product development and design-for-welding consulting",
+];
+const partner = [
+  "Laser, waterjet and saw cutting",
+  "CNC machining of components and welded assemblies",
+  "Forming and bending",
+  "Orbital welding of sanitary process tubing",
+  "Polishing, passivation and electropolishing",
+  "Powder coating, anodizing and plating",
+  "Additional inspection and NDT as specified",
+];
+const materials = [
+  "Stainless steel: 304 / 304L, 316 / 316L",
+  "Aluminum",
+  "Carbon steel and chromoly (4130)",
+  "Titanium",
+  "Nickel alloys: Hastelloy (C-276, C-22, X) and Inconel",
+];
+const industries = [
+  "Pharmaceutical and nutraceutical",
+  "Food and beverage",
+  "Vitamins and supplements",
+  "Aerospace",
+  "Defense suppliers",
+  "Machine shops and sheet metal fabricators",
+];
+const quality = [
+  "Material test reports with heat-number traceability",
+  "First-article inspection and approval before production",
+  "Weld records and inspection photos",
+  "Finishing certificates from partner processors",
+];
+---
+<BaseLayout
+  title="Welding & Fabrication Capabilities"
+  description={description}
+  ogImage={hero}
+  jsonLd={[
+    serviceSchema({ name: "Welding and fabrication capabilities", description, path, serviceType: "Precision welding and metal fabrication" }),
+    breadcrumbSchema(crumbs),
+  ]}
+>
+  <header class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={crumbs} />
+      <h1>Welding &amp; Fabrication Capabilities</h1>
+      <p class="lead">
+        A one-page summary for engineering and purchasing teams. Send us the drawing, and we deliver the finished part, in-house or through our partner network.
+      </p>
+      <a class="btn no-print" href="/#contact">Request a Quote</a>
+      <button class="btn btn-ghost no-print" type="button" onclick="window.print()">Print this page</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <article class="prose capabilities">
+      <section>
+        <h2>Company</h2>
+        <table>
+          <tbody>
+            <tr><th scope="row">Name</th><td>{SITE.name}</td></tr>
+            <tr><th scope="row">Owner</th><td>{SITE.owner}, third-generation welder</td></tr>
+            <tr><th scope="row">Address</th><td>{FULL_ADDRESS}</td></tr>
+            <tr><th scope="row">Phone</th><td><a href={`tel:${SITE.phoneE164}`}>{SITE.phone}</a></td></tr>
+            <tr><th scope="row">Email</th><td><a href={`mailto:${SITE.email}`}>{SITE.email}</a></td></tr>
+            <tr><th scope="row">Certification</th><td>{SITE.certifications.join(", ")} (aerospace fusion welding)</td></tr>
+            <tr><th scope="row">Service area</th><td>{SITE.areaServed.join(", ")}; parts shipped beyond</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="cap-grid">
+        <section>
+          <h2>Processes</h2>
+          <ul>{processes.map((p) => <li>{p}</li>)}</ul>
+        </section>
+        <section>
+          <h2>Materials</h2>
+          <ul>{materials.map((m) => <li>{m}</li>)}</ul>
+        </section>
+        <section>
+          <h2>Through Our Partner Network</h2>
+          <ul>{partner.map((p) => <li>{p}</li>)}</ul>
+        </section>
+        <section>
+          <h2>Industries</h2>
+          <ul>{industries.map((i) => <li>{i}</li>)}</ul>
+        </section>
+        <section>
+          <h2>Quality &amp; Documentation</h2>
+          <ul>{quality.map((q) => <li>{q}</li>)}</ul>
+          <p>Documentation is agreed at quote time to match your quality plan.</p>
+        </section>
+        <section>
+          <h2>Work Types</h2>
+          <ul>
+            <li>Prototypes and one-off precision parts</li>
+            <li>Short runs and recurring production</li>
+            <li>Blanket orders with scheduled releases</li>
+            <li>Repair and modification of existing equipment</li>
+            <li>On-site fit-up and installation</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="no-print">
+        <h2>Explore Our Capabilities</h2>
+        <ul>
+          {spine.map((e) => (
+            <li><a href={entryPath(e.collection as SectionName, e.id)}>{SECTIONS[e.collection as SectionName].label}: {e.data.navLabel}</a></li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2>How to Request a Quote</h2>
+        <ol>
+          <li>Send the drawing (PDF or STEP), or photos and dimensions for a replacement part.</li>
+          <li>Include the material, quantity per release and estimated annual volume.</li>
+          <li>List finish, inspection and documentation requirements.</li>
+          <li>Tell us your timeline. We reply within one business day.</li>
+        </ol>
+      </section>
+    </article>
+
+    <figure class="hero-figure no-print">
+      <Image src={hero} alt="Large fabricated stainless steel frame panel with welded mounting brackets standing in the shop" width={1200} widths={[480, 800, 1200]} sizes="(max-width: 1250px) 90vw, 1200px" format="webp" />
+    </figure>
+  </div>
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .capabilities table th {
+    width: 170px;
+  }
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0 40px;
+  }
+  .page-hero .btn-ghost {
+    margin-left: 10px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  @media print {
+    :global(.navbar),
+    :global(footer),
+    :global(.cta-band),
+    .no-print {
+      display: none !important;
+    }
+    .page-hero {
+      background: none;
+      color: #000;
+      padding: 0 0 12px;
+    }
+    .page-hero .lead {
+      color: #333;
+    }
+    :global(.breadcrumbs) {
+      display: none;
+    }
+    .prose {
+      margin: 0;
+      max-width: none;
+      font-size: 12pt;
+    }
+  }
+</style>
