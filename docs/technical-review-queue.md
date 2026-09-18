@@ -47,6 +47,11 @@ This is **optional**. Mark can skim it whenever he has a minute. Nothing here bl
 | 38 | `/locations/glendora-ca/` | Location | "Gladstone Industrial Park"; 210 (Foothill) and 57 (Orange) freeways; visits and drop-offs by appointment; pick-up at the shop or shipping arranged | |
 | 39 | `/about/` | Story | "The trade was passed down, and so were the standards"; Mark personally certified to AWS D17.1 (see #4) | |
 | 40 | `/contact/` | Visits | "Visits and drop-offs by appointment. Please call ahead." | |
+| 41 | `/industries/supplement-manufacturing-equipment/` | Scope | Hoppers, chutes, stands, guards, dust-collection ducting, screen and sifter frames, carts and replacement parts for capsule fillers and tablet presses; precision-machined tooling through partners | |
+| 42 | `/industries/supplement-manufacturing-equipment/` | Regulation | Manufacturers run sanitation programs under 21 CFR Part 111 (referenced as the customer's regulation, not claimed) | |
+| 43 | `/industries/subcontract-welding-machine-shops/` | Promise | "We don't contact or solicit your customers"; parts and paperwork go back to the shop | |
+| 44 | `/industries/subcontract-welding-machine-shops/` | Terms | Per-part pricing for repeat work; blanket orders; local drop-off by appointment | |
+| 45 | `/industries/subcontract-welding-machine-shops/` | Documentation | Can deliver a certificate of conformance, inspection results, photos and material traceability with subcontract work | |
 
 ## Content flags (not assertions, but decisions for Mark)
 

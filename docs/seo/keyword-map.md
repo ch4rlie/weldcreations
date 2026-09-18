@@ -71,6 +71,8 @@
 | 15 | `/about/` | *(brand / E-E-A-T)* | Mark May welder, third-generation welder | Trust | n/a | n/a | Family story |
 | 16 | `/contact/` | *(conversion)* | request a quote, welding quote | Conversion | n/a | n/a | Quote form |
 | + | Index pages for `/services/`, `/materials/`, `/industries/`, `/locations/` | Hub pages that pass link authority | | | | | |
+| 17 | `/industries/supplement-manufacturing-equipment/` *(added 2026-09-18)* | supplement manufacturing equipment | nutraceutical manufacturing equipment, vitamin manufacturing equipment, capsule filling machine components | Commercial | L–M | Low | Capsule filler, hopper, V-blender photos |
+| 18 | `/industries/subcontract-welding-machine-shops/` *(added 2026-09-18)* | subcontract welding | welding subcontractor, contract welding companies, machine shop welding services | Commercial (B2B partner) | L–M | Low–Med | Machined bracket production run |
 
 **Why the renames are safe:** none of these URLs has been published yet, so changing them now costs nothing. The spec's "URLs are permanent" rule applies from first publish.
 
