@@ -26,6 +26,11 @@ describe("siteGraph", () => {
     });
     expect(business.sameAs).toEqual(SITE.sameAs);
   });
+  it("pins the business to its Google Business Profile location", () => {
+    expect(business.geo).toEqual({ "@type": "GeoCoordinates", latitude: SITE.geo.latitude, longitude: SITE.geo.longitude });
+    expect(business.hasMap).toBe(SITE.googleMapsUrl);
+    expect(business.hasMap).toMatch(/^https:\/\/www\.google\.com\/maps\?cid=\d+$/);
+  });
   it("lists only confirmed credentials, on the founder", () => {
     const creds = business.founder.hasCredential.map((c: Node) => c.name);
     expect(creds).toEqual(SITE.certifications);

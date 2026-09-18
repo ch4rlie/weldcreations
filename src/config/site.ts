@@ -5,13 +5,21 @@ export const SITE = {
   phone: "(626) 675-4239",
   phoneE164: "+16266754239",
   email: "weldcreations@yahoo.com",
+  /**
+   * USPS form (building owner and property listings use 2041 E Gladstone St, 91740).
+   * Google Business Profile shows "2041 Gladstone St Unit Q, Glendora, CA 91740":
+   * same place, directional omitted. Left as-is to avoid GBP re-verification.
+   */
   address: {
-    street: "2041 E Gladstone Unit Q",
+    street: "2041 E Gladstone St, Unit Q",
     city: "Glendora",
     region: "CA",
-    postalCode: "91741",
+    postalCode: "91740",
     country: "US",
   },
+  /** Pin from the Google Business Profile listing. */
+  geo: { latitude: 34.1148101, longitude: -117.82579 },
+  googleMapsUrl: "https://www.google.com/maps?cid=16684183137107017541",
   areaServed: ["Los Angeles County", "Orange County", "San Bernardino County"],
   sameAs: [
     "https://www.yelp.com/biz/weld-creations-glendora",
@@ -26,7 +34,7 @@ export const SITE = {
   web3formsKey: "4023322a-c3d7-49be-bfd3-e3b1a76b24ae",
 } as const;
 
-export const FULL_ADDRESS = `${SITE.address.street} ${SITE.address.city}, ${SITE.address.region} ${SITE.address.postalCode}`;
+export const FULL_ADDRESS = `${SITE.address.street}, ${SITE.address.city}, ${SITE.address.region} ${SITE.address.postalCode}`;
 
 /** Credential names that must never be claimed unless present in SITE.certifications. */
 export const GUARDED_CREDENTIALS = [

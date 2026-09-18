@@ -25,3 +25,10 @@ describe("canonicalUrl", () => {
     expect(canonicalUrl("/")).toBe("https://weldcreations.com/");
   });
 });
+
+describe("NAP", () => {
+  it("formats the full address with USPS-style commas", async () => {
+    const { FULL_ADDRESS } = await import("../../src/config/site");
+    expect(FULL_ADDRESS).toBe("2041 E Gladstone St, Unit Q, Glendora, CA 91740");
+  });
+});

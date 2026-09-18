@@ -24,6 +24,8 @@ export function siteGraph() {
           postalCode: SITE.address.postalCode,
           addressCountry: SITE.address.country,
         },
+        geo: { "@type": "GeoCoordinates", latitude: SITE.geo.latitude, longitude: SITE.geo.longitude },
+        hasMap: SITE.googleMapsUrl,
         areaServed: SITE.areaServed.map((name) => ({ "@type": "AdministrativeArea", name })),
         founder: {
           "@type": "Person",

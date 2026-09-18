@@ -3,7 +3,7 @@ import { Image, getImage } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Gallery from "../components/Gallery.astro";
 import RfqForm from "../components/RfqForm.astro";
-import { SITE } from "../config/site";
+import { SITE, FULL_ADDRESS } from "../config/site";
 import { siteGraph } from "../lib/schema";
 
 import tigIcon from "../assets/images/tig-icon.svg";
@@ -144,7 +144,7 @@ const industries = [
         <div class="contact-info">
           <h3><strong>Get in Touch</strong></h3>
           <p>Send us your drawings, material and quantities, or call to talk through a project.</p>
-          <p><strong>Address:</strong> {SITE.address.street} {SITE.address.city}, {SITE.address.region} {SITE.address.postalCode}</p>
+          <p><strong>Address:</strong> <a href={SITE.googleMapsUrl} target="_blank" rel="noopener">{FULL_ADDRESS}</a></p>
           <p><strong>Email:</strong> <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
           <p><strong>Phone:</strong> <a href={`tel:${SITE.phoneE164}`}>{SITE.phone}</a></p>
         </div>
