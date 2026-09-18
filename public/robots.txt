@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://weldcreations.com/sitemap-index.xml
