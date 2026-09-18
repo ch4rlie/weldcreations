@@ -4,6 +4,10 @@ import "@fontsource/kanit/600.css";
 import "@fontsource/kanit/700.css";
 import "@fontsource-variable/noto-sans-display";
 import "../styles/global.css";
+// Preload the two faces that render above the fold (headings/nav, body copy) so
+// text doesn't reflow when fonts arrive. That reflow caused CLS 0.17 on text-heavy pages.
+import kanit600 from "@fontsource/kanit/files/kanit-latin-600-normal.woff2?url";
+import notoVariable from "@fontsource-variable/noto-sans-display/files/noto-sans-display-latin-wght-normal.woff2?url";
 import Seo from "../components/Seo.astro";
 import Analytics from "../components/Analytics.astro";
 import Header from "../components/Header.astro";
@@ -28,6 +32,8 @@ const props = { ...Astro.props, jsonLd: [siteGraph({ offers }), ...(Astro.props.
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href={kanit600} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={notoVariable} as="font" type="font/woff2" crossorigin />
     <Seo {...props} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
