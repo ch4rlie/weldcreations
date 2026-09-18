@@ -17,6 +17,24 @@ This is **optional**. Mark can skim it whenever he has a minute. Nothing here bl
 | 8 | `/` | Gallery photo 4 | Stainless V-blender with sanitary clamp ports. Did Mark build it, modify it, or install it? | |
 | 9 | `/` | Gallery photos 8–10 | Tablet presses and a capsule filler in pharmaceutical cleanrooms. What was Mark's work here (ductwork, stands, install)? Brand names are visible on the machines but deliberately **not** named in the text. | |
 | 10 | `/` | Gallery photos 14–16 | Hoppers with perforated cones, angled inlets and tri-clamp fittings | |
+| 11 | `/services/sanitary-welding/` | Finishes | Food-contact surfaces are "commonly specified around 32 µin Ra or smoother", and pharma is "often smoother still" | |
+| 12 | `/services/sanitary-welding/` | Finishing | Polishing done "in-house or through our partner network"; passivation and electropolishing through specialist partners | |
+| 13 | `/services/sanitary-welding/`, `/industries/pharmaceutical-welding/` | Orbital welding | Delivered "through our partner network" when a spec calls for it | |
+| 14 | `/services/sanitary-welding/` | Tube work | Sanitary tube spools and assemblies with ferrules and tri-clamp connections, built to isometric or drawing | |
+| 15 | Sanitary, pharma, production, `/capabilities/` | Documentation | Can supply MTRs with heat-number traceability, weld logs or records, inspection photos, and finishing certificates from partners | |
+| 16 | `/industries/pharmaceutical-welding/` | Cleanroom work | "Our work includes installation around tablet presses and capsule fillers in production cleanrooms" (based on the gallery). **Confirm this is accurate and OK to say publicly** (quick question 4). | |
+| 17 | `/industries/pharmaceutical-welding/` | Equipment list | Stainless ducting and dust-collection connections for tablet presses; machine stands; replacement hoppers for tablet presses and capsule fillers | |
+| 18 | `/services/tig-welding/` | Technique | Aluminum is TIG welded on AC for oxide cleaning; titanium needs full shielding until it cools, and weld color indicates contamination | |
+| 19 | `/services/tig-welding/` | Location | "Easy access to the 210 and 57 freeways" | |
+| 20 | `/materials/hastelloy-welding/` | Filler table | C-276 → ERNiCrMo-4, C-22 → ERNiCrMo-10, X → ERNiCrMo-2 (AWS A5.14); UNS N10276 / N06022 / N06002 | |
+| 21 | `/materials/hastelloy-welding/` | Procedure | Interpass typically below about 200°F (93°C); no preheat; PWHT not normally required for C-series; stringer beads; argon back purge; stainless-only brushes and media | |
+| 22 | `/materials/hastelloy-welding/` | Dissimilar joints | C-276 to 316L or carbon steel usually made with ERNiCrMo-4 or ERNiCrMo-3, chosen for the service environment | |
+| 23 | `/materials/hastelloy-welding/` | Sourcing | "We can source material and fillers with mill test reports, or weld material you supply" | |
+| 24 | `/services/production-welding/` | Process | First-article approval before the run; fixtures kept ready for repeat releases; blanket orders with scheduled releases accepted | |
+| 25 | `/services/production-welding/`, `/capabilities/` | Partner network | Laser, waterjet and saw cutting; CNC machining; forming; passivation; powder coating; anodizing; plating; NDT, all through partners | |
+| 26 | `/capabilities/` | Industries | "Defense suppliers" listed (see flag E) | |
+| 27 | `/capabilities/` | Work types | "On-site fit-up and installation" and "Repair and modification of existing equipment" | |
+| 28 | All new pages | CTA | "We reply within one business day" (same as item 1) | |
 
 ## Content flags (not assertions, but decisions for Mark)
 
