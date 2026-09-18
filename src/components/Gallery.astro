@@ -66,13 +66,17 @@ const items = await Promise.all(
     opener?.focus();
   };
 
-  document.querySelectorAll<HTMLButtonElement>(".gallery-thumb").forEach((btn) =>
+  document.querySelectorAll<HTMLButtonElement>(".gallery-thumb").forEach((btn) => {
+    // Mouse focus on a clipped thumbnail makes the browser scroll the track,
+    // Splide shifts the list to compensate, and the click lands on the <ul>.
+    // Keyboard focus is unaffected; dragging uses pointer events.
+    btn.addEventListener("mousedown", (e) => e.preventDefault());
     btn.addEventListener("click", () => {
       opener = btn;
       show(Number(btn.dataset.index));
       modal.querySelector<HTMLButtonElement>(".close")!.focus();
-    }),
-  );
+    });
+  });
   modal.querySelector(".close")!.addEventListener("click", close);
   modal.querySelector(".arrow-left")!.addEventListener("click", () => show(current - 1));
   modal.querySelector(".arrow-right")!.addEventListener("click", () => show(current + 1));

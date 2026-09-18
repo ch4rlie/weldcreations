@@ -4,6 +4,29 @@
   box-sizing: border-box;
 }
 
+/* The original design was built on top of Tailwind's preflight reset.
+   Keep the parts of it the layout depends on. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
 body {
   font-family: "Noto Sans Display Variable", "Noto Sans Display", system-ui, sans-serif;
 }
