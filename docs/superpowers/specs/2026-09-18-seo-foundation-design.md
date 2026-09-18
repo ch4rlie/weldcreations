@@ -20,7 +20,7 @@ Turn a single-page brochure site into an organized, expandable authority site th
 | Stack | Astro, static output, deployed to Cloudflare Pages | Content lives in Markdown collections; layouts, schema, and sitemap are generated. |
 | Keyword data | Free sources only | Volumes are **estimates**, labeled as such. Prioritization uses SERP competition + commercial intent, then is corrected by real GSC data. |
 | Technical review | Publish first, Mark corrects later | Every specific technical assertion is logged to `docs/technical-review-queue.md` for a fast sweep. |
-| Capability claims | Unverified certifications/equipment are **never** asserted | Gated on the capability audit (Phase 0). The only confirmed certification is AWS D17.1. |
+| Capability claims | **Only named certifications/registrations are gated.** Materials, processes and capacity are written broadly: Weld Creations is positioned as a full-service partner that delivers in-house or through its partner network. (Owner decision, 2026-09-18.) | Five-question owner check (`docs/seo/capability-audit.md`). The only confirmed certification is AWS D17.1, and the build test blocks any other named cert claim. |
 | Lead quality | **Repel low-value hobby/repair work.** Owner explicitly does not want small one-off jobs (e.g. "a little TIG on a tire carrier"). | Negative keyword targeting, B2B/production copy tone, and a qualifying RFQ form. See §4a. |
 | Portfolio | Owner's personal trophy truck build is **not** featured anywhere. | No `/projects/` section in the core spine. |
 
@@ -118,7 +118,7 @@ Every page must have:
 - A real, specific answer in the first 100 words (no filler intros).
 - A technical depth section, a "why Weld Creations" section, relevant internal links, and a CTA.
 - A pass of the §4a lead-quality test.
-- Capability claims only from the confirmed list. Technical assertions logged to the review queue.
+- Named certifications only from the confirmed list. Capabilities can be stated broadly ("in-house or through our partner network"). Specific technical assertions (filler grades, purge specs) are logged to the review queue.
 
 A **content audit checklist** (`docs/seo/content-audit-checklist.md`) is applied to every page before it is published.
 

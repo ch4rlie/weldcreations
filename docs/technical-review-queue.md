@@ -3,7 +3,7 @@
 Technical and business assertions that were published **before Mark reviewed them**. Mark marks each one:
 **✅ correct**, **✏️ change to…**, or **❌ remove**.
 
-Capability and certification claims are *not* in this queue. Those are never published unconfirmed (see `docs/seo/capability-audit.md`).
+This is **optional**. Mark can skim it whenever he has a minute. Nothing here blocks the site. Named certifications are the only claims held back until confirmed (see `docs/seo/capability-audit.md`).
 
 | # | Page | Location | Assertion | Status |
 |---|---|---|---|---|
