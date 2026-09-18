@@ -761,7 +761,7 @@ ABOUT US
 
 .contact-info a {
   color: #1566a3;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .contact-info a:hover {
