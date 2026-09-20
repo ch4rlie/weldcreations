@@ -1219,3 +1219,17 @@ button:focus-visible {
   font-size: 14px;
   color: #aab4bf;
 }
+
+.rfq-alt {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 22px;
+}
+.rfq-alt a {
+  color: #1566a3;
+  text-decoration: underline;
+}
+.rfq-field .opt {
+  color: #6b7280;
+  font-weight: 400;
+}

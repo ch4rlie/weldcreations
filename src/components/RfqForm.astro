@@ -18,7 +18,10 @@ const sources = [
 <div class="rfq">
   <h3>Tell Us About Your Project</h3>
   <p class="rfq-intro">
-    We build production runs, precision weldments and custom fabrications for manufacturers. Include drawings, material and quantity for the fastest quote.
+    We build production runs, precision weldments and custom fabrications for manufacturers. Only four fields are required. The more detail you add, the faster we can quote.
+  </p>
+  <p class="rfq-alt">
+    Prefer to talk? Call <a href={`tel:${SITE.phoneE164}`}>{SITE.phone}</a> or email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
   </p>
   <form id="rfq-form" action="https://api.web3forms.com/submit" method="POST" class="needs-validation" novalidate>
     <input type="hidden" name="access_key" value={SITE.web3formsKey} />
@@ -51,22 +54,22 @@ const sources = [
         <input id="rfq-phone" name="phone" type="tel" autocomplete="tel" />
       </div>
       <div class="rfq-field">
-        <label for="rfq-material">Primary material</label>
-        <select id="rfq-material" name="material" required>
+        <label for="rfq-material">Primary material <span class="opt">(optional)</span></label>
+        <select id="rfq-material" name="material">
           <option value="">Select…</option>
           {materials.map((m) => <option>{m}</option>)}
         </select>
       </div>
       <div class="rfq-field">
-        <label for="rfq-quantity">Quantity</label>
-        <select id="rfq-quantity" name="quantity" required>
+        <label for="rfq-quantity">Quantity <span class="opt">(optional)</span></label>
+        <select id="rfq-quantity" name="quantity">
           <option value="">Select…</option>
           {quantities.map((q) => <option>{q}</option>)}
         </select>
       </div>
       <div class="rfq-field">
-        <label for="rfq-timeline">Timeline</label>
-        <select id="rfq-timeline" name="timeline" required>
+        <label for="rfq-timeline">Timeline <span class="opt">(optional)</span></label>
+        <select id="rfq-timeline" name="timeline">
           <option value="">Select…</option>
           {timelines.map((t) => <option>{t}</option>)}
         </select>
@@ -78,15 +81,15 @@ const sources = [
         <span class="hint">Dropbox, Google Drive, OneDrive, etc.</span>
       </div>
       <div class="rfq-field full">
-        <label for="rfq-source">How did you find us?</label>
-        <select id="rfq-source" name="lead_source" required>
+        <label for="rfq-source">How did you find us? <span class="opt">(optional)</span></label>
+        <select id="rfq-source" name="lead_source">
           <option value="">Select…</option>
           {sources.map((o) => <option>{o}</option>)}
         </select>
       </div>
       <div class="rfq-field full">
         <label for="rfq-message">Project details</label>
-        <textarea id="rfq-message" name="message" rows="5" required placeholder="Part description, dimensions or specs, finish, and any certifications or documentation required."></textarea>
+        <textarea id="rfq-message" name="message" rows="5" required placeholder="Tell us what you need. Part description, dimensions or specs, finish, and any documentation required."></textarea>
         <div class="empty-feedback">Please describe the project.</div>
       </div>
     </div>
@@ -136,12 +139,13 @@ const sources = [
       });
       const json = await response.json();
       if (!response.ok || !json.success) throw new Error(json.message ?? "Submission failed");
+      const orNotProvided = (v: FormDataEntryValue) => (typeof v === "string" && v.trim() !== "" ? v : "(not provided)");
       window.gtag?.("event", "generate_lead", {
         form_id: "rfq",
-        material: data.material,
-        quantity: data.quantity,
+        material: orNotProvided(data.material),
+        quantity: orNotProvided(data.quantity),
         landing_page: data.landing_page,
-        lead_source: data.lead_source,
+        lead_source: orNotProvided(data.lead_source),
         referrer_host: referrer ? new URL(referrer).host : "(direct)",
       });
       window.clarity?.("event", "generate_lead");

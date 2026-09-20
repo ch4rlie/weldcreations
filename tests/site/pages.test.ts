@@ -83,10 +83,18 @@ describe("homepage", () => {
   });
   it("asks how the buyer found us, including AI assistants", () => {
     const select = home.$('form#rfq-form select[name="lead_source"]');
-    expect(select.attr("required")).toBeDefined();
+    expect(select.attr("required")).toBeUndefined();
     const options = select.find("option").map((_, el) => home.$(el).text()).get();
     expect(options.some((o) => /ChatGPT/.test(o))).toBe(true);
     expect(home.$('form#rfq-form input[type="hidden"][name="referrer"]').length).toBe(1);
+  });
+  it("keeps the quote form short: only name, company, email and message required", () => {
+    const required = home.$("form#rfq-form [required]").map((_, el) => home.$(el).attr("name")).get().sort();
+    expect(required).toEqual(["company", "email", "message", "name"]);
+  });
+  it("offers phone and email as alternatives to the form", () => {
+    expect(home.$(`form#rfq-form`).parent().find(`a[href="tel:${SITE.phoneE164}"]`).length).toBeGreaterThan(0);
+    expect(home.$(`form#rfq-form`).parent().find(`a[href="mailto:${SITE.email}"]`).length).toBeGreaterThan(0);
   });
 });
 
