@@ -15,6 +15,11 @@ export default defineConfig({
       styles: ["normal"],
       subsets: ["latin"],
       fallbacks: ["sans-serif"],
+      // "optional" + preload: the browser uses the real font when it arrives in
+      // time and otherwise keeps the metric-matched fallback for that pageview,
+      // so text never reflows. Preload alone still shifted (CLS 0.2) on a real
+      // network, because a preload can lose the race with first paint.
+      display: "optional",
     },
     {
       provider: fontProviders.fontsource(),
@@ -24,6 +29,11 @@ export default defineConfig({
       styles: ["normal"],
       subsets: ["latin"],
       fallbacks: ["sans-serif"],
+      // "optional" + preload: the browser uses the real font when it arrives in
+      // time and otherwise keeps the metric-matched fallback for that pageview,
+      // so text never reflows. Preload alone still shifted (CLS 0.2) on a real
+      // network, because a preload can lose the race with first paint.
+      display: "optional",
     },
   ],
   // ~5 KB of CSS total: inlining beats two render-blocking requests.
