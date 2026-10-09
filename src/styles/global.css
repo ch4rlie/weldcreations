@@ -1233,3 +1233,41 @@ button:focus-visible {
   color: #6b7280;
   font-weight: 400;
 }
+
+/** Titanium weld colour chart (guide) **/
+.prose .swatches {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.prose .swatch {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  grid-template-areas: "chip name" "chip note";
+  align-items: center;
+  gap: 2px 16px;
+  border: 1px solid #d9dee3;
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: #fff;
+}
+.prose .swatch span {
+  grid-area: chip;
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.prose .swatch strong {
+  grid-area: name;
+  align-self: end;
+  font-size: 17px;
+}
+.prose .swatch em {
+  grid-area: note;
+  align-self: start;
+  font-style: normal;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}

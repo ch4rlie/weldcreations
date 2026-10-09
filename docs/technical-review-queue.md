@@ -52,6 +52,13 @@ This is **optional**. Mark can skim it whenever he has a minute. Nothing here bl
 | 43 | `/industries/subcontract-welding-machine-shops/` | Promise | "We don't contact or solicit your customers"; parts and paperwork go back to the shop | |
 | 44 | `/industries/subcontract-welding-machine-shops/` | Terms | Per-part pricing for repeat work; blanket orders; local drop-off by appointment | |
 | 45 | `/industries/subcontract-welding-machine-shops/` | Documentation | Can deliver a certificate of conformance, inspection results, photos and material traceability with subcontract work | |
+| 46 | `/guides/hastelloy-c276-vs-316l-stainless/` | Metallurgy | 316L ~16–18% Cr / 10–14% Ni / 2–3% Mo; C-276 ~15–16% Cr / 15–17% Mo / 3–4.5% W; PREN formula and approximate values (316L mid-20s, C-276 ~70) | |
+| 47 | `/guides/hastelloy-c276-vs-316l-stainless/` | Selection advice | Where 316L fails (chloride pitting, crevice, SCC, reducing acids); intermediate alloys 2205, 904L, AL-6XN / 254 SMO, Alloy 20; C-22 for oxidizing and mixed acids | |
+| 48 | `/guides/hastelloy-c276-vs-316l-stainless/` | Cost | C-276 "several times" the cost of 316L per pound | |
+| 49 | `/guides/passivation-vs-electropolishing/` | Standards | Passivation per ASTM A967 (citric or nitric), cleaning/descaling per ASTM A380, electropolishing per ASTM B912 | |
+| 50 | `/guides/passivation-vs-electropolishing/` | Process facts | Electropolishing removes "a few ten-thousandths of an inch", smooths and brightens, deburrs, leaves a chromium-enriched passive surface, and reveals weld porosity and inclusions | |
+| 51 | `/guides/titanium-weld-color-chart/` | Acceptance | Colour scale from bright silver through straw, purple, blue, gray to white powdery, and which are typically accepted or rejected. Acceptance always deferred to the governing specification. | |
+| 52 | `/guides/titanium-weld-color-chart/` | Shop practice | Causes and fixes listed: gas lens, trailing shield, back purge, post-flow, argon-rated hose, leak checks, purge chamber for complex parts, dedicated titanium tooling | |
 
 ## Content flags (not assertions, but decisions for Mark)
 
