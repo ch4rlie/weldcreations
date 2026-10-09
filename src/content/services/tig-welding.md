@@ -1,11 +1,13 @@
 ---
-title: TIG Welding Services Los Angeles
-h1: Precision TIG Welding Services in Los Angeles
-description: Precision TIG welding services in Los Angeles for stainless, aluminum, titanium and nickel alloys. AWS D17.1 certified. Prototypes to production runs.
+title: TIG Welding Services Southern California
+h1: Precision TIG Welding Services in Southern California
+description: Custom TIG welding services across Southern California and Los Angeles for stainless, aluminum, titanium and nickel alloys. AWS D17.1 certified.
 navLabel: TIG Welding
-summary: Precision GTAW for stainless steel, aluminum, titanium and nickel alloys, from single prototypes to production runs. AWS D17.1 certified.
+summary: Custom precision GTAW across Southern California for stainless steel, aluminum, titanium and nickel alloys, from single prototypes to production runs. AWS D17.1 certified.
 primaryKeyword: tig welding services
 secondaryKeywords:
+  - custom tig welding southern california
+  - tig welding services southern california
   - tig welding services los angeles
   - precision tig welding and fabrication
   - tig welding company
@@ -13,7 +15,7 @@ secondaryKeywords:
 serviceType: Precision TIG (GTAW) welding
 heroImage: ../../assets/gallery/1.jpg
 heroAlt: TIG welded stainless steel bracket, a machined and bored block fillet welded to a drilled mounting plate
-updated: 2026-09-18
+updated: 2026-10-09
 order: 1
 faqs:
   - q: What is TIG welding best for?
@@ -25,12 +27,14 @@ faqs:
   - q: Do you do production TIG welding or only one-offs?
     a: Both. We build prototypes and one-off precision parts, and we run repeat production using fixtures, so every part matches the first article.
   - q: What area do you serve?
-    a: Our shop is in Glendora, in the San Gabriel Valley. We serve manufacturers across Los Angeles, Orange and San Bernardino counties, and we ship finished parts farther.
+    a: Our shop is in Glendora, in the San Gabriel Valley. We serve manufacturers across Southern California, including Los Angeles, Orange and San Bernardino counties, and we ship finished parts farther.
+  - q: Do you do custom one-off TIG welding, or only production work?
+    a: Both. Custom one-off parts, prototypes and repairs of precision components sit alongside fixtured production runs. Tell us what you need and we'll tell you quickly whether it's a fit.
 relatedServices: [production-welding]
 relatedMaterials: [hastelloy-welding]
 ---
 
-Weld Creations provides precision **TIG welding services** to manufacturers across Los Angeles and Southern California. TIG (gas tungsten arc welding, or GTAW) is our core process, and we're AWS D17.1 certified to the aerospace fusion welding standard. We weld stainless steel, aluminum, titanium and nickel alloys, from single prototypes to [production runs](/services/production-welding/), in Glendora in the San Gabriel Valley.
+Weld Creations provides custom, precision **TIG welding services** to manufacturers across **Southern California**, from Los Angeles and Orange County to the Inland Empire. TIG (gas tungsten arc welding, or GTAW) is our core process, and we're AWS D17.1 certified to the aerospace fusion welding standard. We weld stainless steel, aluminum, titanium and nickel alloys, from single prototypes to [production runs](/services/production-welding/), in Glendora in the San Gabriel Valley.
 
 ## Why TIG
 
@@ -88,9 +92,9 @@ We return the parts welded, inspected and ready for the next operation.
 - **[Aerospace](/industries/aerospace-welding/).** Precision welded components under AWS D17.1.
 - **Sheet metal and machining shops.** Welding support for shops that need a trusted TIG partner.
 
-## Service area
+## Service area across Southern California
 
-We're based at 2041 E Gladstone St in [Glendora](/locations/glendora-ca/), with easy access to the 210 and 57 freeways. We serve manufacturers throughout Los Angeles County, Orange County and San Bernardino County, and we ship finished parts farther. For a printable overview for your purchasing team, see our [capabilities](/capabilities/).
+We're based at 2041 E Gladstone St in [Glendora](/locations/glendora-ca/), with easy access to the 210 and 57 freeways. We serve manufacturers throughout Southern California: Los Angeles County, Orange County, San Bernardino County and the Inland Empire. Custom TIG welding, production runs and precision weldments ship anywhere in the region, and farther when needed. For a printable overview for your purchasing team, see our [capabilities](/capabilities/).
 
 ## Request a TIG welding quote
 

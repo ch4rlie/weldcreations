@@ -10,7 +10,7 @@ secondaryKeywords:
   - aws d17.1 class a b c
   - aws d17.1 certification
   - aerospace welding specification
-updated: 2026-09-18
+updated: 2026-10-09
 order: 1
 faqs:
   - q: What is AWS D17.1?
@@ -31,6 +31,8 @@ relatedServices: [tig-welding]
 **AWS D17.1** is the American Welding Society's *Specification for Fusion Welding for Aerospace Applications*. It governs how aerospace welds are made, who is allowed to make them, how they're inspected, and what counts as an acceptable weld. If your drawing calls out D17.1, or you're choosing a welding supplier for critical parts, this guide explains what it means in practice and what to ask.
 
 Weld Creations is certified to AWS D17.1, so this is the specification we work to every day. We've written this for engineers, buyers and quality managers rather than welders.
+
+> **Need AWS D17.1 welding?** Weld Creations is a D17.1-certified TIG welding shop in Glendora, California, serving aerospace and precision manufacturers across Southern California. See [aerospace welding](/industries/aerospace-welding/), [titanium welding](/materials/titanium-welding/) and [Inconel welding](/materials/inconel-welding/), or [request a quote](/contact/).
 
 ## What AWS D17.1 covers
 
