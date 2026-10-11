@@ -88,10 +88,10 @@ const industries = [
   <!-- The hero poster is the LCP element; <video poster> can't take fetchpriority. -->
   <link slot="head" rel="preload" as="image" href={poster.src} fetchpriority="high" />
   <div class="hero" id="home">
-    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster={poster.src} aria-hidden="true">
-      <source src="/videos/hero-video.webm" type="video/webm" />
-      <source src="/videos/hero-video.mp4" type="video/mp4" />
-    </video>
+    <!-- Sources are attached after load: the 1.1 MB video otherwise competes with the
+         poster (the LCP element) and pushed mobile LCP from ~2s to ~4.4s. -->
+    <video class="hero-video" muted loop playsinline preload="none" poster={poster.src} aria-hidden="true"
+      data-webm="/videos/hero-video.webm" data-mp4="/videos/hero-video.mp4"></video>
     <div class="overlay"></div>
     <div class="hero-content">
       <h1>Precision TIG Welding &amp; Sanitary Stainless Fabrication</h1>
@@ -236,4 +236,28 @@ const industries = [
       </div>
     </div>
   </section>
+
+<script>
+  // Start the hero video once the page has loaded, so it never competes with
+  // the poster image or first paint. Falls back to the poster if it can't play.
+  const video = document.querySelector<HTMLVideoElement>(".hero-video");
+  const start = () => {
+    if (!video || video.dataset.started) return;
+    video.dataset.started = "true";
+    for (const [type, attr] of [["video/webm", "webm"], ["video/mp4", "mp4"]] as const) {
+      const src = video.dataset[attr];
+      if (!src) continue;
+      const source = document.createElement("source");
+      source.src = src;
+      source.type = type;
+      video.append(source);
+    }
+    video.load();
+    video.play().catch(() => {
+      // Autoplay blocked or data saver on: the poster stays, which is fine.
+    });
+  };
+  if (document.readyState === "complete") start();
+  else window.addEventListener("load", start, { once: true });
+</script>
 </BaseLayout>
