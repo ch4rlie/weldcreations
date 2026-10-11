@@ -59,6 +59,11 @@ This is **optional**. Mark can skim it whenever he has a minute. Nothing here bl
 | 50 | `/guides/passivation-vs-electropolishing/` | Process facts | Electropolishing removes "a few ten-thousandths of an inch", smooths and brightens, deburrs, leaves a chromium-enriched passive surface, and reveals weld porosity and inclusions | |
 | 51 | `/guides/titanium-weld-color-chart/` | Acceptance | Colour scale from bright silver through straw, purple, blue, gray to white powdery, and which are typically accepted or rejected. Acceptance always deferred to the governing specification. | |
 | 52 | `/guides/titanium-weld-color-chart/` | Shop practice | Causes and fixes listed: gas lens, trailing shield, back purge, post-flow, argon-rated hose, leak checks, purge chamber for complex parts, dedicated titanium tooling | |
+| 53 | `/services/weldment-fabrication/` | Process | Drawing review for manufacturability, fixturing, weld sequencing, machining stock left for post-weld machining, machining in house or via partners | |
+| 54 | `/guides/304-vs-316-stainless-steel/` | Metallurgy | 304 ~18% Cr / 8–10% Ni; 316 ~16–18% Cr / 10–14% Ni / 2–3% Mo; sensitization range 800–1,500°F; fillers 308L and 316L; annealed grades essentially non-magnetic until cold worked | |
+| 55 | `/guides/304-vs-316-stainless-steel/` | Cost | "316 costs meaningfully more per pound than 304"; material may not dominate finished-part cost; 304 stocked more widely | |
+| 56 | `/guides/weld-heat-tint-back-purging/` | Practice | Purge verified with an oxygen analyzer to "low parts-per-million" for sanitary work; purge dams; maintain purge until cool; removal by stainless-only media, pickling (ASTM A380) or electropolishing, then passivation | |
+| 57 | `/guides/weld-heat-tint-back-purging/` | Standards | Discoloration judged against the governing spec, referencing AWS D18.2 charts and ASME BPE for bioprocess equipment | |
 
 ## Content flags (not assertions, but decisions for Mark)
 

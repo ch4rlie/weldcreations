@@ -22,11 +22,13 @@ describe("content pages exist", () => {
   });
   it("builds the two buyer guides", () => {
     expect(contentPages.filter((p) => isGuide(p.path)).map((p) => p.path).sort()).toEqual([
+      "/guides/304-vs-316-stainless-steel/",
       "/guides/aws-d17-1-certification-explained/",
       "/guides/hastelloy-c276-vs-316l-stainless/",
       "/guides/how-to-choose-a-sanitary-welding-company/",
       "/guides/passivation-vs-electropolishing/",
       "/guides/titanium-weld-color-chart/",
+      "/guides/weld-heat-tint-back-purging/",
     ]);
   });
 });
