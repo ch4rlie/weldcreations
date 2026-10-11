@@ -11,7 +11,8 @@ import metalworkIcon from "../assets/images/metalwork.svg";
 import productionIcon from "../assets/images/production.svg";
 import precisionImg from "../assets/images/precision.jpeg";
 import fabricationImg from "../assets/images/service.jpeg";
-import productionImg from "../assets/images/production-service.jpeg";
+import sanitaryIcon from "../assets/images/pharmaceutical-icon.svg";
+import productionImg from "../assets/gallery/2.jpg";
 import aerospaceIcon from "../assets/images/aerospace-icon.svg";
 import defenseIcon from "../assets/images/defense-icon.svg";
 import foodIcon from "../assets/images/food-bev-icon.svg";
@@ -28,10 +29,23 @@ const spine = await allPublished();
 const linkTo = (collection: SectionName, id: string) =>
   spine.some((e) => e.collection === collection && e.id === id) ? entryPath(collection, id) : undefined;
 
+// The Specialties strip links the pages that aren't already service cards above.
+const serviceCardIds = ["tig-welding", "sanitary-welding", "production-welding", "metal-fabrication"];
+const deeper = spine.filter((e) => !(e.collection === "services" && serviceCardIds.includes(e.id)));
+
 const services = [
-  { icon: tigIcon, href: linkTo("services", "tig-welding"), title: "Precision TIG & MIG Welding", text: "Precision welding services for a variety of metals and applications. Steel, Titanium, Aluminum, Hastelloy, Stainless Steel & more." },
-  { icon: metalworkIcon, href: linkTo("services", "metal-fabrication"), title: "Metal Fabrication", text: "Custom metal fabrication solutions tailored to your specific needs." },
-  { icon: productionIcon, href: undefined, title: "Product Development & Consulting", text: "Let us help you develop your product and bring it to life." },
+  { icon: tigIcon, href: linkTo("services", "tig-welding"), title: "Precision TIG Welding", text: "Stainless, aluminum, titanium, Hastelloy and Inconel. AWS D17.1 certified, and MIG where the part calls for it." },
+  { icon: sanitaryIcon, href: linkTo("services", "sanitary-welding"), title: "Sanitary Welding", text: "Crevice-free, back-purged welds and hygienic stainless fabrication for pharmaceutical, supplement and food equipment." },
+  { icon: productionIcon, href: linkTo("services", "production-welding"), title: "Production Welding", text: "Fixtured, repeatable runs with first-article approval and blanket orders, from prototype to recurring production." },
+  { icon: metalworkIcon, href: linkTo("services", "metal-fabrication"), title: "Metal Fabrication", text: "Enclosures, frames, stands, hoppers and weldments from your drawing, finished and ready to install." },
+];
+
+// Facts only: the one confirmed certification, plus what the site can stand behind.
+const proof = [
+  { label: "AWS D17.1 certified", note: "Aerospace fusion welding standard" },
+  { label: "Third-generation welder", note: "Owner-run shop in Glendora, CA" },
+  { label: "Pharma, food & aerospace", note: "Built for regulated production" },
+  { label: "Prototype to production", note: "One part or a recurring run" },
 ];
 
 const detailed = [
@@ -40,21 +54,21 @@ const detailed = [
     alt: "Close-up of TIG welded stainless steel flanges with heat-tinted weld beads",
     title: "Precision Welding Experts",
     href: linkTo("services", "tig-welding"),
-    text: "As TIG welding specialists, we pride ourselves on delivering precise and high-quality welds for a variety of applications. Our expertise doesn't stop there; we also excel in MIG welding, known for its versatility and speed. Our team of experienced professionals is well-versed in all welding techniques, ensuring that we can meet any welding need with the highest level of skill and craftsmanship. Whether it's TIG or MIG, we are committed to providing exceptional welding services that meet the diverse requirements of our clients.",
+    text: "TIG is our core process because it gives the finest heat control of any manual arc process. That is what thin-wall stainless, titanium and nickel alloys demand, and what keeps machined features in position after welding. We weld to AWS D17.1, the aerospace fusion welding standard, and we use MIG where speed and thicker steel make more sense. Send the drawing and we will tell you which process your part actually needs.",
   },
   {
     img: fabricationImg,
     alt: "Two welders fabricating a steel structure as sparks fly",
     title: "Custom Metal Fabrication",
     href: linkTo("services", "metal-fabrication"),
-    text: "We offer comprehensive metal fabrication services, specializing in cutting, bending, forming, and a wide range of other metalwork techniques to meet the unique demands of our clients. Our state-of-the-art equipment and skilled fabricators enable us to handle projects of all sizes and complexities with precision and efficiency. From initial design to final assembly, we ensure every detail is executed flawlessly, using advanced cutting methods for clean and accurate results, precise bending to achieve the desired angles and shapes, and expert forming to create strong and durable metal components. Whether you need custom parts, structural components, or intricate designs, our team is dedicated to delivering superior quality and craftsmanship in every project. Our extensive experience in metal fabrication allows us to tackle any challenge and provide tailored solutions that perfectly match your specifications.",
+    text: "Send a drawing, a sketch or the worn-out original, and we deliver the finished part: cut, formed, fitted, welded, machined and finished. Enclosures, machine frames, stands, guards, hoppers and weldments in stainless, aluminum and steel. Work we do not do in house, such as machining, passivation or powder coating, runs through our partner network, so you deal with one supplier and one purchase order.",
   },
   {
     img: productionImg,
-    alt: "Welder joining stainless steel profiles on a fixture table beside a stack of finished parts",
+    alt: "Production run of identical TIG welded stainless block-and-plate brackets lined up in the shop",
     title: "Production Parts",
     href: linkTo("services", "production-welding"),
-    text: "At Weld Creations, we specialize in production part runs, delivering high-quality TIG welded parts that meet the most stringent standards. While our expertise extends to a variety of metalwork and welded components, high-precision TIG welding remains our primary focus. Our skilled welders are dedicated to producing parts with exceptional accuracy and consistency, ensuring that each piece meets the specific requirements of our clients. Whether you need custom components or large-scale production runs, our commitment to quality and precision sets us apart. At Weld Creations, we understand the importance of reliable and durable parts, and our TIG welding capabilities are second to none, providing the perfect solution for your production needs.",
+    text: "Making one good part is craftsmanship. Making the five-hundredth part identical to the first takes process. We weld and inspect a first article for your approval, build the fixture, lock in the weld sequence and parameters, then run the order against the approved part. The photo shows a run of stainless block-and-plate brackets, each with the same fillet profile and no distortion in the machined features.",
   },
 ];
 
@@ -80,15 +94,37 @@ const industries = [
     </video>
     <div class="overlay"></div>
     <div class="hero-content">
-      <h1>Precision TIG Welding <br />& Fabrication</h1>
-      <p>Expert Welding, Metal Fabrication, Product Development<br />Serving All of Southern California</p>
-      <a href="#contact">Request a Quote</a>
+      <h1>Precision TIG Welding &amp; Sanitary Stainless Fabrication</h1>
+      <p>
+        AWS D17.1 certified welding for pharmaceutical, food, supplement and aerospace manufacturers across Southern California.
+        Stainless, aluminum, titanium, Hastelloy and Inconel, from one part to a production run.
+      </p>
+      <div class="hero-actions">
+        <a href="/contact/">Request a Quote</a>
+        <a class="hero-secondary" href="/capabilities/">See Capabilities</a>
+      </div>
     </div>
   </div>
 
+  <section class="proof-strip" aria-label="Why manufacturers work with us">
+    <div class="container">
+      <ul>
+        {proof.map((p) => (
+          <li>
+            <strong>{p.label}</strong>
+            <span>{p.note}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
   <section class="services" id="services">
     <div class="container">
-      <div class="services-header"><h2>Our Services</h2></div>
+      <div class="services-header">
+        <h2>What We Do</h2>
+        <p class="section-intro">Send the drawing, the material and the quantity. We deliver the finished part, in house or through our partner network.</p>
+      </div>
       <div class="service-columns">
         {services.map((s) => (
           <div class="service-item">
@@ -99,11 +135,11 @@ const industries = [
           </div>
         ))}
       </div>
-      {spine.length > 0 && (
+      {deeper.length > 0 && (
         <div class="specialties">
-          <h3>Specialties</h3>
+          <h3>Metals, Industries &amp; Guides</h3>
           <ul class="cards">
-            {spine.map((e) => (
+            {deeper.map((e) => (
               <li class="card">
                 <a href={entryPath(e.collection as SectionName, e.id)}>
                   <span class="card-title">{e.data.navLabel}</span>
@@ -132,6 +168,10 @@ const industries = [
           </div>
         ))}
       </div>
+      <div class="gallery-intro">
+        <h3>Recent Work</h3>
+        <p>Photographs of parts and equipment built in our shop: cleanroom installs, sanitary hoppers, production runs and fabricated stainless.</p>
+      </div>
       <Gallery />
     </div>
   </section>
@@ -158,10 +198,21 @@ const industries = [
       <div class="about-content">
         <div class="about-text">
           <p style="font-size: 22px">A family business you can trust.</p>
-          <p>We are dedicated to delivering exceptional welding and fabrication services across Southern California. We are experienced professionals specializing in TIG welding, metal fabrication, production part runs, and custom metalwork. With a strong commitment to quality and precision, we take pride in our craftsmanship and attention to detail.</p>
-          <p style="font-size: 20px">Third Generation Welder</p>
-          <p>Founded with a vision to provide top-notch welding solutions, we have built a reputation for excellence in the industry. Our state-of-the-art equipment and advanced techniques ensure that we can handle projects of any size and complexity. From initial design to final production, we work closely with our clients to understand their unique needs and deliver tailored solutions that exceed expectations.</p>
-          <p>Whether it's welding for the pharmaceutical, aerospace, automotive, chemical, construction, or marine industries, our expertise and dedication set us apart. We are passionate about what we do and strive to be the go-to welding and fabrication service provider in the region.</p>
+          <p>
+            Weld Creations is an owner-run welding and fabrication shop in Glendora, California. Mark May is a third-generation welder
+            certified to AWS D17.1, the aerospace fusion welding standard, and the person you talk to is the person responsible for the weld.
+          </p>
+          <p style="font-size: 20px">Built for regulated production</p>
+          <p>
+            Most of our work is for manufacturers who cannot afford a bad weld: pharmaceutical and supplement producers, food and beverage
+            plants, aerospace suppliers, and the machine shops and sheet metal fabricators who send us the alloys they would rather not weld
+            themselves. That means crevice-free sanitary welds, controlled heat input on exotic alloys, and parts that stay in tolerance.
+          </p>
+          <p>
+            Send the drawing and we deliver the finished part. Cutting, machining, finishing, passivation and specialty processes are handled
+            in house or through a trusted partner network, so you get one supplier, one purchase order and a straight answer about what we can
+            and cannot do. <a href="/about/">More about the shop</a>.
+          </p>
         </div>
         <div class="about-image">
           <Image src={aboutImg} alt="The family behind Weld Creations walking together outdoors" width={1200} widths={[480, 800, 1200]} sizes="(max-width: 768px) 100vw, 50vw" format="webp" />
