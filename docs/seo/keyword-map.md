@@ -106,3 +106,39 @@ The order is set by **intent × winnability × proof on hand**: the pages most l
 3. **Orbital welding** as its own service page, if Mark confirms it's in-house or through a partner.
 4. Tablet press stands, feed hoppers and cleanroom fixtures. Autocomplete shows tablet-press parts demand; this is niche but exact-match to Mark's work.
 5. Duplex / Monel / 4130 chromoly material pages, if GSC shows impressions.
+
+---
+
+## 8. Metal stamping cluster (added 2026-10-21)
+
+**Trigger:** Mark has an active contract welding for a stamping company (A-W Engineering Co., Santa Fe Springs, CA — metal stampings, deep drawn stampings and fabricated steel components; 35–880 ton presses; in-house die shop with wire EDM).
+
+**Finding: the supply side of this niche is empty.** SERP checks on "welding services for metal stamping companies", "secondary operations for metal stampings" and "subcontract welding for OEM stamped parts" return only (a) stamping shops listing welding as an in-house secondary operation, (b) directory pages (GlobalSpec, IQS, DesignNews), and (c) job postings. **No welding job shop has written the page from the receiving side.** A search for SoCal thin-gauge TIG sheet metal services returned job postings exclusively — effectively zero commercial competition.
+
+**Finding: stampers market welding as in-house and subcontract it anyway.** Competitor copy ("single source solution", "finished in house") sits alongside subcontractor networks. This validates the pitch already used on `/industries/subcontract-welding-machine-shops/`: *your customer stays your customer*.
+
+**GSC evidence already present (10-09-2026 export), with no page targeting it:**
+
+| Query | Impr. | Position |
+|---|---|---|
+| sheet metal fabrication | 2 | **2.5** |
+| sheet metal fabrication near me | 2 | 23.5 |
+| custom welded sheet metal | 1 | 65.0 |
+| reliable subcontract welding partner | 3 | 17.7 |
+| oem stainless steel weldments | 1 | 96.0 |
+
+Before this batch, the string "stamp" appeared **zero times** in site content, and "sheet metal" only in passing on four pages.
+
+**Pages built:**
+
+| URL | Primary keyword | Rationale |
+|---|---|---|
+| `/industries/metal-stamping-companies/` | welding services for metal stamping companies | Owns the empty niche; sibling of the machine-shop page |
+| `/services/sheet-metal-welding/` | sheet metal welding | Highest-confidence: demand proven in GSC, no page existed |
+| `/guides/secondary-operations-metal-stampings/` | secondary operations for metal stampings | Top-of-funnel; the industry's own term, never written from the supplier side |
+
+**Framing decision:** national titles (no geo modifier) with the Southern California stamping corridor — Santa Fe Springs, City of Industry, Commerce — named in the body. The buyer shipping a pallet of stampings is not filtering by city, and this is the one cluster where geography genuinely isn't the gate.
+
+**Deliberately not claimed:** resistance, spot and projection welding. The pages state plainly that Weld Creations is a fusion (TIG/MIG) shop. If Mark confirms resistance capability, it is a fourth page and a sizeable one ("spot welding services near me" has real buyer intent).
+
+**Next candidate in this cluster:** die and tool repair welding (build-up on worn punches and dies). Recurring, high-margin, and every stamping shop needs it — blocked on Mark confirming capability, alongside the open micro-welding question.
