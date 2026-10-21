@@ -64,14 +64,14 @@ This is **optional**. Mark can skim it whenever he has a minute. Nothing here bl
 | 55 | `/guides/304-vs-316-stainless-steel/` | Cost | "316 costs meaningfully more per pound than 304"; material may not dominate finished-part cost; 304 stocked more widely | |
 | 56 | `/guides/weld-heat-tint-back-purging/` | Practice | Purge verified with an oxygen analyzer to "low parts-per-million" for sanitary work; purge dams; maintain purge until cool; removal by stainless-only media, pickling (ASTM A380) or electropolishing, then passivation | |
 | 57 | `/guides/weld-heat-tint-back-purging/` | Standards | Discoloration judged against the governing spec, referencing AWS D18.2 charts and ASME BPE for bioprocess equipment | |
-| 58 | `/industries/metal-stamping-companies/` | Scope | States plainly that we are a fusion (TIG/MIG) shop and do **not** do resistance, spot or projection welding. If Mark has or plans resistance welding capability, this page and the guide both need changing. | |
+| 58 | `/industries/metal-stamping-companies/` | Scope | Claims TIG, MIG **and resistance spot welding** in house (confirmed by Charlie 2026-10-21). Projection welding and weld-nut feeding are deliberately **not** claimed. Confirm spot welder throat depth, tip force and material/thickness range before a dedicated spot welding page is written. | |
 | 59 | `/industries/metal-stamping-companies/` | Capability | Welding of deep drawn shells: fittings, flanges, bosses and closures welded to drawn cups and housings, including leak-tight seam welds | |
 | 60 | `/industries/metal-stamping-companies/` | Materials | Adds "HSLA steel" to the stated material list (stampers commonly press it). Confirm Mark welds high-strength low-alloy steel. | |
 | 61 | `/industries/metal-stamping-companies/` | Commercial | "We hold the fixture here between releases so there's no setup cost each time" — confirm this is how Mark wants to price repeat stamping work | |
 | 62 | `/services/sheet-metal-welding/` | Capability | "Routinely down to about 22 gauge in stainless and aluminum, and thinner on the right joint." Confirm 22 ga is a fair floor to advertise. | |
 | 63 | `/services/sheet-metal-welding/` | Technique | Distortion control listed as: fixturing, weld sequencing from the centre outward, low/pulsed heat input, stitch welding, copper chill bars, fit-up checks on incoming parts. Confirm copper backing bars are in use. | |
 | 64 | `/services/sheet-metal-welding/` | Materials | Aluminum grades named as 5052, 5083 and 6061; "carbon and galvanized-substrate steel". Confirm galvanized is welded (fume/zinc handling) or we remove it. | |
-| 65 | `/guides/secondary-operations-metal-stampings/` | Process facts | Resistance (spot/projection) described as volume-and-repetition work suited to in-house; fusion (TIG/MIG) as control-and-judgement work suited to outsourcing | |
+| 65 | `/guides/secondary-operations-metal-stampings/` | Process facts | Keep/send split is framed on equipment already owned and cycles already proved, not on process. Claims we run resistance spot welding and TIG in one shop. | |
 | 66 | `/guides/secondary-operations-metal-stampings/` | Commercial claim | "We weld stampings for shops across Southern California and ship nationally" — confirm Mark will take shipped-in work from out of state | |
 
 ## Content flags (not assertions, but decisions for Mark)

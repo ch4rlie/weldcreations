@@ -20,7 +20,7 @@ faqs:
   - q: When should a stamping shop definitely send welding out?
     a: When the welder is the bottleneck, when the alloy is unforgiving, when the print flows down a welding certification you don't hold, when the weld is cosmetic, and when you need assemblies before the production die exists.
   - q: What is the difference between resistance welding and fusion welding on stampings?
-    a: Resistance welding, which includes spot and projection welding, presses parts together and passes current through them. It suits high-volume attachment of weld nuts and lap joints. Fusion welding, meaning TIG and MIG, melts the base metal and adds filler, and suits assemblies, seams, fittings and anything needing a continuous or leak-tight joint.
+    a: Resistance welding, which includes spot and projection welding, presses parts together and passes current through them. It is fast on lap joints and hardware attachment, and puts very little heat into the part. Fusion welding, meaning TIG and MIG, melts the base metal and adds filler, and is what a continuous, leak-tight or structural joint needs. Most real assemblies want both, which is an argument for one supplier who runs both.
   - q: What should I send a subcontract welder with the parts?
     a: The print with weld symbols, the material and gauge, the quantity and expected annual volume, the specification if one applies, the features that must hold position, the downstream finish, and the inspection records your customer requires.
 relatedServices: [sheet-metal-welding, production-welding, weldment-fabrication]
@@ -30,7 +30,7 @@ relatedMaterials: [stainless-steel-welding]
 
 Almost every stamping shop advertises **secondary operations for metal stampings** as an in-house capability, and almost every stamping shop subcontracts some of them. That's not a contradiction, it's good manufacturing: the press floor earns its money making parts, and the question is which post-press work belongs beside it. This guide is about where welding falls, written from the side that receives the parts.
 
-> **Weighing whether to send welding out?** We weld stampings for shops across Southern California and ship nationally. See [welding for metal stamping companies](/industries/metal-stamping-companies/) or [request a quote](/contact/).
+> **Weighing whether to send welding out?** We weld stampings for shops across Southern California and ship nationally, running TIG, MIG and resistance spot welding in one shop. See [welding for metal stamping companies](/industries/metal-stamping-companies/) or [request a quote](/contact/).
 
 ## What a secondary operation actually is
 
@@ -56,9 +56,9 @@ Welding is the one that genuinely sits on the line, and it splits by the kind of
 
 ## Where welding splits
 
-**Usually worth keeping in house:** high-volume resistance welding. Spot and projection welding of weld nuts, studs and lap joints is fast, repeatable, needs no filler and runs off a fixture. If you're attaching hardware to thousands of brackets, that belongs on your floor.
+**Usually worth keeping in house:** resistance welding that is already running at volume. If you own the spot welder, the fixture is built and you're attaching hardware to thousands of identical brackets, nothing is gained by moving it. The cycle is seconds and the cost per joint is already as low as it will go.
 
-**Usually worth sending out:** fusion welding, meaning TIG and MIG, on anything of the following kind:
+**Usually worth sending out:** anything of the following kind, whatever the process:
 
 - **Assemblies with position requirements.** Two or three stampings that must become one component with squareness or hole position that holds.
 - **Unforgiving alloys.** Thin-wall stainless, aluminum, titanium and nickel alloys, where a single bad weld scraps a costly part.
@@ -67,7 +67,7 @@ Welding is the one that genuinely sits on the line, and it splits by the kind of
 - **Leak-tight and sanitary joints.** Continuous seams, back purged where the back side matters. See [weld heat tint and back purging](/guides/weld-heat-tint-back-purging/).
 - **Pre-production assemblies.** Samples needed before the die exists, built from laser-cut or soft-tooled parts.
 
-The dividing line is not difficulty. It's whether the operation rewards volume and repetition, which resistance welding does, or control and judgement, which fusion welding does.
+The dividing line is not the process, and it isn't difficulty. It's whether the operation rewards equipment you already own and a cycle you've already proved, or whether it rewards control, judgement and a fixture built for one job. A supplier who runs resistance spot welding *and* TIG can take a mixed assembly whole, rather than handing it back half-finished for you to close out.
 
 ## How to spec welding on a stamped part
 

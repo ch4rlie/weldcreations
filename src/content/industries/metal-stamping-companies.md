@@ -1,7 +1,7 @@
 ---
 title: Welding Services for Metal Stamping Companies
 h1: Welding Services for Metal Stamping Companies
-description: Subcontract TIG and MIG welding for metal stamping companies. We weld your stampings into finished assemblies without distorting thin-gauge parts.
+description: Subcontract TIG, MIG and spot welding for metal stamping companies. We weld your stampings into finished assemblies without distorting thin-gauge parts.
 navLabel: Metal Stamping
 summary: The welding department a stamping shop doesn't have to staff. We weld stampings, drawn shells and formed parts into finished assemblies, fixtured for repeat runs and returned ready for plating or paint.
 primaryKeyword: welding services for metal stamping companies
@@ -10,14 +10,15 @@ secondaryKeywords:
   - secondary operations welding
   - subcontract welding for stampers
   - welding deep drawn parts
+  - spot welding stamped parts
 serviceType: Welding for metal stamping companies
 heroImage: ../../assets/gallery/17.jpg
 heroAlt: Large fabricated stainless steel frame panel with welded mounting brackets standing in the shop
 updated: 2026-10-21
 order: 5
 faqs:
-  - q: Do you do spot or projection welding on stamped parts?
-    a: We are a fusion welding shop. Our work is TIG and MIG, not resistance welding, so we are the right call for assemblies, seam and fillet welds, drawn shells, fittings and brackets, and the wrong call for high-volume spot or projection welding of weld nuts. Tell us the joint and we'll say honestly whether it belongs here.
+  - q: Do you do spot welding on stamped parts?
+    a: Yes. We run resistance spot welding alongside TIG and MIG, so lap joints, attachment and tacked sub-assemblies can be done here rather than split between two suppliers. Send the joint detail with the print and we'll quote the process that suits the part.
   - q: Can you weld thin-gauge stampings without warping them?
     a: Thin material is where most of our work lives. We fixture parts so they're held through welding and cooling, sequence welds to balance heat, and run the lowest heat input the joint allows. TIG gives finer control than any other manual process, which is why we use it on gauge material.
   - q: Will you weld parts before the production die exists?
@@ -35,7 +36,7 @@ relatedLocations: [glendora-ca]
 relatedGuides: [secondary-operations-metal-stampings]
 ---
 
-Weld Creations provides **welding services for metal stamping companies**: subcontract TIG and MIG welding on your stampings, drawn shells and formed parts, welded into finished assemblies and returned ready for your next operation. We're AWS D17.1 certified, and the work stampers send us is the work that's hard to keep in house, where thin material, a cosmetic weld or a certified joint puts a pressed part at risk.
+Weld Creations provides **welding services for metal stamping companies**: subcontract welding on your stampings, drawn shells and formed parts, built into finished assemblies and returned ready for your next operation. We run TIG, MIG and resistance spot welding under one roof, so a mixed assembly doesn't have to be split between two suppliers. We're AWS D17.1 certified, and the work stampers send us is the work that's hard to keep in house, where thin material, a cosmetic weld or a certified joint puts a pressed part at risk.
 
 > **Have stampings that need welding?** Send the print and the quantity and we'll quote per part. [Request a quote](/contact/).
 
@@ -59,6 +60,7 @@ We take that work as an extension of your shop, not as a competitor. You keep th
 - **Brackets, mounts and tabs** welded to panels, plates and formed sections.
 - **Stampings welded to machined or tubular parts.** Mixed assemblies where a pressed part meets a turned fitting, a tube or a machined block. See [weldment fabrication](/services/weldment-fabrication/).
 - **Closing and seam welds** on formed housings, enclosures and covers.
+- **Spot welded lap joints and attachment.** Resistance spot welding on sheet and stamped components, for assemblies where a fusion weld would put in more heat than the joint needs.
 - **Rework and salvage.** Short-shipped runs, damaged parts and field returns, welded and blended rather than scrapped.
 
 ## Thin gauge is the whole problem

@@ -25,7 +25,7 @@ faqs:
   - q: Do you weld sheet metal parts we fabricate ourselves?
     a: That's most of this work. Send us your laser-cut, formed or stamped parts and we weld, inspect and return them ready for finishing or assembly.
   - q: What's the difference between TIG and MIG on sheet metal?
-    a: TIG puts in far less heat and gives the operator independent control of filler and current, which is why it dominates on thin and cosmetic work. MIG is faster and belongs on thicker gauge or long non-critical seams where speed matters more than control.
+    a: TIG puts in far less heat and gives the operator independent control of filler and current, which is why it dominates on thin and cosmetic work. MIG is faster and belongs on thicker gauge or long non-critical seams where speed matters more than control. On lap joints that don't need a continuous seam, resistance spot welding puts in less heat than either, and we run that here too.
   - q: Do you back purge thin stainless?
     a: Yes, where the back side matters. Thin stainless oxidizes quickly on the root side, and that oxide costs corrosion resistance. We purge full-penetration joints with argon as standard.
 relatedServices: [tig-welding, metal-fabrication, weldment-fabrication]
@@ -72,6 +72,7 @@ The work is therefore mostly about preparation and control, and very little abou
 - **Laser-cut and press-brake parts** sent in by fabricators and machine shops
 - **Perforated screens, stiffeners and framed panels**
 - **Sanitary sheet metal** for food and pharmaceutical equipment, welded crevice-free and ground smooth. See [sanitary welding](/services/sanitary-welding/).
+- **Spot welded lap joints** where a continuous fusion weld would distort the panel for no structural gain
 - **Repairs and modifications** to existing sheet metal equipment
 
 ## Welds that get polished, plated or painted
